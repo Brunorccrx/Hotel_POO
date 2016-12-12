@@ -3,6 +3,7 @@ package sistemadehotel;
 import java.util.Scanner;
 
 public class Cliente {
+    //Dados pessoais do cliente
     private String nome;
     private String endereco;
     private String contato;
@@ -14,7 +15,7 @@ public class Cliente {
     private String data_de_nascimento;
     
     Scanner input = new Scanner(System.in);
-    
+    //Metódo para adicionar clientes
     public void insereCliente(){
         System.out.print("Nome: ");
         this.nome = input.nextLine();
@@ -26,7 +27,7 @@ public class Cliente {
         this.email = input.nextLine();
         System.out.print("Nationalidade: ");
         this.nationalidade = input.nextLine();
-        if((this.nationalidade).equals("Br")){
+        if((this.nationalidade).equals("Br")){//Estrangeiros só precisarão informar o número de passaporte
             System.out.print("RG: ");
             this.RG = input.nextLine();
             System.out.print("CPF: ");
