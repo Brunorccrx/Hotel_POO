@@ -10,13 +10,13 @@ package sistemadehotel;
  * @author FELIPEY
  */
 public class Cliente {
-    String nome;
-    String endereco;
-    String contato;
-    String email;
-    String nacionalidade;
-    String RG;
-    String CPF;
-    String passaporte;
-    String data_de_nascimento;
+    private String nome;
+    private String endereco;
+    private String contato;
+    private String email;
+    private String nacionalidade;
+    private String RG;
+    private String CPF;
+    private String passaporte;
+    private String data_de_nascimento;
 }
