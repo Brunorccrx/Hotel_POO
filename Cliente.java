@@ -19,17 +19,23 @@ public class Cliente {
     public void insereCliente(){
         System.out.print("Nome: ");
         this.nome = input.nextLine();
+        
         System.out.print("Endereço: ");
         this.endereco = input.nextLine();
+        
         System.out.print("Telefone: ");
         this.contato = input.nextLine();
+        
         System.out.print("E-mail: ");
         this.email = input.nextLine();
+        
         System.out.print("Nationalidade: ");
         this.nationalidade = input.nextLine();
+        
         if((this.nationalidade).equals("Br")){//Estrangeiros só precisarão informar o número de passaporte
             System.out.print("RG: ");
             this.RG = input.nextLine();
+            
             System.out.print("CPF: ");
             this.CPF = input.nextLine();
         }
