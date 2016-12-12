@@ -1,7 +1,8 @@
-package Hotel;
+package sistemadehotel;
 
 public abstract class Funcionario {
 	//
+	int ID;
 	String nome;
 	String CPF;
 	String RG;
