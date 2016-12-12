@@ -15,19 +15,19 @@ Criação de um sistema interno de hotelaria, para promover a eficiência operac
 FUNCIONALIDADES DO SOFTWARE
 Requisitos Funcionais:
 
-O sistema deve permitir a inserção, remoção, visualização e a retirada de hóspedes do hotel, cada cliente deve conter os seguintes atributos: nome, endereço, telefone, e-mail, nacionalidade, RG e CPF para brasileiros ou passaporte para estrangeiros e por fim data de nascimento.
+	O sistema deve permitir a inserção, remoção, visualização e a retirada de hóspedes do hotel, cada cliente deve conter os seguintes atributos: nome, endereço, telefone, e-mail, nacionalidade, RG e CPF para brasileiros ou passaporte para estrangeiros e por fim data de nascimento.
 
-O sistema deve permitir pedidos, alterações e cancelamentos das demandas dos produtos de consumo.
+	O sistema deve permitir pedidos, alterações e cancelamentos das demandas dos produtos de consumo.
 
-O sistema deve permitir inclusão, remoção, alteração de funcionários pelo gerente do hotel. Cada empregado deve conter os atributos: RG e CPF, número de telefone, nome, endereço, e por fim data de nascimento.
+	O sistema deve permitir inclusão, remoção, alteração de funcionários pelo gerente do hotel. Cada empregado deve conter os atributos: RG e CPF, número de telefone, nome, endereço, e por fim data de nascimento.
 
-O sistema deve permitir a reserva de quartos, visualização dos tipos de quartos disponíveis pelo hotel, e preço da diária, seguindo os atributos: código do tipo de quarto, quantidade total de quartos, preço, disponibilidade(se está ocupado ou não).
+	O sistema deve permitir a reserva de quartos, visualização dos tipos de quartos disponíveis pelo hotel, e preço da diária, seguindo os atributos: código do tipo de quarto, quantidade total de quartos, preço, disponibilidade(se está ocupado ou não).
 
-O sistema deve realizar o check-in e check-out de hóspedes. 
+	O sistema deve realizar o check-in e check-out de hóspedes. 
 
-O sistema deve emitir um relatório final e recibo do gasto total de cada cliente, incluindo as diárias, o custo de danos materiais(se tiver) e/ou qualquer item de consumo pedido pelo cliente. 
+	O sistema deve emitir um relatório final e recibo do gasto total de cada cliente, incluindo as diárias, o custo de danos materiais(se tiver) e/ou qualquer item de consumo pedido pelo cliente. 
 
-O sistema deve permitir que seja dado descontos para pagamentos à vista e para clientes antigos que gostariam de realizar uma nova reserva. 
+	O sistema deve permitir que seja dado descontos para pagamentos à vista e para clientes antigos que gostariam de realizar uma nova reserva. 
 
 
 
