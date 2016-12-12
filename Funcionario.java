@@ -17,6 +17,9 @@ public abstract class Funcionario {
 	private int dia;
 	private int mes;
 	private int ano;
+	//Autenticação de usuário no Sistema
+	private String login;
+	private String senha;
 	
 	
 }
