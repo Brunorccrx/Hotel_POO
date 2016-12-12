@@ -1,22 +1,22 @@
 package sistemadehotel;
 
 public abstract class Funcionario {
-	//
-	int ID;
-	String nome;
-	String CPF;
-	String RG;
-	String numTelefone;
+	// Dados Pessoais
+	private int ID;
+	private String nome;
+	private String CPF;
+	private String RG;
+	private String numTelefone;
 	//Endereço
-	String rua;
-	String bairro;
-	String nomeCasa;
-	String cidade;
-	String estado;
+	private String rua;
+	private String bairro;
+	private String nomeCasa;
+	private String cidade;
+	private String estado;
 	//Data de Nascimento
-	int dia;
-	int mes;
-	int ano;
+	private int dia;
+	private int mes;
+	private int ano;
 	
 	
 }
