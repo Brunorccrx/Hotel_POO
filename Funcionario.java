@@ -4,7 +4,7 @@ package sistemadehotel;
 
 public abstract class Funcionario {
     // Dados Pessoais
-	private int ID;
+	static private int ID;
 	private String nome;
 	private String CPF;
 	private String RG;
