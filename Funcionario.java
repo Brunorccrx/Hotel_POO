@@ -3,13 +3,13 @@ package Hotel;
 public abstract class Funcionario {
 	//
 	String nome;
-	String cpf;
-	String rg;
+	String CPF;
+	String RG;
 	String numTelefone;
-	//Endereço
+	//EndereÃ§o
 	String rua;
 	String bairro;
-	String numeCasa;
+	String nomeCasa;
 	String cidade;
 	String estado;
 	//Data de Nascimento
