@@ -46,8 +46,14 @@ Requisitos Não Funcionais:
 REGRAS DE NEGÓCIO
 
 	Um cliente não poderá fazer uma reserva se não tiver a quantia mínima,em dinheiro, necessária para alugar um quarto.
+	
 	Um funcionário não poderá efetuar nenhuma atividade se não fizer cadastro/login.
+	
 	Senhas devem ter no mínimo 7 caracteres,incluindo números, letras e símbolos.
+	
 	Um cliente só receberá um recibo após efetuar pagamento dos serviços utilizados.
+	
 	Para cancelamento de reservas será cobrado uma taxa de 15% do valor acordado.
+	
 	Para modificação de reservas será cobrado uma taxa de 30 reais.
+	
