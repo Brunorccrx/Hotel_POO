@@ -14,7 +14,7 @@ public class Cliente {
     String endereco;
     String contato;
     String email;
-    String nationalidade;
+    String nacionalidade;
     String RG;
     String CPF;
     String passaporte;
