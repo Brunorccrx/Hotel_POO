@@ -8,9 +8,14 @@ public class Hotel {
 		gerente.setLogin("Ana");
 		gerente.setSenha("ABCDEFGHIJKLMNOPQRSTUVX");
     try {
-			gerente.autentica(gerente.login,gerente.senha);
-    }catch (IOException e) {
+			gerente.autenticaLogin(gerente.getLogin());
+    }catch (Exception e) {
 			System.out.println(e.getMessage());
+    }
+	try {
+		gerente.autenticaSenha(gerente.getSenha());
+	}catch (Exception e){
+    	System.out.println(e.getMessage());
     }
 
     }
