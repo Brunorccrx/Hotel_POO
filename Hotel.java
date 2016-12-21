@@ -15,8 +15,8 @@ public class Hotel {
 	try {
 		gerente.autenticaSenha(gerente.getSenha());
 	}catch (Exception e){
-    	System.out.println(e.getMessage());
-    }
+		System.out.println(e.getMessage());
+	}
 
     }
 
