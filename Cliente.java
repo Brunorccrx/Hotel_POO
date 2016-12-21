@@ -1,6 +1,5 @@
 package sistemadehotel;
 
-import java.util.Scanner;
 
 public class Cliente {
     //Dados pessoais do cliente
