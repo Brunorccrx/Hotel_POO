@@ -1,3 +1,4 @@
+package sistemadehotel;
 
 public class Hotel {
 
