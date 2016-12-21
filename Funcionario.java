@@ -142,7 +142,17 @@ public abstract class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-		void autentica(String login, String senha){
-			
+		void autentica(String login, String senha)throws Exception{
+			if(senha.length<7)
+				throw new IOException("Senha deve ter no mínimo 7 caracteres");
+
+			if(senha.length>14)
+				throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
+
+			if(login.length<5)
+				throw new IOException("Login deve ter no mínimo 5 caracteres");
+
+			if(login.length>20)
+				throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
 		}
 }
