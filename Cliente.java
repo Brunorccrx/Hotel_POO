@@ -14,8 +14,6 @@ public class Cliente {
     private String passaporte;
     private String data_de_nascimento;
     
-    Scanner input = new Scanner(System.in);
-    
     //Getters e Setters
     public String getNome() {
         return nome;
@@ -49,12 +47,12 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getNationalidade() {
-        return nationalidade;
+    public String getNacionalidade() {
+        return nacionalidade;
     }
 
-    public void setNationalidade(String nationalidade) {
-        this.nationalidade = nationalidade;
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
     }
 
     public String getRG() {
@@ -88,35 +86,3 @@ public class Cliente {
     public void setData_de_nascimento(String data_de_nascimento) {
         this.data_de_nascimento = data_de_nascimento;
     }
-   //Metodo para inserir dados do cliente 
-    public void insereCliente(){
-        System.out.print("Nome: ");
-        this.setNome(input.nextLine());
-        
-        System.out.print("Endereço: ");
-        this.setEndereco(input.nextLine());
-        
-        System.out.print("Telefone: ");
-        this.setContato(input.nextLine());
-        
-        System.out.print("E-mail: ");
-        this.setEmail(input.nextLine());
-        
-        System.out.print("Nationalidade: ");
-        this.setNationalidade(input.nextLine());
-        
-        if((this.nationalidade).equals("Br")){
-            System.out.print("RG: ");
-            this.setRG(input.nextLine());
-            
-            System.out.print("CPF: ");
-            this.setCPF(input.nextLine());
-        }
-        else{
-            System.out.print("Passaporte: ");
-            this.setPassaporte(input.nextLine());
-        }
-        System.out.print("Data De Nascimento(dd/mm/yyyy): ");
-        this.setData_de_nascimento(input.nextLine());
-    }
-}
