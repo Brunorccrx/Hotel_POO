@@ -28,7 +28,7 @@ public abstract class Funcionario {
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        Funcionario.ID = ID;
     }
 
     public String getNome() {
