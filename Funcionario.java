@@ -124,32 +124,5 @@ public abstract class Funcionario {
         this.ano = ano;
     }
 
-    public String getLogin() {
-        return login;
-    }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-	void autenticaSenha(String senha)throws Exception{
-		if(senha.length()<7)
-			throw new IOException("Senha deve ter no mínimo 7 caracteres");
-		if(senha.length()>14)
-			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
-	}
-	void autenticaLogin(String login) throws IOException{
-		if(login.length()<5)
-			throw new IOException("Login deve ter no mínimo 5 caracteres");
-		if(login.length()>20)
-			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
-	}
 }
