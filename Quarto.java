@@ -5,9 +5,8 @@ public class Quarto {
 	static private int totalQuartos;
   private String numeroQuarto;
   private String disponibilidadeQuarto;
-	private String situacaoQuarto;
-	private String tipoQuarto;
-	Cliente cliente;
+
+	private String mario;
 
 
 	public String getTipoQuarto(){
