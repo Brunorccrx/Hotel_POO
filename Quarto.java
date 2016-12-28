@@ -1,50 +1,49 @@
+
 package sistemadehotel;
 
 public class Quarto {
-    private int ID;
-    private int numQuartos;
-    private String situacaoQuarto;
-    private String disponibilidadeQuarto;
+	static private int totalQuartos;
+  private String numeroQuarto;
+  private String disponibilidadeQuarto;
+	private String situacaoQuarto;
+	private String tipoQuarto;
+	Cliente cliente;
 
-    public Quarto(int numQuartos) {
-        this.numQuartos = numQuartos;
-    }
 
-    public int getID() {
-        return ID;
-    }
+	public String getTipoQuarto(){
+		return this.numeroQuarto;
+	}
+	public String setTipoQuarto(String tipoQuarto){
+		this.tipoQuarto=tipoQuarto;
+	}
+	public String getNumeroQuarto(){
+		return this.numeroQuarto;
+	}
+	public String setNumeroQuarto(int numeroQuarto){
+		this.numeroQuarto=numeroQuarto;
+	}
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-    
-    public int getNumQuartos() {
-        return numQuartos;
-    }
+  public int getTotalQuartos() {
+    return totalQuartos;
+  }
 
-    public void setNumQuartos(int numQuartos) {
-        this.numQuartos = numQuartos;
-    }
+  public void setTotalQuartos(int totalQuartos) {
+    this.totalQuartos = totalQuartos;
+  }
 
-    public String getSituacaoQuarto() {
-        return situacaoQuarto;
-    }
+  public String getDisponibilidadeQuarto() {
+    return disponibilidadeQuarto;
+  }
 
-    public void setSituacaoQuarto(String situacaoQuarto) {
-        this.situacaoQuarto = situacaoQuarto;
-    }
+  public void setDisponibilidadeQuarto(String disponibilidadeQuarto) {
+    this.disponibilidadeQuarto = disponibilidadeQuarto;
+  }
 
-    public String getDisponibilidadeQuarto() {
-        return disponibilidadeQuarto;
-    }
+ 	public String getSituacaoQuarto() {
+    return situacaoQuarto;
+  }
 
-    public void setDisponibilidadeQuarto(String disponibilidadeQuarto) {
-        this.disponibilidadeQuarto = disponibilidadeQuarto;
-    }
-    public void defQuarto(int id, String situacao, String disp){
-        this.setID(id);
-        this.setSituacaoQuarto(situacao);
-        this.setDisponibilidadeQuarto(disp);
-    }
-    
+  public void setSituacaoQuarto(String situacaoQuarto) {
+    this.situacaoQuarto = situacaoQuarto;
+  }
 }
