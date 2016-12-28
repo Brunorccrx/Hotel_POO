@@ -32,9 +32,6 @@ Class Gerente extends Funcionario implements Autentica{
 		this.login = login;
 	}
 	public boolean autentica(String senha){
-		if(this.senha.equals(senha))
-			return true;
-		else
-			return false;
+		return this.senha.equals(senha);
 	}
 }
