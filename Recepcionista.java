@@ -35,10 +35,7 @@ classe Recepcionista extends Funcionario implements Autentica{
 
 
 	public boolean autentica(String senha){
-		if(this.senha.equals(senha))
-			return true;
-		else
-			return false;
+		return this.senha.equals(senha);
 	}
 
 
