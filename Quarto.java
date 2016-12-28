@@ -3,9 +3,12 @@ package sistemadehotel;
 
 public class Quarto {
 	static private int totalQuartos;
-  Cliente cliente;
+  private String numeroQuarto;
+  private String disponibilidadeQuarto;
+	private String situacaoQuarto;
+	private String tipoQuarto;
+	Cliente cliente;
 
-	private String mario;
 
 	public String getTipoQuarto(){
 		return this.numeroQuarto;
