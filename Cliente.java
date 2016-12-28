@@ -12,7 +12,7 @@ public class Cliente {
     private String CPF;
     private String passaporte;
     private String data_de_nascimento;
-    
+
     //Getters e Setters
     public String getNome() {
         return nome;

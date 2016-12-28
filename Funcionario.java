@@ -3,7 +3,7 @@ package sistemadehotel;
 
 
 public abstract class Funcionario {
-    // Dados Pessoais
+  // Dados Pessoais
 	static private int ID;
 	private String nome;
 	private String CPF;
@@ -19,9 +19,6 @@ public abstract class Funcionario {
 	private int dia;
 	private int mes;
 	private int ano;
-	//Autenticação de usuário no Sistema
-	private String login;
-	private String senha;
 
     public int getID() {
         return ID;
@@ -142,11 +139,12 @@ public abstract class Funcionario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 	void autenticaSenha(String senha)throws Exception{
 		if(senha.length()<7)
 			throw new IOException("Senha deve ter no mínimo 7 caracteres");
 		if(senha.length()>14)
-			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");	
+			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
 	}
 	void autenticaLogin(String login) throws IOException{
 		if(login.length()<5)
