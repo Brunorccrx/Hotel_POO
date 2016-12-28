@@ -5,7 +5,6 @@ public class Quarto {
     private int numQuartos;
     private String situacaoQuarto;
     private String disponibilidadeQuarto;
-    public int contador= 0;
 
     public Quarto(int numQuartos) {
         this.numQuartos = numQuartos;
