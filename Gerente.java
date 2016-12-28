@@ -23,7 +23,7 @@ Class Gerente extends Funcionario implements Autentica{
 		return login;
 	}
 
-	public void setLogin(String login) {
+	public void setLogin(String login) throws IOException {
 		if(login.length()<5)
 			throw new IOException("Login deve ter no mínimo 5 caracteres");
 		if(login.length()>20)
@@ -37,5 +37,4 @@ Class Gerente extends Funcionario implements Autentica{
 		else
 			return false;
 	}
-
 }
