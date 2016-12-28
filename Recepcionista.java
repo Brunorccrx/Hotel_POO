@@ -1,6 +1,6 @@
 package sistemadehotel;
 
-classe Recepcionista extends Funcionario{
+classe Recepcionista extends Funcionario implements Autentica{
 
 
 	private String login;
