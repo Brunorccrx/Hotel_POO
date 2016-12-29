@@ -13,13 +13,13 @@ public class Quarto {
 	public String getTipoQuarto(){
 		return this.numeroQuarto;
 	}
-	public String setTipoQuarto(String tipoQuarto){
+	public void setTipoQuarto(String tipoQuarto){
 		this.tipoQuarto=tipoQuarto;
 	}
 	public String getNumeroQuarto(){
 		return this.numeroQuarto;
 	}
-	public String setNumeroQuarto(int numeroQuarto){
+	public void setNumeroQuarto(String numeroQuarto){
 		this.numeroQuarto=numeroQuarto;
 	}
 
@@ -28,7 +28,7 @@ public class Quarto {
   }
 
   public void setTotalQuartos(int totalQuartos) {
-    this.totalQuartos = totalQuartos;
+    Quarto.totalQuartos = totalQuartos;
   }
 
   public String getDisponibilidadeQuarto() {
