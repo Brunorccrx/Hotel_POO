@@ -16,10 +16,6 @@ public abstract class Funcionario {
 	private String complemento;
 	private String cidade;
 	private String estado;
-	//Data de Nascimento
-	private int dia;
-	private int mes;
-	private int ano;
 
     public int getID() {
         return ID;
@@ -92,30 +88,6 @@ public abstract class Funcionario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public int getDia() {
-        return dia;
-    }
-
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
-
-    public int getMes() {
-        return mes;
-    }
-
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
-
-    public int getAno() {
-        return ano;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
       public double getSalario() {
         return salario;
     }
@@ -129,5 +101,12 @@ public abstract class Funcionario {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+    public String getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
     }
 }
