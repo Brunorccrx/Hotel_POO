@@ -131,4 +131,11 @@ public abstract class Funcionario {
     public void setSalario(double salario) {
         this.salario = salario;
     }
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
 }
