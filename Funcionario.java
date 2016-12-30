@@ -14,6 +14,7 @@ public abstract class Funcionario {
 	private String rua;
 	private String bairro;
 	private String complemento;
+	private String numeroCasa;
 	private String cidade;
 	private String estado;
 
@@ -108,5 +109,12 @@ public abstract class Funcionario {
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
+    }
+     public String getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
     }
 }
