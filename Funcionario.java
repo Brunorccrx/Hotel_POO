@@ -3,8 +3,9 @@ package sistemadehotel;
 
 
 public abstract class Funcionario {
-  // Dados Pessoais
-	static private int ID;
+  	private double salario;
+    	static private int ID;
+    	// Dados Pessoais
 	private String nome;
 	private String CPF;
 	private String RG;
@@ -123,6 +124,11 @@ public abstract class Funcionario {
     public void setAno(int ano) {
         this.ano = ano;
     }
+      public double getSalario() {
+        return salario;
+    }
 
-
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
 }
