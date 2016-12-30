@@ -13,7 +13,7 @@ public abstract class Funcionario {
 	//Endereço
 	private String rua;
 	private String bairro;
-	private String nomeCasa;
+	private String complemento;
 	private String cidade;
 	private String estado;
 	//Data de Nascimento
