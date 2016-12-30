@@ -77,14 +77,6 @@ public abstract class Funcionario {
         this.bairro = bairro;
     }
 
-    public String getNomeCasa() {
-        return nomeCasa;
-    }
-
-    public void setNomeCasa(String nomeCasa) {
-        this.nomeCasa = nomeCasa;
-    }
-
     public String getCidade() {
         return cidade;
     }
