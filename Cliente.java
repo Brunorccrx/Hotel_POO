@@ -143,22 +143,22 @@ public class Cliente {
 		String numero_Relatorio = Cliente.ID +" - "+ "Relatorio.txt"; //Cria um nome para o arquivo TXT com o ID do client
 		File relatorio = new File(numero_Relatorio); //Cria um Arquivo TXT com o nome acima
 		relatorio.createNewFile();		     //Cria um Arquivo TXT 
-		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio); //criei isso aqui só pra formatar o texto logo abaixo
 		
-		gravaRelatorio.println("#------Relatótio------#\n");
-		gravaRelatorio.printf("| Quarto: %.2f \n",valor);
-		gravaRelatorio.close();
+		gravaRelatorio.println("#------Relatótio------#\n"); //Escreve no arquivo TXT
+		gravaRelatorio.printf("| Quarto: %.2f \n",valor);    //Escreve no arquivo TXT
+		gravaRelatorio.close();      //Feixa o arquivo
 		
 		this.aluguelDoQuarto += valor;
 	}
 	// Soma valor do Consumo
 	public void soma_Consumo(double valor) throws IOException {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
-		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true)); //Abre o arquivo com append true
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);  //criei isso aqui só pra formatar o texto logo abaixo
 	
-		gravaRelatorio.println();
-		gravaRelatorio.printf("| Consumo: %.2f ", valor);
+		gravaRelatorio.println();  //pula uma linha nao estava conseguindo pular com o "\n"
+		gravaRelatorio.printf("| Consumo: %.2f ", valor);  //Escreve no arquivo TXT
 		gravaRelatorio.close();
 		
 		this.consumo += valor;
@@ -184,6 +184,5 @@ public class Cliente {
 		gravaRelatorio.println();
 		gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);
 		gravaRelatorio.close();
-		;
 	}
 }
