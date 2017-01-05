@@ -1,5 +1,12 @@
 package sistemsdehotel;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
+
 public class Cliente {
 	//Dados Pessoais
 	static private int ID;
@@ -22,14 +29,14 @@ public class Cliente {
 	private float danosCausados;
 	private int gastoTotal;
 	
-	//get e set ID
+	//Construtor
+	public Cliente() {
+		Cliente.ID++;
+	}
+	//get ID
 	public int getID() {
 		return ID;
 	}
-	public void setID(int ID) {
-        Cliente.ID = ID;
-    }
-	
 	//get e set Nome
 	public String getNacionalidade() {
 		return nacionalidade;
@@ -107,39 +114,76 @@ public class Cliente {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	//get e set Aluguel do Quarto
+	//get Aluguel do Quarto
 	public float getAluguelDoQuarto() {
 		return aluguelDoQuarto;
 	}
-	public void setAluguelDoQuarto(float aluguelDoQuarto) {
-		this.aluguelDoQuarto = aluguelDoQuarto;
-	}
-	//get e set Consumo
+	//get Consumo
 	public float getConsumo() {
 		return consumo;
 	}
-	public void setConsumo(float consumo) {
-		this.consumo = consumo;
-	}
-	//get e set Danos Causados
+	//get Danos Causados
 	public float getDanosCausados() {
 		return danosCausados;
 	}
-	public void setDanosCausados(float danosCausados) {
-		this.danosCausados = danosCausados;
-	}
-	//get e set Gasto Total
+	//get Gasto Total
 	public int getGastoTotal() {
 		return gastoTotal;
 	}
-	public void setGastoTotal(int gastoTotal) {
-		this.gastoTotal = gastoTotal;
-	}
-	  public String getDataNasc() {
+	public String getDataNasc() {
         	return dataNasc;
     	}
 
    	 public void setDataNasc(String dataNasc) {
        	 	this.dataNasc = dataNasc;
     	}
+	//      ### Funções ###
+	// Soma valor do Quarto
+	public void soma_Quarto(double valor) throws IOException {
+		String numero_Relatorio = Cliente.ID +" - "+ "Relatorio.txt"; //Cria um nome para o arquivo TXT com o ID do client
+		File relatorio = new File(numero_Relatorio); //Cria um Arquivo TXT com o nome acima
+		relatorio.createNewFile();		     //Cria um Arquivo TXT 
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+		
+		gravaRelatorio.println("#------Relatótio------#\n");
+		gravaRelatorio.printf("| Quarto: %.2f \n",valor);
+		gravaRelatorio.close();
+		
+		this.aluguelDoQuarto += valor;
+	}
+	// Soma valor do Consumo
+	public void soma_Consumo(double valor) throws IOException {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+	
+		gravaRelatorio.println();
+		gravaRelatorio.printf("| Consumo: %.2f ", valor);
+		gravaRelatorio.close();
+		
+		this.consumo += valor;
+	}
+	// Soma valor dos Danos
+	public void soma_Danos(double valor) throws IOException {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+	
+		gravaRelatorio.println();
+		gravaRelatorio.printf("| Danos: %.2f ", valor);
+		gravaRelatorio.close();
+		
+		this.danosCausados += valor;
+	}
+	// Soma valor Total
+	public void soma_Total() throws IOException {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+	
+		gravaRelatorio.println();
+		gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);
+		gravaRelatorio.close();
+		;
+	}
 }
