@@ -1,39 +1,61 @@
 package sistemadehotel;
+
 import java.io.IOException;
 
-Class Gerente extends Funcionario implements Autentica{
+public class Gerente extends Funcionario implements Autentica {
 
-	private String login;
-	private String senha;
+    //Autenticação de usuário no Sistema
 
+    private String login;
+    private String senha;
+    Camareira[] camareira;
+    Recepcionista[] recepcionista;
+    static int contador1 = 0;
+    static int contador2 = 0;
 
-	public String getSenha() {
-		return senha;
-	}
+    public void cadastrarRecepcionista(Recepcionista f) {
+        this.recepcionista[contador1] = f;
+        contador1++;
+    }
+    public void mostraRecepcionista() {
 
-	public void setSenha(String senha)throws IOException{
-		if(senha.length()<7)
-			throw new IOException("Senha deve ter no mínimo 7 caracteres");
-		if(senha.length()>14)
-			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
+    }
+    public void cadastrarCamareira(Camareira f){
+        this.camareira[contador2] = f;
+        contador2++;
+    }
 
-		this.senha = senha;
-}
+    public String getSenha() {
+        return senha;
+    }
 
-	public String getLogin() {
-		return login;
-	}
+    public void setSenha(String senha) throws IOException {
+        if (senha.length() < 7) {
+            throw new IOException("Senha deve ter no mínimo 7 caracteres");
+        }
+        if (senha.length() > 14) {
+            throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
+        }
 
-	public void setLogin(String login) throws IOException {
-		if(login.length()<5)
-			throw new IOException("Login deve ter no mínimo 5 caracteres");
-		if(login.length()>20)
-			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
+        this.senha = senha;
+    }
 
-		this.login = login;
-	}
-	@Override
-	public boolean autentica(String senha){
-		return this.senha.equals(senha);
-	}
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) throws IOException {
+        if (login.length() < 5) {
+            throw new IOException("Login deve ter no mínimo 5 caracteres");
+        }
+        if (login.length() > 20) {
+            throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
+        }
+
+        this.login = login;
+    }
+
+    public boolean autentica(String senha) {
+        return this.senha.equals(senha);
+    }
 }
