@@ -18,11 +18,24 @@ public class Gerente extends Funcionario implements Autentica {
         contador1++;
     }
     public void mostraRecepcionista() {
-
+        for(int i = 0 ; i < this.recepcionista.length ;i++){
+            System.out.println("Nome: " + recepcionista[i].getNome() + "\nCPF: "
+            + recepcionista[i].getCPF() + "\nData de nascimento: "+ recepcionista[i].getDataNasc()
+            + "\nSalario: " + recepcionista[i].getSalario());
+            System.out.println();
+        }
     }
     public void cadastrarCamareira(Camareira f){
         this.camareira[contador2] = f;
         contador2++;
+    }
+    public void mostraCamareira() {
+        for(int i = 0 ; i < this.camareira.length ;i++){
+            System.out.println("Nome: " + camareira[i].getNome() + "\nCPF: "
+            + camareira[i].getCPF() + "\nData de nascimento: "+ camareira[i].getDataNasc()
+            + "\nSalario: " + camareira[i].getSalario());
+            System.out.println();
+        }
     }
 
     public String getSenha() {
