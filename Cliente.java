@@ -9,16 +9,13 @@ public class Cliente {
 	private String RG;
 	private String numTelefone;
 	private String nacionalidade;
+	private String dataNasc;
 	//Endereço
 	private String rua;
 	private String bairro;
 	private String numCasa;
 	private String cidade;
 	private String estado;
-	//Data de Nascimento
-	private int dia;
-	private int mes;
-	private int ano;
 	//Gastos
 	private float aluguelDoQuarto;
 	private float consumo;
@@ -110,27 +107,6 @@ public class Cliente {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	//get e set Dia
-	public int getDia() {
-		return dia;
-	}
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
-	//get e set Mes
-	public int getMes() {
-		return mes;
-	}
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
-	//get e set Ano
-	public int getAno() {
-		return ano;
-	}
-	public void setAno(int ano) {
-		this.ano = ano;
-	}
 	//get e set Aluguel do Quarto
 	public float getAluguelDoQuarto() {
 		return aluguelDoQuarto;
@@ -159,7 +135,11 @@ public class Cliente {
 	public void setGastoTotal(int gastoTotal) {
 		this.gastoTotal = gastoTotal;
 	}
-	
-	
-	
+	  public String getDataNasc() {
+        	return dataNasc;
+    	}
+
+   	 public void setDataNasc(String dataNasc) {
+       	 	this.dataNasc = dataNasc;
+    	}
 }
