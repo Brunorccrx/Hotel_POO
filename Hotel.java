@@ -27,7 +27,7 @@ public class Hotel {
             System.out.print("Opção: ");
             n = input.nextInt();
             if (n == 1) {
-								input.nextLine()//Ler Enter
+								input.nextLine();//Ler Enter
                 System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira");
                 n = input.nextInt();
                 if (n == 1) {
