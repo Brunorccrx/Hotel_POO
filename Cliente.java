@@ -37,7 +37,7 @@ public class Cliente {
 	public int getID() {
 		return ID;
 	}
-	//get e set Nome
+	//get e set Nacionalidade
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
