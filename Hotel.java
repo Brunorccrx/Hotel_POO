@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -17,81 +16,80 @@ public class Hotel {
         System.out.print("Opção: ");
         n = input.nextInt();
         if (n == 1) {
+						 input.nextLine();//Ler Enter
              System.out.println("Login: ");
-             ((Gerente) gerente).setLogin(new Scanner(System.in).nextLine());
+             ((Gerente) gerente).setLogin(input.nextLine());
              System.out.println("Senha: ");
-             ((Gerente) gerente).setSenha(new Scanner(System.in).nextLine());
+             ((Gerente) gerente).setSenha(input.nextLine());
              ((Gerente) gerente).autentica(((Gerente) gerente).getSenha());
             System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO   3- ALTERAÇÃO");
             System.out.print("Opção: ");
             n = input.nextInt();
             if (n == 1) {
+								input.nextLine()//Ler Enter
                 System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira");
                 n = input.nextInt();
                 if (n == 1) {
-                    do {
+                    for (i = 0; i < 2; i++) {
                         Recepcionista r = new Recepcionista();
                         System.out.print("Nome: ");
-                        r.setNome(new Scanner(System.in).nextLine());
+                        r.setNome(input.nextLine());
                         System.out.println("RG: ");
-                        r.setRG(new Scanner(System.in).nextLine());
+                        r.setRG(input.nextLine());
                         System.out.print("CPF: ");
-                        r.setCPF(new Scanner(System.in).nextLine());
+                        r.setCPF(input.nextLine());
                         System.out.print("Data de nascimento: : ");
-                        r.setDataNasc(new Scanner(System.in).nextLine());
+                        r.setDataNasc(input.nextLine());
                         System.out.print("Contato: ");
-                        r.setNumTelefone(new Scanner(System.in).nextLine());
+                        r.setNumTelefone(input.nextLine());
                         System.out.print("Rua: ");
-                        r.setRua(new Scanner(System.in).nextLine());
+                        r.setRua(input.nextLine());
                         System.out.print("Bairro: ");
-                        r.setBairro(new Scanner(System.in).nextLine());
+                        r.setBairro(input.nextLine());
                         System.out.print("Complemento: ");
-                        r.setComplemento(new Scanner(System.in).nextLine());
+                        r.setComplemento(input.nextLine());
                         System.out.print("Numero da casa: ");
-                        r.setNumeroCasa(new Scanner(System.in).nextLine());
+                        r.setNumeroCasa(input.nextLine());
                         System.out.print("Cidade: ");
-                        r.setCidade(new Scanner(System.in).nextLine());
+                        r.setCidade(input.nextLine());
                         System.out.print("Estado: ");
-                        r.setEstado(new Scanner(System.in).nextLine());
+                        r.setEstado(input.nextLine());
                         System.out.print("Salario Funcionario: ");
                         r.setSalario(input.nextDouble());
                         ((Gerente) gerente).cadastrarRecepcionista(r);
-                        System.out.print("1 - Cadastrar Outro Recepcionista  2 - NÃO");
-                        i = input.nextInt();
-                    }while (i == 0);
+                    }
                     System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
                     ((Gerente) gerente).mostraRecepcionista();
                 } else if (n == 2) {
-                    do {
+										input.nextLine();
+                    for (i = 0; i < 5; i++) {
                         Camareira c = new Camareira();
                         System.out.print("Nome: ");
-                        c.setNome(new Scanner(System.in).nextLine());
+                        c.setNome(input.nextLine());
                         System.out.println("RG: ");
-                        c.setRG(new Scanner(System.in).nextLine());
+                        c.setRG(input.nextLine());
                         System.out.print("CPF: ");
-                        c.setCPF(new Scanner(System.in).nextLine());
+                        c.setCPF(input.nextLine());
                         System.out.print("Data de nascimento: : ");
-                        c.setDataNasc(new Scanner(System.in).nextLine());
+                        c.setDataNasc(input.nextLine());
                         System.out.print("Contato: ");
-                        c.setNumTelefone(new Scanner(System.in).nextLine());
+                        c.setNumTelefone(input.nextLine());
                         System.out.print("Rua: ");
-                        c.setRua(new Scanner(System.in).nextLine());
+                        c.setRua(input.nextLine());
                         System.out.print("Bairro: ");
-                        c.setBairro(new Scanner(System.in).nextLine());
+                        c.setBairro(input.nextLine());
                         System.out.print("Complemento: ");
-                        c.setComplemento(new Scanner(System.in).nextLine());
+                        c.setComplemento(input.nextLine());
                         System.out.print("Numero da casa: ");
-                        c.setNumeroCasa(new Scanner(System.in).nextLine());
+                        c.setNumeroCasa(input.nextLine());
                         System.out.print("Cidade: ");
-                        c.setCidade(new Scanner(System.in).nextLine());
+                        c.setCidade(input.nextLine());
                         System.out.print("Estado: ");
-                        c.setEstado(new Scanner(System.in).nextLine());
+                        c.setEstado(input.nextLine());
                         System.out.print("Salario Funcionario: ");
                         c.setSalario(input.nextDouble());
                         ((Gerente) gerente).cadastrarCamareira(c);
-                        System.out.print("1 - Cadastrar Outro Funcionário  2 - NÃO");
-                        i = input.nextInt();
-                    }while (i == 0);
+                    }
                     System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
                     ((Gerente) gerente).mostraCamareira();
                 }
