@@ -2,7 +2,7 @@ package sistemadehotel;
 
 import java.io.IOException;
 
-class Recepcionista extends Funcionario implements Autentica{
+public class Recepcionista extends Funcionario implements Autentica{
 
 
 private String login;
