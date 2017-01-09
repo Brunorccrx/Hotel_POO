@@ -13,17 +13,19 @@ public class Hotel {
         ((Gerente) gerente).recepcionista = new Recepcionista[2];
         ((Gerente) gerente).camareira = new Camareira[5];
         int i, n;
+        //Menu
         System.out.println("*** BEM VINDO AO SISTEMA ***");
         System.out.println("1 - GERENCIA    2 - RECEPÇÃO");
         System.out.print("Opção: ");
         n = input.nextInt();
-        if (n == 1) {
+        if (n == 1) {//Opção do Gerente
             input.nextLine();//Ler Enter
             System.out.println("Login: ");
             ((Gerente) gerente).setLogin(input.nextLine());
             System.out.println("Senha: ");
             ((Gerente) gerente).setSenha(input.nextLine());
             ((Gerente) gerente).autentica(((Gerente) gerente).getSenha());
+            
             System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO   3- ALTERAÇÃO");
             System.out.print("Opção: ");
             n = input.nextInt();
@@ -31,9 +33,9 @@ public class Hotel {
                 input.nextLine();//Ler Enter
                 System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira");
                 n = input.nextInt();
-                if (n == 1) {
+                if (n == 1) {//Opção de Cadastrar Recepcionistas
                     do {
-                        input.nextLine();
+                        input.nextLine();//Ler Enter
                         Recepcionista r = new Recepcionista();
                         System.out.print("Nome: ");
                         r.setNome(input.nextLine());
@@ -65,9 +67,9 @@ public class Hotel {
                     } while (i == 1);
                     System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
                     ((Gerente) gerente).mostraRecepcionista();
-                } else if (n == 2) {
-                    input.nextLine();
+                } else if (n == 2) { //Opção de Cadastrar Camareiras
                     do {
+                        input.nextLine();//Ler Enter
                         Camareira c = new Camareira();
                         System.out.print("Nome: ");
                         c.setNome(input.nextLine());
