@@ -27,7 +27,7 @@ public class Cliente {
 	private float aluguelDoQuarto;
 	private float consumo;
 	private float danosCausados;
-	private int gastoTotal;
+	private float gastoTotal;
 	
 	//Construtor
 	public Cliente() {
