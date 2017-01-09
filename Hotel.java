@@ -30,7 +30,7 @@ public class Hotel {
                 System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira");
                 n = input.nextInt();
                 if (n == 1) {
-                    for (i = 0; i < 2; i++) {
+                    do {
                         Recepcionista r = new Recepcionista();
                         System.out.print("Nome: ");
                         r.setNome(input.nextLine());
@@ -57,12 +57,14 @@ public class Hotel {
                         System.out.print("Salario Funcionario: ");
                         r.setSalario(input.nextDouble());
                         ((Gerente) gerente).cadastrarRecepcionista(r);
-                    }
+			 System.out.print("1 - Cadastrar Outro Funcionário  2 - NÃO");
+                        i = input.nextInt();
+                    }while (i == 1);
                     System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
                     ((Gerente) gerente).mostraRecepcionista();
                 } else if (n == 2) {
-										input.nextLine();
-                    for (i = 0; i < 5; i++) {
+		input.nextLine();
+                    do {
                         Camareira c = new Camareira();
                         System.out.print("Nome: ");
                         c.setNome(input.nextLine());
@@ -89,7 +91,9 @@ public class Hotel {
                         System.out.print("Salario Funcionario: ");
                         c.setSalario(input.nextDouble());
                         ((Gerente) gerente).cadastrarCamareira(c);
-                    }
+			 System.out.print("1 - Cadastrar Outro Funcionário  2 - NÃO");
+                        i = input.nextInt();
+                    }while (i == 1);
                     System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
                     ((Gerente) gerente).mostraCamareira();
                 }
