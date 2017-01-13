@@ -10,8 +10,9 @@ public class Hotel {
 		Funcionario gerente = new Gerente();
 		((Gerente) gerente).recepcionista = new Recepcionista[2];
 		((Gerente) gerente).camareira = new Camareira[5];
-		int i, n;
+		int n;
 		System.out.println("*** BEM VINDO AO SISTEMA ***");
+		do {
 		System.out.println("1 - GERENCIA    2 - RECEPÇÃO");
 		System.out.print("Opção: ");
 		n = input.nextInt();
@@ -40,16 +41,16 @@ public class Hotel {
 				}	
 			}
 			((Gerente) gerente).autentica(((Gerente) gerente).getSenha());
-			System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO   3- ALTERAÇÃO");
-			System.out.print("Opção: ");
-			n = input.nextInt();
 			do{
+				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO   3- ALTERAÇÃO");
+				System.out.print("Opção: ");
+				n = input.nextInt();
 				if (n == 1) { 
 					input.nextLine();//Ler Enter
 					System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira");
 					n = input.nextInt();
 					if (n == 1) {
-						for (i = 0; i < 2; i++) {
+						do {
 							Recepcionista r = new Recepcionista();
 							System.out.print("Nome: ");
 							r.setNome(input.nextLine());
@@ -76,12 +77,15 @@ public class Hotel {
 							System.out.print("Salario Funcionario: ");
 							r.setSalario(input.nextDouble());
 							((Gerente) gerente).cadastrarRecepcionista(r);
-						}
+							System.out.println("	Deseja cadastrar NOVAMENTE?  ");
+	        				System.out.println("    1 - SIM    2 - NÃO ");
+	        	            n = input.nextInt();
+						}while(n == 1);
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
 						((Gerente) gerente).mostraRecepcionista();
 					} else if (n == 2) {
 						input.nextLine();
-						for (i = 0; i < 5; i++) {
+						do {
 							Camareira c = new Camareira();
 							System.out.print("Nome: ");
 							c.setNome(input.nextLine());
@@ -108,14 +112,18 @@ public class Hotel {
 	                        System.out.print("Salario Funcionario: ");
 	                        c.setSalario(input.nextDouble());
 	                        ((Gerente) gerente).cadastrarCamareira(c);
-						}
+	                        System.out.println("	Deseja cadastrar NOVAMENTE?  ");
+	        				System.out.println("    1 - SIM    2 - NÃO ");
+	        	            n = input.nextInt();
+						}while(n == 1);
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
 						((Gerente) gerente).mostraCamareira();
 					}
 	            }
-				System.out.println("5 - novamente");
+				System.out.println("	Deseja voltar ao MENU DO GERENTE?  ");
+				System.out.println("    1 - SIM    2 - NÃO ");
 	            n = input.nextInt();
-			}while(n == 5);
+			}while(n == 1);
 		} else if (n == 2){
 			Recepcionista recepcao = new Recepcionista();
         	System.out.print("Nacionalidade: ");
@@ -124,6 +132,9 @@ public class Hotel {
         	//Cliente cli = new Cliente();
         	//cli.getID();
 		}
-
+		System.out.println("	Deseja Voltar ao MENU INICIAL?  ");
+		System.out.println("    1 - SIM    2 - NÃO ");
+        n = input.nextInt();
+		}while(n == 1);
 	}
 }
