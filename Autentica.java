@@ -1,3 +1,3 @@
 public interface Autentica{
-	public boolean autentica(String senha);			
+	public boolean autentica(String senha);
 }

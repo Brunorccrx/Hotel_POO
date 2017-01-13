@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.io.IOException;
 
@@ -67,7 +66,7 @@ public class Gerente extends Funcionario implements Autentica {
 
         this.login = login;
     }
-    @Override
+
     public boolean autentica(String senha) {
         return this.senha.equals(senha);
     }

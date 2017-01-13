@@ -1,8 +1,7 @@
-package sistemadehotel;
 
 import java.io.IOException;
 
-public class Recepcionista extends Funcionario implements Autentica{
+class Recepcionista extends Funcionario implements Autentica{
 
 
 private String login;
@@ -39,5 +38,5 @@ public boolean autentica(String senha){
     return this.senha.equals(senha);
 }
 
-}
 
+}

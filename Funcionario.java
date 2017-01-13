@@ -1,5 +1,4 @@
 
-package sistemadehotel;
 
 
 public abstract class Funcionario {
@@ -108,18 +107,12 @@ public abstract class Funcionario {
         return dataNasc;
     }
 
-    public void setDataNasc(String dataNasc) {
-        this.dataNasc = dataNasc;
-    }
      public String getNumeroCasa() {
         return numeroCasa;
     }
 
     public void setNumeroCasa(String numeroCasa) {
         this.numeroCasa = numeroCasa;
-    }
-     public String getDataNasc() {
-        return dataNasc;
     }
 
     public void setDataNasc(String dataNasc) {
