@@ -3,6 +3,10 @@ package sistemadehotel;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Recepcionista extends Funcionario implements Autentica {
 	
 	private String login;
