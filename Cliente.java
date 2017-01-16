@@ -127,7 +127,7 @@ public class Cliente {
 		return danosCausados;
 	}
 	//get Gasto Total
-	public int getGastoTotal() {
+	public float getGastoTotal() {
 		return gastoTotal;
 	}
 	public String getDataNasc() {
