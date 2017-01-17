@@ -25,7 +25,6 @@ public class Cliente {
 	private String cidade;
 	private String estado;
 	//Gastos
-
 	private double aluguelDoQuarto = 0;
 	private double consumo = 0;
 	private double danosCausados = 0;
@@ -42,25 +41,12 @@ public class Cliente {
 		Cliente.ID++;
 		this.nome = nome;
 		this.passaporte = passaporte;
-
-	private float aluguelDoQuarto;
-	private float consumo;
-	private float danosCausados;
-	private float gastoTotal;
-	
-	//Construtor
-	public Cliente() {
-		Cliente.ID++;
 	}
 	//get ID
 	public int getID() {
 		return ID;
 	}
-
 	//get e set Nome
-
-	//get e set Nacionalidade
-
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
@@ -189,47 +175,10 @@ public class Cliente {
 		gravaRelatorio.println("#------Relatótio------#\n");
 		gravaRelatorio.printf("| Quarto: %.2f \n",valor);
 		gravaRelatorio.close();
-
-	//get Aluguel do Quarto
-	public float getAluguelDoQuarto() {
-		return aluguelDoQuarto;
-	}
-	//get Consumo
-	public float getConsumo() {
-		return consumo;
-	}
-	//get Danos Causados
-	public float getDanosCausados() {
-		return danosCausados;
-	}
-	//get Gasto Total
-	public float getGastoTotal() {
-		return gastoTotal;
-	}
-	public String getDataNasc() {
-        	return dataNasc;
-    	}
-
-   	 public void setDataNasc(String dataNasc) {
-       	 	this.dataNasc = dataNasc;
-    	}
-	//      ### Funções ###
-	// Soma valor do Quarto
-	public void soma_Quarto(double valor) throws IOException {
-		String numero_Relatorio = Cliente.ID +" - "+ "Relatorio.txt"; //Cria um nome para o arquivo TXT com o ID do client
-		File relatorio = new File(numero_Relatorio); //Cria um Arquivo TXT com o nome acima
-		relatorio.createNewFile();		     //Cria um Arquivo TXT 
-		PrintWriter gravaRelatorio = new PrintWriter(relatorio); //criei isso aqui só pra formatar o texto logo abaixo
-		
-		gravaRelatorio.println("#------Relatótio------#\n"); //Escreve no arquivo TXT
-		gravaRelatorio.printf("| Quarto: %.2f \n",valor);    //Escreve no arquivo TXT
-		gravaRelatorio.close();      //Feixa o arquivo
-
 		
 		this.aluguelDoQuarto += valor;
 	}
 	// Soma valor do Consumo
-
 	public void soma_Consumo(double valor) {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = null;
@@ -245,21 +194,11 @@ public class Cliente {
 	
 		gravaRelatorio.println();
 		gravaRelatorio.printf("| Consumo: %.2f ", valor);
-
-	public void soma_Consumo(double valor) throws IOException {
-		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
-		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true)); //Abre o arquivo com append true
-		PrintWriter gravaRelatorio = new PrintWriter(relatorio);  //criei isso aqui só pra formatar o texto logo abaixo
-	
-		gravaRelatorio.println();  //pula uma linha nao estava conseguindo pular com o "\n"
-		gravaRelatorio.printf("| Consumo: %.2f ", valor);  //Escreve no arquivo TXT
-
 		gravaRelatorio.close();
 		
 		this.consumo += valor;
 	}
 	// Soma valor dos Danos
-
 	public void soma_Danos(double valor) {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = null;
@@ -271,11 +210,6 @@ public class Cliente {
 			e.printStackTrace();
 		}
 		
-
-	public void soma_Danos(double valor) throws IOException {
-		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
-		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
 	
 		gravaRelatorio.println();
@@ -296,10 +230,6 @@ public class Cliente {
 			e.printStackTrace();
 		}
 		
-	public void soma_Total() throws IOException {
-		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
-		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
 	
 		gravaRelatorio.println();
