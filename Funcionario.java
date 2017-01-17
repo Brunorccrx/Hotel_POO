@@ -3,32 +3,28 @@ package sistemadehotel;
 
 
 public abstract class Funcionario {
-    // Dados Pessoais
-	static private int ID;
+  	private double salario;
+    	static private int ID;
+    	// Dados Pessoais
 	private String nome;
 	private String CPF;
 	private String RG;
 	private String numTelefone;
+	private String dataNasc;
 	//Endereço
 	private String rua;
 	private String bairro;
-	private String nomeCasa;
+	private String complemento;
+	private String numeroCasa;
 	private String cidade;
 	private String estado;
-	//Data de Nascimento
-	private int dia;
-	private int mes;
-	private int ano;
-	//Autenticação de usuário no Sistema
-	private String login;
-	private String senha;
 
     public int getID() {
         return ID;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        Funcionario.ID = ID;
     }
 
     public String getNome() {
@@ -79,14 +75,6 @@ public abstract class Funcionario {
         this.bairro = bairro;
     }
 
-    public String getNomeCasa() {
-        return nomeCasa;
-    }
-
-    public void setNomeCasa(String nomeCasa) {
-        this.nomeCasa = nomeCasa;
-    }
-
     public String getCidade() {
         return cidade;
     }
@@ -102,45 +90,39 @@ public abstract class Funcionario {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public int getDia() {
-        return dia;
+      public double getSalario() {
+        return salario;
     }
 
-    public void setDia(int dia) {
-        this.dia = dia;
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+    public String getComplemento() {
+        return complemento;
     }
 
-    public int getMes() {
-        return mes;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    public String getDataNasc() {
+        return dataNasc;
     }
 
-    public void setMes(int mes) {
-        this.mes = mes;
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+     public String getNumeroCasa() {
+        return numeroCasa;
     }
 
-    public int getAno() {
-        return ano;
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
+     public String getDataNasc() {
+        return dataNasc;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
     }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-	
 }
