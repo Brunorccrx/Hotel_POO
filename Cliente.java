@@ -2,6 +2,7 @@ package sistemsdehotel;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +25,24 @@ public class Cliente {
 	private String cidade;
 	private String estado;
 	//Gastos
+
+	private double aluguelDoQuarto = 0;
+	private double consumo = 0;
+	private double danosCausados = 0;
+	private double gastoTotal = 0;
+	
+	//Construtor
+	public Cliente(String nome, String CPF, String RG) {
+		Cliente.ID++;
+		this.nome = nome;
+		this.CPF = CPF;
+		this.RG = RG;
+	}
+	public Cliente(String nome, String passaporte) {
+		Cliente.ID++;
+		this.nome = nome;
+		this.passaporte = passaporte;
+
 	private float aluguelDoQuarto;
 	private float consumo;
 	private float danosCausados;
@@ -37,7 +56,11 @@ public class Cliente {
 	public int getID() {
 		return ID;
 	}
+
+	//get e set Nome
+
 	//get e set Nacionalidade
+
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
@@ -114,6 +137,59 @@ public class Cliente {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	//get e set Data de Nascimento
+	public String getDataNasc() {
+		return dataNasc;
+	}
+	public void setDataNasc(String dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+	//get e set Aluguel do Quarto
+	public double getAluguelDoQuarto() {
+		return aluguelDoQuarto;
+	}
+	public void setAluguelDoQuarto(double aluguelDoQuarto) {
+		this.aluguelDoQuarto = aluguelDoQuarto;
+	}
+	//get Consumo
+	public double getConsumo() {
+		return consumo;
+	}
+	//get Danos Causados
+	public double getDanosCausados() {
+		return danosCausados;
+	}
+	//get Gasto Total
+	public double getGastoTotal() {
+		return gastoTotal;
+	}
+	
+	//      ### Funções ###
+	// Soma valor do Quarto
+	public void soma_Quarto(double valor)  {
+		String numero_Relatorio = Cliente.ID +" - "+ "Relatorio.txt";
+		File relatorio = new File(numero_Relatorio);
+		
+		try {
+			relatorio.createNewFile();
+		} catch (IOException e1) {
+			System.out.println("!!! Erro ao tentar Criar o Arquivo");
+			e1.printStackTrace();
+		}
+		
+		PrintWriter gravaRelatorio = null;
+		
+		try {
+			gravaRelatorio = new PrintWriter(relatorio);
+		} catch (FileNotFoundException e) {
+			System.out.println("!!! Erro ao tentar instanciar 'PrintWriter' quarto");
+			e.printStackTrace();
+		}
+		
+		gravaRelatorio.println("#------Relatótio------#\n");
+		gravaRelatorio.printf("| Quarto: %.2f \n",valor);
+		gravaRelatorio.close();
+
 	//get Aluguel do Quarto
 	public float getAluguelDoQuarto() {
 		return aluguelDoQuarto;
@@ -148,10 +224,28 @@ public class Cliente {
 		gravaRelatorio.println("#------Relatótio------#\n"); //Escreve no arquivo TXT
 		gravaRelatorio.printf("| Quarto: %.2f \n",valor);    //Escreve no arquivo TXT
 		gravaRelatorio.close();      //Feixa o arquivo
+
 		
 		this.aluguelDoQuarto += valor;
 	}
 	// Soma valor do Consumo
+
+	public void soma_Consumo(double valor) {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = null;
+		
+		try {
+			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		} catch (IOException e) {
+			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Cosumo");
+			e.printStackTrace();
+		}
+		
+		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
+	
+		gravaRelatorio.println();
+		gravaRelatorio.printf("| Consumo: %.2f ", valor);
+
 	public void soma_Consumo(double valor) throws IOException {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true)); //Abre o arquivo com append true
@@ -159,14 +253,29 @@ public class Cliente {
 	
 		gravaRelatorio.println();  //pula uma linha nao estava conseguindo pular com o "\n"
 		gravaRelatorio.printf("| Consumo: %.2f ", valor);  //Escreve no arquivo TXT
+
 		gravaRelatorio.close();
 		
 		this.consumo += valor;
 	}
 	// Soma valor dos Danos
+
+	public void soma_Danos(double valor) {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = null;
+		
+		try {
+			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		} catch (IOException e) {
+			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Danos");
+			e.printStackTrace();
+		}
+		
+
 	public void soma_Danos(double valor) throws IOException {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
 	
 		gravaRelatorio.println();
@@ -176,9 +285,21 @@ public class Cliente {
 		this.danosCausados += valor;
 	}
 	// Soma valor Total
+	public void soma_Total() {
+		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
+		Writer relatorio = null;
+		
+		try {
+			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+		} catch (IOException e) {
+			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Total");
+			e.printStackTrace();
+		}
+		
 	public void soma_Total() throws IOException {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
+
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
 	
 		gravaRelatorio.println();
