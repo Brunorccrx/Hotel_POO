@@ -127,10 +127,7 @@ public class Hotel {
 		} else if (n == 2){
 			Recepcionista recepcao = new Recepcionista();
 			System.out.print("Nacionalidade: ");
-			//input.nextLine();
-			recepcao.cadastra_Cliente(input.next());
-			//Cliente cli = new Cliente();
-			//cli.getID();
+			Cliente client = recepcao.cadastra_Cliente(input.next());
 		}
 		System.out.println("	Deseja Voltar ao MENU INICIAL?  ");
 		System.out.println("    1 - SIM    2 - NÃO ");
