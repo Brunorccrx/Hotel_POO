@@ -1,4 +1,4 @@
-package sistemsdehotel;
+package sistemadehotel;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -230,10 +230,9 @@ public class Cliente {
 			e.printStackTrace();
 		}
 		
-		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-	
-		gravaRelatorio.println();
-		gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);
-		gravaRelatorio.close();
+            try (PrintWriter gravaRelatorio = new PrintWriter(relatorio)) {
+                gravaRelatorio.println();
+                gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);
+            }
 	}
 }
