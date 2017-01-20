@@ -43,7 +43,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	// Cadastra um novo cliente
 	public Cliente cadastra_Cliente(String nacionalidade) {
-		nacionalidade.toUpperCase();
+		nacionalidade = nacionalidade.toUpperCase();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		if(nacionalidade.equals("BRASILEIRO")){
