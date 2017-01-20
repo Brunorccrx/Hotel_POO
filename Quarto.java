@@ -1,4 +1,4 @@
-
+package sistemadehotel;
 
 public class Quarto {
 	static private int totalQuartos;
