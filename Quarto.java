@@ -65,6 +65,8 @@ public double alugarQuarto(){
             return 1000;
         case "CASAL":
             return 2000;
+	case "DuploSolteiro":
+	    return 1500;
         default:
             System.out.print("Digite o valor: ");
             double v = input.nextDouble();
