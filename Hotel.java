@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,8 +5,70 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Hotel {
+	File arquivo;
+	List<Funcionario> f = new ArrayList<>();
+
+    public void SalvarFuncionario(Funcionario f){
+        arquivo = new File("Banco de Dados/"+f.getNome()+f.getCPF()+".txt");
+        try{
+            arquivo.createNewFile();
+
+            FileWriter fw = new FileWriter(arquivo);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write("Nome: "+f.getNome());
+            bw.newLine();
+            bw.write("RG: "+ f.getRG());
+            bw.newLine();
+            bw.write("CPF: "+ f.getCPF());
+            bw.newLine();
+            bw.write("Data de nascimento: "+ f.getDataNasc());
+            bw.newLine();
+            bw.write("Contato: "+ f.getNumTelefone());
+            bw.newLine();
+            bw.write("RUA: "+ f.getRua());
+            bw.newLine();
+            bw.write("Bairro: "+ f.getBairro());
+            bw.newLine();
+            bw.write("Complemento: "+ f.getComplemento());
+            bw.newLine();
+            bw.write("Numero casa: "+ f.getNumeroCasa());
+            bw.newLine();
+            bw.write("Cidade: "+ f.getCidade());
+            bw.newLine();
+            bw.write("Estado: "+ f.getEstado());
+            bw.newLine();
+            bw.write("Salario: "+ f.getSalario());
+            bw.newLine();
+
+            bw.close();
+            fw.close();
+
+        }catch(IOException ex){
+
+        }
+
+		public boolean verificaFuncionario(Funcionario f){
+			arquivo = new File("Banco de Dados/"+f.getNome()+f.getCPF()+".txt");
+		        if(arquivo.exists()){
+		            System.out.println("Funcionario encontrado!");
+		            return true;
+		        }else{
+		            System.out.println("Funcionario nao encontrado!");
+		            return false;
+		        }
+
+		    }
+		    public void removerFuncionario(Funcionario f){
+		        arquivo = new File("Banco de Dados/"+f.getNome()+f.getCPF()+".txt");
+		        arquivo.delete();
+		    }
+    }
 
     public static void main(String[] agrs) throws IOException {
+
+
+
 
         Scanner input = new Scanner(System.in);
         Funcionario gerente = new Gerente();

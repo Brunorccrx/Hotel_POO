@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,67 +6,18 @@ import java.io.IOException;
 
 public class Gerente extends Funcionario implements Autentica {
 
-    //Autenticação de usuário no Sistema
-
     private String login;
     private String senha;
-    
-    File arquivo;
-    public void cadastrarFuncionario(Funcionario f ,String nome , String cpf){
-        arquivo = new File("Banco de Dados/"+nome+cpf+".txt");
-        try{
-            arquivo.createNewFile();
-            
-            FileWriter fw = new FileWriter(arquivo);
-            BufferedWriter bw = new BufferedWriter(fw);
-            
-            bw.write("Nome: "+f.getNome());
-            bw.newLine();
-            bw.write("RG: "+ f.getRG());
-            bw.newLine();
-            bw.write("CPF: "+ f.getCPF());
-            bw.newLine();
-            bw.write("Data de nascimento: "+ f.getDataNasc());
-            bw.newLine();
-            bw.write("Contato: "+ f.getNumTelefone());
-            bw.newLine();
-            bw.write("RUA: "+ f.getRua());
-            bw.newLine();
-            bw.write("Bairro: "+ f.getBairro());
-            bw.newLine();
-            bw.write("Complemento: "+ f.getComplemento());
-            bw.newLine();
-            bw.write("Numero casa: "+ f.getNumeroCasa());
-            bw.newLine();
-            bw.write("Cidade: "+ f.getCidade());
-            bw.newLine();
-            bw.write("Estado: "+ f.getEstado());
-            bw.newLine();
-            bw.write("Salario: "+ f.getSalario());
-            bw.newLine();
-            
-            bw.close();
-            fw.close();
-            
-        }catch(IOException ex){
-            
-        }
-    }
-    public boolean verificaFuncionario(String nome, String cpf){
-        arquivo = new File("Banco de Dados/"+nome+cpf+".txt");
-        if(arquivo.exists()){
-            System.out.println("Funcionario encontrado!");
-            return true;
-        }else{
-            System.out.println("Funcionario nao encontrado!");
-            return false;
-        }
-        
-    }
-    public void removerFuncionario(String nome,String cpf){
-        arquivo = new File("Banco de Dados/"+nome+cpf+".txt");
-        arquivo.delete();
-    }
+
+		protected void cadastrarFuncionario(List<Funcionario> f){
+			if(f instanceof Recepcionista)
+				Funcionario novoFuncionario = new Recepcionista();
+			else
+				Funcionario novoFuncionario = new Camareira();
+
+			f.add(novoFuncionario);
+		}
+
     public String getSenha() {
         return senha;
     }

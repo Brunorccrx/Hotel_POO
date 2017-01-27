@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,7 +28,7 @@ public class Cliente {
 	private double consumo = 0;
 	private double danosCausados = 0;
 	private double gastoTotal = 0;
-	
+
 	//Construtor
 	public Cliente(String nome, String CPF, String RG) {
 		Cliente.ID++;
@@ -149,87 +148,87 @@ public class Cliente {
 	public double getGastoTotal() {
 		return gastoTotal;
 	}
-	
+
 	//      ### Funções ###
 	// Soma valor do Quarto
 	public void soma_Quarto(double valor)  {
 		String numero_Relatorio = Cliente.ID +" - "+ "Relatorio.txt";
 		File relatorio = new File(numero_Relatorio);
-		
+
 		try {
 			relatorio.createNewFile();
 		} catch (IOException e1) {
 			System.out.println("!!! Erro ao tentar Criar o Arquivo");
 			e1.printStackTrace();
 		}
-		
+
 		PrintWriter gravaRelatorio = null;
-		
+
 		try {
 			gravaRelatorio = new PrintWriter(relatorio);
 		} catch (FileNotFoundException e) {
 			System.out.println("!!! Erro ao tentar instanciar 'PrintWriter' quarto");
 			e.printStackTrace();
 		}
-		
+
 		gravaRelatorio.println("#------Relatótio------#\n");
 		gravaRelatorio.printf("| Quarto: %.2f \n",valor);
 		gravaRelatorio.close();
-		
+
 		this.aluguelDoQuarto += valor;
 	}
 	// Soma valor do Consumo
 	public void soma_Consumo(double valor) {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = null;
-		
+
 		try {
 			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
 		} catch (IOException e) {
 			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Cosumo");
 			e.printStackTrace();
 		}
-		
+
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-	
+
 		gravaRelatorio.println();
 		gravaRelatorio.printf("| Consumo: %.2f ", valor);
 		gravaRelatorio.close();
-		
+
 		this.consumo += valor;
 	}
 	// Soma valor dos Danos
 	public void soma_Danos(double valor) {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = null;
-		
+
 		try {
 			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
 		} catch (IOException e) {
 			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Danos");
 			e.printStackTrace();
 		}
-		
+
 		PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-	
+
 		gravaRelatorio.println();
 		gravaRelatorio.printf("| Danos: %.2f ", valor);
 		gravaRelatorio.close();
-		
+
 		this.danosCausados += valor;
 	}
 	// Soma valor Total
 	public void soma_Total() {
 		String numero_Relatorio = Cliente.ID + " - " + "Relatorio.txt";
 		Writer relatorio = null;
-		
+
 		try {
 			relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
 		} catch (IOException e) {
 			System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Total");
 			e.printStackTrace();
 		}
-		
+
             try (PrintWriter gravaRelatorio = new PrintWriter(relatorio)) {
                 gravaRelatorio.println();
                 gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);

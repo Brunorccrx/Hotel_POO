@@ -1,14 +1,13 @@
-package sistemadehotel;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Recepcionista extends Funcionario implements Autentica {
-	
+
 	private String login;
 	private String senha;
 	private Cliente cliente;
-	
+
 	public String getSenha() {
 		return senha;
 	}
@@ -63,7 +62,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 			passaporte = input.nextLine();
 			cliente = new Cliente(nome, passaporte);
 		}
-		
+
 		return cliente;
 	}
 }

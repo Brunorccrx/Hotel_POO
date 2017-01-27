@@ -1,5 +1,4 @@
 
-package sistemadehotel;
 
 
 public abstract class Funcionario {

@@ -1,4 +1,3 @@
-package sistemadehotel;
 
 import java.util.Scanner;
 
@@ -112,5 +111,5 @@ public void comprarRefeicao(){
 public void calcularConsumo(double valor){
     this.setConsumo(this.getConsumo() + valor);
 }
-	
+
 }
