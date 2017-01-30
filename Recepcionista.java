@@ -1,69 +1,84 @@
-package sistemadehotel;
+package com.compilar.testes;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Recepcionista extends Funcionario implements Autentica {
-	
-	private String login;
-	private String senha;
-	private Cliente cliente;
-	
-	public String getSenha() {
-		return senha;
-	}
+  private String login;
+  private String senha;
 
-	public void setSenha(String senha)throws IOException{
-		if(senha.length()<7)
-			throw new IOException("Senha deve ter no mínimo 7 caracteres");
-		if(senha.length()>14)
-			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
+  public String getSenha() {
+    return senha;
+  }
 
-		this.senha = senha;
-	}
+  public void setSenha(String senha)throws IOException{
+    if(senha.length()<7)
+      throw new IOException("Senha deve ter no mínimo 7 caracteres");
+    if(senha.length()>14)
+      throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
 
-	public String getLogin() {
-		return login;
-	}
+    this.senha = senha;
+  }
 
-	public void setLogin(String login) throws IOException {
-		if(login.length()<5)
-			throw new IOException("Login deve ter no mínimo 5 caracteres");
-		if(login.length()>20)
-			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
+  public String getLogin() {
+    return login;
+  }
 
-		this.login = login;
-	}
+  public void setLogin(String login) throws IOException {
+    if(login.length()<5)
+      throw new IOException("Login deve ter no mínimo 5 caracteres");
+    if(login.length()>20)
+      throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
 
-	public boolean autentica(String senha){
-		if(this.senha.equals(senha))
-			return true;
-		else
-			return false;
-	}
-	// Cadastra um novo cliente
-	public Cliente cadastra_Cliente(String nacionalidade) {
-		nacionalidade = nacionalidade.toUpperCase();
-		@SuppressWarnings("resource")
-		Scanner input = new Scanner(System.in);
-		if(nacionalidade.equals("BRASILEIRO")){
-			String nome, CPF, RG;
-			System.out.print("Nome: ");
-			nome = input.next();
-			System.out.print("CPF: ");
-			CPF = input.next();
-			System.out.print("RG: ");
-			RG = input.next();
-			cliente = new Cliente(nome, CPF, RG);
-		}else {
-			String nome, passaporte;
-			System.out.print("Nome: ");
-			nome = input.nextLine();
-			System.out.print("Passaporte: ");
-			passaporte = input.nextLine();
-			cliente = new Cliente(nome, passaporte);
-		}
-		
-		return cliente;
-	}
+    this.login = login;
+  }
+
+  public boolean autentica(String senha, String login){
+    return this.senha.equals(senha) && this.login.equals(login);
+  }
+  protected void cadastrarCliente(List<Cliente> clientes, Cliente cliente){
+    Scanner entrada = new Scanner(System.in);
+
+    System.out.print("Nome: ");
+    cliente.setNome(entrada.nextLine());
+    System.out.print("Nacionalidade: ");
+    cliente.setNacionalidade(entrada.nextLine());
+    if(cliente.getNacionalidade().equals("BRASILEIRO")) {
+      System.out.print("CPF: ");
+      cliente.setCPF(entrada.nextLine());
+      System.out.print("RG: ");
+      cliente.setRG(entrada.nextLine());
+    }
+    else {
+      System.out.print("Passaporte: ");
+      cliente.setPassaporte(entrada.nextLine());
+    }
+    System.out.print("Data de nascimento: : ");
+    cliente.setDataNasc(entrada.nextLine());
+    System.out.print("Contato: ");
+    cliente.setNumTelefone(entrada.nextLine());
+    System.out.print("Rua: ");
+    cliente.setRua(entrada.nextLine());
+    System.out.print("Bairro: ");
+    cliente.setBairro(entrada.nextLine());
+    System.out.print("Complemento: ");
+    cliente.setComplemento(entrada.nextLine());
+    System.out.print("Numero da casa: ");
+    cliente.setNumeroCasa(entrada.nextLine());
+    System.out.print("Cidade: ");
+    cliente.setCidade(entrada.nextLine());
+    System.out.print("Estado: ");
+    cliente.setEstado(entrada.nextLine());
+
+    clientes.add(cliente);
+  }
+  protected void removerCliente(List<Cliente>clientes,Cliente cliente){
+    clientes.remove(cliente);
+  }
+  protected void mostrarClientes(List<Cliente>clientes){
+    for (Cliente cliente:clientes)
+      System.out.println(cliente);
+
+  }
 }

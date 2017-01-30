@@ -1,10 +1,10 @@
-package sistemadehotel;
+package com.compilar.testes;
 
 public class Camareira extends Funcionario{
-    public void limparQuarto(Quarto quarto){
-        quarto.setSituacaoQuarto("Limpo");
-    }
-    public void servicoDeQuarto(Quarto quarto){
-        quarto.comprarRefeicao();
-    }
+  public void limparQuarto(Quarto quarto){
+    quarto.setSituacaoQuarto("Limpo");
+  }
+  public void servicoDeQuarto(Quarto quarto){
+    quarto.comprarRefeicao();
+  }
 }

@@ -1,146 +1,63 @@
-package sistemadehotel;
+package com.compilar.testes;
 
-public class Cliente {
-	// Dados Pessoais
-	static private int ID;
-	private String nome;
-	private String CPF;
-	private String passaporte;
-	private String RG;
-	private String numTelefone;
-	private String nacionalidade;
-	private String dataNasc;
-	// Endereço
-	private String rua;
-	private String bairro;
-	private String numCasa;
-	private String cidade;
-	private String estado;
+public class Cliente extends Pessoa {
+  // Dados Pessoais
+  static private int ID;
+  private String passaporte;
+  private String nacionalidade;
 
-	// Construtor
-	public Cliente(String nome, String CPF, String RG) {
-		Cliente.ID++;
-		this.nome = nome;
-		this.CPF = CPF;
-		this.RG = RG;
-	}
+  // Construtor
 
-	public Cliente(String nome, String passaporte) {
-		Cliente.ID++;
-		this.nome = nome;
-		this.passaporte = passaporte;
-	}
+  public Cliente() {
+    Cliente.ID++;
+  }
 
-	// get ID
-	public int getID() {
-		return ID;
-	}
+  // get ID
+  public int getID() {
+    return ID;
+  }
 
-	// get e set Nome
-	public String getNacionalidade() {
-		return nacionalidade;
-	}
+  // get e set Nacionalidade
+  public String getNacionalidade() {
+    return nacionalidade;
+  }
 
-	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade;
-	}
+  public void setNacionalidade(String nacionalidade) {
+    this.nacionalidade = nacionalidade;
+  }
 
-	// get e set CPF
-	public String getCPF() {
-		return CPF;
-	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
-	}
+  // get e set Passaporte
+  public String getPassaporte() {
+    return passaporte;
+  }
 
-	// get e set Passaporte
-	public String getPassaporte() {
-		return passaporte;
-	}
+  public void setPassaporte(String passaporte) {
+    this.passaporte = passaporte;
+  }
 
-	public void setPassaporte(String passaporte) {
-		this.passaporte = passaporte;
-	}
+  @Override
+  public String toString() {
+    String saida = "Nome: " + this.getNome() + "\n" +
+            "Nacionalidade: " + this.getNacionalidade() + "\n" +
+            "Data de nascimento: : " + this.getDataNasc() + "\n" +
+            "Contato: " + this.getNumTelefone() + "\n" +
+            "Rua: " + this.getRua() + "\n" +
+            "Bairro: " + this.getBairro() + "\n" +
+            "Complemento: " + this.getComplemento() + "\n" +
+            "Numero da casa: " + this.getNumeroCasa() + "\n" +
+            "Cidade: " + this.getCidade() + "\n" +
+            "Estado: " + this.getEstado() + "\n";
 
-	// get e set RG
-	public String getRG() {
-		return RG;
-	}
+    if (this.getNacionalidade().equals("BRASILEIRO")) {
+      saida=saida.concat("CPF: " + this.getCPF() + "\n" +
+              "RG: " + this.getRG() + "\n");
+    } else {
+      saida=saida.concat("Passaporte: "+ this.getPassaporte()+"\n");
+    }
 
-	public void setRG(String rG) {
-		RG = rG;
-	}
+    return saida;
+  }
 
-	// get e set Numero de Telefone
-	public String getNumTelefone() {
-		return numTelefone;
-	}
-
-	public void setNumTelefone(String numTelefone) {
-		this.numTelefone = numTelefone;
-	}
-
-	// get e set Nome
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	// get e set Rua
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	// get e set Bairro
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	// get e set Numero da Casa
-	public String getNumCasa() {
-		return numCasa;
-	}
-
-	public void setNumCasa(String numCasa) {
-		this.numCasa = numCasa;
-	}
-
-	// get e set Cidade
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	// get e set Estado
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	// get e set Data de Nascimento
-	public String getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(String dataNasc) {
-		this.dataNasc = dataNasc;
-	}
+  //TODO Metodo para comprar refeição
 }
