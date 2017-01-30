@@ -1,11 +1,10 @@
+package com.compilar.testes;
 
-class Camareira extends Funcionario{
-	public void limpar(Quarto quarto){
-		quarto.setSituacaoQuarto("Limpo");
-	}
-	public void servicoDeQuarto(Quarto quarto,String refeicao){
-		quarto.setConsumo(refeicao);
-	}
-
-
+public class Camareira extends Funcionario{
+  public void limparQuarto(Quarto quarto){
+    quarto.setSituacaoQuarto("Limpo");
+  }
+  public void servicoDeQuarto(Quarto quarto){
+    quarto.comprarRefeicao();
+  }
 }
