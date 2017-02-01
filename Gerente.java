@@ -1,62 +1,107 @@
 
-package com.compilar.testes;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Gerente extends Funcionario implements Autentica {
-  private String login;
-  private String senha;
+  private String login="mario";
+  private String senha="123";
 
 
-  protected void cadastrarFuncionario(List funcionarios,Funcionario funcionario){
+
+
+  protected void cadastrarFuncionario(List<Camareira> camareiras, Camareira camareira){
     Scanner entrada = new Scanner(System.in);
 
     System.out.print("Nome: ");
-    funcionario.setNome(entrada.nextLine());
+    camareira.setNome(entrada.nextLine());
     System.out.print("RG: ");
-    funcionario.setRG(entrada.nextLine());
+    camareira.setRG(entrada.nextLine());
     System.out.print("CPF: ");
-    funcionario.setCPF(entrada.nextLine());
+    camareira.setCPF(entrada.nextLine());
     System.out.print("Data de nascimento: : ");
-    funcionario.setDataNasc(entrada.nextLine());
+    camareira.setDataNasc(entrada.nextLine());
     System.out.print("Contato: ");
-    funcionario.setNumTelefone(entrada.nextLine());
+    camareira.setNumTelefone(entrada.nextLine());
     System.out.print("Rua: ");
-    funcionario.setRua(entrada.nextLine());
+    camareira.setRua(entrada.nextLine());
     System.out.print("Bairro: ");
-    funcionario.setBairro(entrada.nextLine());
+    camareira.setBairro(entrada.nextLine());
     System.out.print("Complemento: ");
-    funcionario.setComplemento(entrada.nextLine());
+    camareira.setComplemento(entrada.nextLine());
     System.out.print("Numero da casa: ");
-    funcionario.setNumeroCasa(entrada.nextLine());
+    camareira.setNumeroCasa(entrada.nextLine());
     System.out.print("Cidade: ");
-    funcionario.setCidade(entrada.nextLine());
+    camareira.setCidade(entrada.nextLine());
     System.out.print("Estado: ");
-    funcionario.setEstado(entrada.nextLine());
+    camareira.setEstado(entrada.nextLine());
     System.out.print("Salário: ");
-    funcionario.setSalario(entrada.nextDouble());
+    camareira.setSalario(entrada.nextDouble());
 
-    funcionarios.add(funcionario);
+    camareiras.add(camareira);
   }
-  protected void removerFuncionario(List<Object>funcionarios,Funcionario funcionario){
-    funcionarios.remove(funcionario);
+
+
+  protected void cadastrarFuncionario(List<Recepcionista> recepcionistas, Recepcionista recepcionista){
+    Scanner entrada = new Scanner(System.in);
+
+    System.out.print("Nome: ");
+    recepcionista.setNome(entrada.nextLine());
+    System.out.print("RG: ");
+    recepcionista.setRG(entrada.nextLine());
+    System.out.print("CPF: ");
+    recepcionista.setCPF(entrada.nextLine());
+    System.out.print("Data de nascimento: : ");
+    recepcionista.setDataNasc(entrada.nextLine());
+    System.out.print("Contato: ");
+    recepcionista.setNumTelefone(entrada.nextLine());
+    System.out.print("Rua: ");
+    recepcionista.setRua(entrada.nextLine());
+    System.out.print("Bairro: ");
+    recepcionista.setBairro(entrada.nextLine());
+    System.out.print("Complemento: ");
+    recepcionista.setComplemento(entrada.nextLine());
+    System.out.print("Numero da casa: ");
+    recepcionista.setNumeroCasa(entrada.nextLine());
+    System.out.print("Cidade: ");
+    recepcionista.setCidade(entrada.nextLine());
+    System.out.print("Estado: ");
+    recepcionista.setEstado(entrada.nextLine());
+    System.out.print("Salário: ");
+    recepcionista.setSalario(entrada.nextDouble());
+
+    recepcionistas.add(recepcionista);
+  }
+
+
+  protected boolean removerFuncionario(List funcionarios,Funcionario funcionario){
+    return funcionarios.remove(funcionario);
   }//TODO verificar se remoção da lista altera o funcionario na main
 
-  protected void mostrarFuncionarios(List<Funcionario>funcionarios){
-    for (Funcionario funcionario:funcionarios)
-      System.out.println(funcionario);
+  protected void mostrarFuncionarios(List funcionarios){
+    for (Object funcionario:funcionarios)
+      System.out.println((Funcionario) funcionario);
   }
 
 
-  protected Funcionario  verificaFuncionario(String nome, String CPF, List<Funcionario> funcionarios){
-    for (Funcionario funcionario:funcionarios)
+  protected Object  verificaFuncionario(String nome, String CPF, List funcionarios ){
+    for (Object funcionario:funcionarios)
+      if(((Funcionario)funcionario).getNome().equals(nome) && ((Funcionario)funcionario).getCPF().equals(CPF))
+        return funcionario;
+
+
+    return null;
+  }
+/*
+  protected Funcionario  verificaFuncionario(String nome, String CPF, List<Recepcionista> recepcionistas){
+    for (Funcionario funcionario:recepcionistas)
       if(funcionario.getNome().equals(nome) && funcionario.getCPF().equals(CPF))
         return funcionario;
 
     return null;
   }
+  */
   public String getSenha() {
     return senha;
   }
