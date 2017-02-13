@@ -1,7 +1,5 @@
-package com.compilar.testes;
+package sistemadehotel;
 
-public interface Autentica{
-  public boolean autentica(String senha, String login);
+public interface Autentica {
+	public boolean autentica(String senha, String login);
 }
-
-//TODO implementar tratamento de erros para set de login e senha como default
