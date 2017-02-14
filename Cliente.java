@@ -13,6 +13,9 @@ public class Cliente extends Pessoa {
 		Cliente.ID++;
 		quarto = new Quarto(numeroQuarto, tipoQuarto);
 	}
+	public Cliente() {
+		//Apenas AUXILIAR
+	}
 
 	// get ID
 	public int getID() {

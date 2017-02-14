@@ -1,8 +1,15 @@
 package sistemadehotel;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Hotel {
 	@SuppressWarnings({ "resource" })
@@ -21,6 +28,36 @@ public class Hotel {
 		String senha;
 		Boolean autenticaGerente;
 		Boolean autenticaRecepcionista = false;
+		
+		Cliente cli = new Cliente();
+		
+		try {
+			InputStream inputstream = new FileInputStream("Relatorio de Consumo.txt");
+			InputStreamReader inputread = new InputStreamReader(inputstream);
+			BufferedReader BufRed = new BufferedReader(inputread);
+			String str = BufRed.readLine();
+			while (str != null) {
+				StringTokenizer strtok = new StringTokenizer(str, " ");
+				while (strtok.hasMoreTokens()) {  //TODO PESSOAL TA DANDO NULLPOINTEREXEPTION AQUI
+					cli.quarto.setNumeroQuarto(strtok.nextToken()); 
+					cli.quarto.setAluguelDoQuarto((double) strtok.nextElement());
+					cli.quarto.setConsumo((double) strtok.nextElement());
+					cli.quarto.setDanosCausados((double) strtok.nextElement());
+					cli.quarto.setGastoTotal((double) strtok.nextElement());
+					clientes.add(cli);
+				}
+				str = BufRed.readLine();
+				
+			}
+		} catch (FileNotFoundException e) {
+			System.out.printf("\n\t!!! Erro !!! Arquivo não encontrado !!!\n\n");
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+		}
 
 		System.out.println("*** BEM VINDO AO SISTEMA ***");
 		while (true) {
@@ -109,5 +146,12 @@ public class Hotel {
 			} while (n != 4);
 		}
 		// TODO salvar tudo e sair
+		Quarto aux = new Quarto();
+		try {
+			aux.salvarConsumo(clientes);
+		} catch (IOException e) {
+			System.out.println("\nIOException\n");
+			e.printStackTrace();
+		}
 	}
 }

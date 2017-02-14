@@ -28,7 +28,10 @@ public class Quarto {
 	public Quarto(String numeroQuarto, String tipoQuarto) {
 		Quarto.totalQuartos++;
 		this.numeroQuarto = numeroQuarto;
-		this.tipoQuarto = tipoQuarto;
+		System.out.println("Valor: "+alugarQuarto(tipoQuarto));
+	}
+	public Quarto() {
+		// Apenas AUXILIAR
 	}
 
 	// Get and Set
@@ -84,14 +87,25 @@ public class Quarto {
 		return gastoTotal;
 	}
 
-	public double setGastoTotal(double gastoTotal) {
+	public void setGastoTotal(double gastoTotal) {
 		this.gastoTotal = gastoTotal;
-		return gastoTotal;
+	}
+	public double getAluguelDoQuarto() {
+		return aluguelDoQuarto;
+	}
+	public void setAluguelDoQuarto(double valorQuarto) {
+		this.aluguelDoQuarto = valorQuarto;
+	}
+	public double getDanosCausados() {
+		return danosCausados;
+	}
+	public void setDanosCausados(double danosCausados) {
+		this.danosCausados = danosCausados;
 	}
 
 	// Funcoes cliente
-	public double alugarQuarto() {
-		this.setTipoQuarto(this.tipoQuarto.toUpperCase());
+	public double alugarQuarto(String tipoQuarto) {
+		this.setTipoQuarto(tipoQuarto.toUpperCase());
 		switch (this.tipoQuarto) {
 		case "SOLTEIRO":
 			this.aluguelDoQuarto = 1000;
@@ -138,7 +152,7 @@ public class Quarto {
 				this.calcularConsumo(50.0);
 			case "SANDUICHE":
 				this.calcularConsumo(20.0);
-			default:// se a comprar for diferente que j√° definido
+			default:// se a comprar for diferente que j· definido
 				System.out.print("Digite o valor: ");
 				double v = input.nextDouble();
 				this.calcularConsumo(v);
@@ -172,9 +186,10 @@ public class Quarto {
 			BufWrit = new BufferedWriter(osw);
 			while (inter.hasNext()) {
 				Cliente cliente = inter.next();
-				BufWrit.write("Quarto: " + cliente.quarto.numeroQuarto + ". Valor" + cliente.quarto.aluguelDoQuarto
-						+ ". Consumo: " + cliente.quarto.consumo + ". Danos: " + cliente.quarto.danosCausados
-						+ ". Total: " + cliente.quarto.gastoTotal+"\n");
+				BufWrit.write(cliente.quarto.numeroQuarto+" "+cliente.quarto.aluguelDoQuarto
+						+" "+cliente.quarto.consumo+" "+cliente.quarto.danosCausados
+						+" "+cliente.quarto.gastoTotal);
+				BufWrit.newLine();
 			}
 
 		} catch (FileNotFoundException e) {

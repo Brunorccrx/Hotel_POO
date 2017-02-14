@@ -46,34 +46,34 @@ public class Recepcionista extends Funcionario implements Autentica {
 		String tipoQuarto = entrada.next();
 		Cliente cliente = new Cliente(numeroQuarto, tipoQuarto);
 		System.out.print("Nome: ");
-		cliente.setNome(entrada.nextLine());
+		cliente.setNome(entrada.next());
 		System.out.print("Nacionalidade: ");
-		cliente.setNacionalidade(entrada.nextLine());
+		cliente.setNacionalidade(entrada.next());
 		if (cliente.getNacionalidade().equals("BRASILEIRO")) {
 			System.out.print("CPF: ");
-			cliente.setCPF(entrada.nextLine());
+			cliente.setCPF(entrada.next());
 			System.out.print("RG: ");
-			cliente.setRG(entrada.nextLine());
+			cliente.setRG(entrada.next());
 		} else {
 			System.out.print("Passaporte: ");
-			cliente.setPassaporte(entrada.nextLine());
+			cliente.setPassaporte(entrada.next());
 		}
 		System.out.print("Data de nascimento: : ");
-		cliente.setDataNasc(entrada.nextLine());
+		cliente.setDataNasc(entrada.next());
 		System.out.print("Contato: ");
-		cliente.setNumTelefone(entrada.nextLine());
+		cliente.setNumTelefone(entrada.next());
 		System.out.print("Rua: ");
-		cliente.setRua(entrada.nextLine());
+		cliente.setRua(entrada.next());
 		System.out.print("Bairro: ");
-		cliente.setBairro(entrada.nextLine());
+		cliente.setBairro(entrada.next());
 		System.out.print("Complemento: ");
-		cliente.setComplemento(entrada.nextLine());
+		cliente.setComplemento(entrada.next());
 		System.out.print("Numero da casa: ");
-		cliente.setNumeroCasa(entrada.nextLine());
+		cliente.setNumeroCasa(entrada.next());
 		System.out.print("Cidade: ");
-		cliente.setCidade(entrada.nextLine());
+		cliente.setCidade(entrada.next());
 		System.out.print("Estado: ");
-		cliente.setEstado(entrada.nextLine());
+		cliente.setEstado(entrada.next());
 
 		clientes.add(cliente);
 	}
