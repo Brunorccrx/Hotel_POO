@@ -1,5 +1,7 @@
 package sistemadehotel;
 
+package Hotelaria;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -50,7 +52,7 @@ public class Hotel {
 				
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Erro !!! Arquivo n„o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Erro !!! Arquivo n√£o encontrado !!!\n\n");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -61,17 +63,17 @@ public class Hotel {
 
 		System.out.println("*** BEM VINDO AO SISTEMA ***");
 		while (true) {
-			System.out.print("Por favor, informe o Login: ");
+			System.out.print("Login: ");
 			login = entrada.next();
-			System.out.print("Por favor, informe a Senha: ");
+			System.out.print("Senha: ");
 			senha = entrada.next();
 
 			autenticaGerente = ((Gerente) gerente).autentica(senha, login);
 			if (autenticaGerente) {
-				System.out.println("** BEM VINDO GERENTE **");
+				System.out.println("** GERENCIA  **");
 				break;
 			} else if (recepcionista.autentica(senha, login)) {
-				System.out.println("** BEM VINDA RECEPCIONISTA **");
+				System.out.println("** RECEP√á√ÉO **");
 				autenticaRecepcionista = true;
 				break;
 			}
@@ -81,8 +83,8 @@ public class Hotel {
 		if (autenticaGerente) {
 			int n = 0;
 			while (n != 4) {
-				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMO«√O  3- ALTERA«√O  4-SALVAR E SAIR");
-				System.out.print("OpÁ„o: ");
+				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMO√á√ÉO  3- ALTERA√á√ÉO  4-SALVAR E SAIR");
+				System.out.print("Op√ß√£o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
 				if (n == 1) {// CADASTRO DE FUNCIONARIOS
@@ -90,21 +92,21 @@ public class Hotel {
 						System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira  3 - Voltar");
 						n = entrada.nextInt();
 						entrada.nextLine();// Ler Enter
-						if (n == 1) {// OpÁ„o de Cadastrar Recepcionistas
+						if (n == 1) {// Op√ß√£o de Cadastrar Recepcionistas
 							// Funcionario recepcionista = new Recepcionista();
 							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista);
-						} else if (n == 2) { // OpÁ„o de Cadastrar Camareiras
+						} else if (n == 2) { // Op√ß√£o de Cadastrar Camareiras
 							Funcionario camareira = new Camareira();
 							((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
 						} else if (n == 3)
 							break;
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-						System.out.print("1 - Cadastrar Outro Funcion·rio  2 - N√O\n");
+						System.out.print("1 - Cadastrar Outro Funcion√°rio  2 - N√ÉO\n");
 						n = entrada.nextInt();
 						if (n == 2)
 							break;
 					}
-				} else if (n == 2) {// REMO«√O
+				} else if (n == 2) {// REMO√á√ÉO
 					System.out.println("Nome funcionario: ");
 					String nome = entrada.next().toUpperCase();
 					System.out.println("CPF: ");
@@ -117,13 +119,13 @@ public class Hotel {
 						recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf,
 								recepcionistas);
 						if (recepcionista == null)
-							System.out.println("Funcionario n„o encontrado");
+							System.out.println("Funcionario n√£o encontrado");
 						else
 							((Gerente) gerente).removerFuncionario(recepcionistas, recepcionista);
 					} else
 						((Gerente) gerente).removerFuncionario(camareiras, camareira);
 				} else if (n == 3) {
-					// TODO alteraÁ„o de cadastro
+					// TODO altera√ß√£o de cadastro
 				}
 			}
 			((Gerente) gerente).mostrarFuncionarios(camareiras);
@@ -132,16 +134,16 @@ public class Hotel {
 			int n = 0;
 			// TODO Fazer a parte que cabe ao Recepcionista
 			do {
-				System.out.println("1 - Cadastro de Clientes  2 - AlteraÁ„o  3 - RemoÁ„o  4 - Sauvar e Sair");
-				System.out.print("OpÁ„o: ");
+				System.out.println("1 - Cadastro de Clientes  2 - Altera√ß√£o  3 - Remo√ß√£o  4 - Sauvar e Sair");
+				System.out.print("Op√ß√£o: ");
 				n = entrada.nextInt();
 				if (n == 1){
 					//TODO Cadastro de Clientes
 					recepcionista.cadastrarCliente(clientes);
 				}else if (n == 2) {
-					//TODO AlteraÁ„o de Clientes
+					//TODO Altera√ß√£o de Clientes
 				} else if (n == 3) {
-					//TODO RemoÁ„o de clientes
+					//TODO Remo√ß√£o de clientes
 				}
 			} while (n != 4);
 		}
