@@ -15,6 +15,7 @@ public class Cliente extends Pessoa {
 	}
 	public Cliente() {
 		//Apenas AUXILIAR
+		quarto = new Quarto();
 	}
 
 	// get ID

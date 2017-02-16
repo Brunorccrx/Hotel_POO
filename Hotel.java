@@ -1,13 +1,9 @@
 package sistemadehotel;
 
-package Hotelaria;
-
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,57 +19,54 @@ public class Hotel {
 		List<Recepcionista> recepcionistas = new ArrayList<>();
 		List<Camareira> camareiras = new ArrayList<>();
 		List<Cliente> clientes = new ArrayList<>();
-		Funcionario gerente = new Gerente();
+		Funcionario gerente = Gerente.getInstance();
 		Recepcionista recepcionista = new Recepcionista();
 		Scanner entrada = new Scanner(System.in);
 		String login;
 		String senha;
 		Boolean autenticaGerente;
 		Boolean autenticaRecepcionista = false;
-		
+
 		Cliente cli = new Cliente();
-		
+
 		try {
-			InputStream inputstream = new FileInputStream("Relatorio de Consumo.txt");
-			InputStreamReader inputread = new InputStreamReader(inputstream);
-			BufferedReader BufRed = new BufferedReader(inputread);
+			BufferedReader BufRed = new BufferedReader(new FileReader("Relatorio de Consumo.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
-				StringTokenizer strtok = new StringTokenizer(str, " ");
-				while (strtok.hasMoreTokens()) {  //TODO PESSOAL TA DANDO NULLPOINTEREXEPTION AQUI
-					cli.quarto.setNumeroQuarto(strtok.nextToken()); 
-					cli.quarto.setAluguelDoQuarto((double) strtok.nextElement());
-					cli.quarto.setConsumo((double) strtok.nextElement());
-					cli.quarto.setDanosCausados((double) strtok.nextElement());
-					cli.quarto.setGastoTotal((double) strtok.nextElement());
+				StringTokenizer strtok = new StringTokenizer(str);
+				while (strtok.hasMoreTokens()) {
+					cli.quarto.setNumeroQuarto(strtok.nextToken(" "));
+					cli.quarto.setAluguelDoQuarto(Double.parseDouble((String) strtok.nextElement()));
+					cli.quarto.setConsumo(Double.parseDouble((String) strtok.nextElement()));
+					cli.quarto.setDanosCausados(Double.parseDouble((String) strtok.nextElement()));
+					cli.quarto.setGastoTotal(Double.parseDouble((String) strtok.nextElement()));
 					clientes.add(cli);
+					str = BufRed.readLine();
 				}
-				str = BufRed.readLine();
-				
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Erro !!! Arquivo n√£o encontrado !!!\n\n");
-			e.printStackTrace();
+			System.out.printf("\n\t!!! Arquivo n„o encontrado !!!\n\n");
+			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			
+
 		}
 
 		System.out.println("*** BEM VINDO AO SISTEMA ***");
 		while (true) {
-			System.out.print("Login: ");
+			System.out.print("Por favor, informe o Login: ");
 			login = entrada.next();
-			System.out.print("Senha: ");
+			System.out.print("Por favor, informe a Senha: ");
 			senha = entrada.next();
 
 			autenticaGerente = ((Gerente) gerente).autentica(senha, login);
 			if (autenticaGerente) {
-				System.out.println("** GERENCIA  **");
+				System.out.println("** BEM VINDO GERENTE **");
 				break;
 			} else if (recepcionista.autentica(senha, login)) {
-				System.out.println("** RECEP√á√ÉO **");
+				System.out.println("** BEM VINDA RECEPCIONISTA **");
 				autenticaRecepcionista = true;
 				break;
 			}
@@ -83,8 +76,8 @@ public class Hotel {
 		if (autenticaGerente) {
 			int n = 0;
 			while (n != 4) {
-				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMO√á√ÉO  3- ALTERA√á√ÉO  4-SALVAR E SAIR");
-				System.out.print("Op√ß√£o: ");
+				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMO«√O  3- ALTERA«√O  4-SALVAR E SAIR");
+				System.out.print("OpÁ„o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
 				if (n == 1) {// CADASTRO DE FUNCIONARIOS
@@ -92,21 +85,21 @@ public class Hotel {
 						System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira  3 - Voltar");
 						n = entrada.nextInt();
 						entrada.nextLine();// Ler Enter
-						if (n == 1) {// Op√ß√£o de Cadastrar Recepcionistas
+						if (n == 1) {// OpÁ„o de Cadastrar Recepcionistas
 							// Funcionario recepcionista = new Recepcionista();
 							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista);
-						} else if (n == 2) { // Op√ß√£o de Cadastrar Camareiras
+						} else if (n == 2) { // OpÁ„o de Cadastrar Camareiras
 							Funcionario camareira = new Camareira();
 							((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
 						} else if (n == 3)
 							break;
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-						System.out.print("1 - Cadastrar Outro Funcion√°rio  2 - N√ÉO\n");
+						System.out.print("1 - Cadastrar Outro Funcion·rio  2 - N√O\n");
 						n = entrada.nextInt();
 						if (n == 2)
 							break;
 					}
-				} else if (n == 2) {// REMO√á√ÉO
+				} else if (n == 2) {// REMO«√O
 					System.out.println("Nome funcionario: ");
 					String nome = entrada.next().toUpperCase();
 					System.out.println("CPF: ");
@@ -119,13 +112,13 @@ public class Hotel {
 						recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf,
 								recepcionistas);
 						if (recepcionista == null)
-							System.out.println("Funcionario n√£o encontrado");
+							System.out.println("Funcionario n„o encontrado");
 						else
 							((Gerente) gerente).removerFuncionario(recepcionistas, recepcionista);
 					} else
 						((Gerente) gerente).removerFuncionario(camareiras, camareira);
 				} else if (n == 3) {
-					// TODO altera√ß√£o de cadastro
+					// TODO alteraÁ„o de cadastro
 				}
 			}
 			((Gerente) gerente).mostrarFuncionarios(camareiras);
@@ -134,16 +127,16 @@ public class Hotel {
 			int n = 0;
 			// TODO Fazer a parte que cabe ao Recepcionista
 			do {
-				System.out.println("1 - Cadastro de Clientes  2 - Altera√ß√£o  3 - Remo√ß√£o  4 - Sauvar e Sair");
-				System.out.print("Op√ß√£o: ");
+				System.out.println("1 - Cadastro de Clientes  2 - AlteraÁ„o  3 - RemoÁ„o  4 - Sauvar e Sair");
+				System.out.print("OpÁ„o: ");
 				n = entrada.nextInt();
-				if (n == 1){
-					//TODO Cadastro de Clientes
+				if (n == 1) {
+					// TODO Cadastro de Clientes
 					recepcionista.cadastrarCliente(clientes);
-				}else if (n == 2) {
-					//TODO Altera√ß√£o de Clientes
+				} else if (n == 2) {
+					// TODO AlteraÁ„o de Clientes
 				} else if (n == 3) {
-					//TODO Remo√ß√£o de clientes
+					// TODO RemoÁ„o de clientes
 				}
 			} while (n != 4);
 		}
@@ -155,5 +148,6 @@ public class Hotel {
 			System.out.println("\nIOException\n");
 			e.printStackTrace();
 		}
+		System.out.println("Tudo Salvo e OK");
 	}
 }

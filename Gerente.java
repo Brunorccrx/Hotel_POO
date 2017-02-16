@@ -8,64 +8,71 @@ public class Gerente extends Funcionario implements Autentica {
 	private String login = "mario";
 	private String senha = "123";
 	Scanner entrada = new Scanner(System.in);
+	
+	static Gerente gerente = new Gerente();
+	private Gerente() {}
+	
+	public static Gerente getInstance() {
+		return gerente;
+	}
 
 	protected void cadastrarFuncionario(List<Camareira> camareiras, Camareira camareira) {
-            
-                
+		// Scanner entrada = new Scanner(System.in);
 
 		System.out.print("Nome: ");
-		camareira.setNome(entrada.nextLine());
+		camareira.setNome(entrada.next());
 		System.out.print("RG: ");
-		camareira.setRG(entrada.nextLine());
+		camareira.setRG(entrada.next());
 		System.out.print("CPF: ");
-		camareira.setCPF(entrada.nextLine());
+		camareira.setCPF(entrada.next());
 		System.out.print("Data de nascimento: : ");
-		camareira.setDataNasc(entrada.nextLine());
+		camareira.setDataNasc(entrada.next());
 		System.out.print("Contato: ");
-		camareira.setNumTelefone(entrada.nextLine());
+		camareira.setNumTelefone(entrada.next());
 		System.out.print("Rua: ");
-		camareira.setRua(entrada.nextLine());
+		camareira.setRua(entrada.next());
 		System.out.print("Bairro: ");
-		camareira.setBairro(entrada.nextLine());
+		camareira.setBairro(entrada.next());
 		System.out.print("Complemento: ");
-		camareira.setComplemento(entrada.nextLine());
+		camareira.setComplemento(entrada.next());
 		System.out.print("Numero da casa: ");
-		camareira.setNumeroCasa(entrada.nextLine());
+		camareira.setNumeroCasa(entrada.next());
 		System.out.print("Cidade: ");
-		camareira.setCidade(entrada.nextLine());
+		camareira.setCidade(entrada.next());
 		System.out.print("Estado: ");
-		camareira.setEstado(entrada.nextLine());
-		System.out.print("SalÃ¡rio: ");
+		camareira.setEstado(entrada.next());
+		System.out.print("Salário: ");
 		camareira.setSalario(entrada.nextDouble());
 
 		camareiras.add(camareira);
 	}
 
 	protected void cadastrarFuncionario(List<Recepcionista> recepcionistas, Recepcionista recepcionista) {
-                
+		// Scanner entrada = new Scanner(System.in);
+
 		System.out.print("Nome: ");
-		recepcionista.setNome(entrada.nextLine());
+		recepcionista.setNome(entrada.next());
 		System.out.print("RG: ");
-		recepcionista.setRG(entrada.nextLine());
+		recepcionista.setRG(entrada.next());
 		System.out.print("CPF: ");
-		recepcionista.setCPF(entrada.nextLine());
+		recepcionista.setCPF(entrada.next());
 		System.out.print("Data de nascimento: : ");
-		recepcionista.setDataNasc(entrada.nextLine());
+		recepcionista.setDataNasc(entrada.next());
 		System.out.print("Contato: ");
-		recepcionista.setNumTelefone(entrada.nextLine());
+		recepcionista.setNumTelefone(entrada.next());
 		System.out.print("Rua: ");
-		recepcionista.setRua(entrada.nextLine());
+		recepcionista.setRua(entrada.next());
 		System.out.print("Bairro: ");
-		recepcionista.setBairro(entrada.nextLine());
+		recepcionista.setBairro(entrada.next());
 		System.out.print("Complemento: ");
-		recepcionista.setComplemento(entrada.nextLine());
+		recepcionista.setComplemento(entrada.next());
 		System.out.print("Numero da casa: ");
-		recepcionista.setNumeroCasa(entrada.nextLine());
+		recepcionista.setNumeroCasa(entrada.next());
 		System.out.print("Cidade: ");
-		recepcionista.setCidade(entrada.nextLine());
+		recepcionista.setCidade(entrada.next());
 		System.out.print("Estado: ");
-		recepcionista.setEstado(entrada.nextLine());
-		System.out.print("SalÃ¡rio: ");
+		recepcionista.setEstado(entrada.next());
+		System.out.print("Salário: ");
 		recepcionista.setSalario(entrada.nextDouble());
 
 		recepcionistas.add(recepcionista);
@@ -73,7 +80,7 @@ public class Gerente extends Funcionario implements Autentica {
 	
 	protected boolean removerFuncionario(List<? extends Funcionario> funcionarios, Funcionario funcionario) {
 		return funcionarios.remove(funcionario);
-	}// TODO verificar se remoÃ§Ã£o da lista altera o funcionario na main
+	}// TODO verificar se remoção da lista altera o funcionario na main
 
 	
 	protected void mostrarFuncionarios(List<? extends Funcionario> funcionarios) {
@@ -101,10 +108,10 @@ public class Gerente extends Funcionario implements Autentica {
 
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7) {
-			throw new IOException("Senha deve ter no mÃ­nimo 7 caracteres");
+			throw new IOException("Senha deve ter no mínimo 7 caracteres");
 		}
 		if (senha.length() > 14) {
-			throw new IOException("Senha ultrapassou o limite mÃ¡ximo de 14 caracteres");
+			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
 		}
 
 		this.senha = senha;
@@ -116,10 +123,10 @@ public class Gerente extends Funcionario implements Autentica {
 
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5) {
-			throw new IOException("Login deve ter no mÃ­nimo 5 caracteres");
+			throw new IOException("Login deve ter no mínimo 5 caracteres");
 		}
 		if (login.length() > 20) {
-			throw new IOException("Login ultrapassou o limite mÃ¡ximo de 20 caracteres");
+			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
 		}
 
 		this.login = login;
