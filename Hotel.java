@@ -1,7 +1,6 @@
-package com.compilar.testes;
+
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,10 +13,12 @@ public class Hotel {
     List<Camareira> camareiras = new ArrayList<>();
     List<Cliente> clientes = new ArrayList<>();
     Funcionario gerente = new Gerente();
+    recepcionistas.add(new Recepcionista());
+    Funcionario recepcionistaAtiva = new Recepcionista();
     Scanner entrada = new Scanner(System.in);
-    String login = "";
-    String senha = "";
-    Boolean autenticaGerente = false;
+    String login;
+    String senha;
+    Boolean autenticaGerente;
     Boolean autenticaRecepcionista = false;
 
     System.out.println("*** BEM VINDO AO SISTEMA ***");
@@ -27,13 +28,13 @@ public class Hotel {
       System.out.println("Por favor, informe a Senha: ");
       senha = entrada.nextLine();
 
-      autenticaGerente = ((Gerente) gerente).autentica(login, senha);
+      autenticaGerente = ((Gerente) gerente).autentica(senha, login);
       if (autenticaGerente) {
         System.out.println("** BEM VINDO GERENTE **");
         break;
       } else {
         for (Recepcionista recepcionista : recepcionistas)
-          if (recepcionista.autentica(login, senha)) {
+          if (recepcionista.autentica(senha, login)) {
             System.out.println("** BEM VINDA RECEPCIONISTA **");
             autenticaRecepcionista = true;
             break;
@@ -44,10 +45,11 @@ public class Hotel {
 
       System.out.println("Login ou Senha incorretos");
     }
-    if (autenticaGerente) {
+    if (autenticaGerente) {//Gerente
       int n=0;
       while (n != 4) {
-        System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR");
+        System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" +
+                "\n5-MOSTRAR FUNCIONARIOS");
         System.out.print("Opção: ");
         n = entrada.nextInt();
         entrada.nextLine();//Ler Enter
@@ -58,12 +60,10 @@ public class Hotel {
             entrada.nextLine();//Ler Enter
             if (n == 1) {//Opção de Cadastrar Recepcionistas
               Funcionario recepcionista = new Recepcionista();
-              ((Gerente) gerente).cadastrarFuncionario(recepcionistas, recepcionista);
-              break;
+              ((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista);
             } else if (n == 2) { //Opção de Cadastrar Camareiras
               Funcionario camareira = new Camareira();
-              ((Gerente) gerente).cadastrarFuncionario(camareiras, camareira);
-              break;
+              ((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
             } else if (n == 3)
               break;
             System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
@@ -73,26 +73,117 @@ public class Hotel {
               break;
           }
         }
-          else if (n == 2) {//REMOÇÃO
-            System.out.println("Nome funcionario: ");
-            String nome = entrada.nextLine();
-            System.out.println("CPF: ");
-            String cpf = entrada.nextLine();
-            boolean retorno = ((Gerente) gerente).verificaFuncionario(nome,cpf,camareiras);
-            if (retorno == true) {
-              System.out.println("Deseja remover o funcionario? 1 - SIM  2 - NÃO");
-              n = entrada.nextInt();
-              if (n == 1) {
-                ((Gerente) gerente).removerFuncionario(nome, cpf);
-                System.out.println("Funcionario Removido com sucesso!");
-              } else {
-                System.out.println("Processo finalizado.");
-              }
-            } else {
-              System.out.println("Processo finalizado.");
+        else if (n == 2) {//REMOÇÃO
+          System.out.println("Nome funcionario: ");
+          String nome = entrada.nextLine().toUpperCase();
+          System.out.println("CPF: ");
+          String cpf = entrada.nextLine().toUpperCase();
+          Camareira camareira;
+          Recepcionista recepcionista;
+
+          camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome,cpf,camareiras);
+          if(camareira==null) {
+            recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf, recepcionistas);
+            if (recepcionista == null)
+              System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
+            else {
+              ((Gerente) gerente).removerFuncionario(recepcionistas, recepcionista);
+              System.out.println("** RECEPCIONISTA REMOVIDA COM SUCESSO! **");
             }
           }
+          else {
+            ((Gerente) gerente).removerFuncionario(camareiras, camareira);
+            System.out.println("** CAMAREIRA REMOVIDA COM SUCESSO! **");
+          }
         }
+        else if(n == 3){//Alteração
+          System.out.println("Nome funcionario: ");
+          String nome = entrada.nextLine().toUpperCase();
+          System.out.println("CPF: ");
+          String cpf = entrada.nextLine().toUpperCase();
+          Camareira camareira;
+          Recepcionista recepcionista;
+
+          camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome,cpf,camareiras);
+          if(camareira==null) {
+            recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf, recepcionistas);
+            if (recepcionista == null)
+              System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
+            else {
+              System.out.println("Qual dado deseja remover da recepcionista? " + recepcionista.getNome());
+              ((Gerente) gerente).alterarFuncionario(recepcionista);
+
+            }
+          }
+          else {
+            System.out.println("Qual dado deseja remover da camareira? " + camareira.getNome());
+            ((Gerente) gerente).alterarFuncionario(camareira);
+          }
+        }
+        else if(n==5){//Mostrar Funcionarios
+			    ((Gerente) gerente).mostrarFuncionarios(camareiras);
+			    ((Gerente) gerente).mostrarFuncionarios(recepcionistas);
+        }
+      }
+    }
+    else{//Recepcionista
+      int n=0;
+      while (n != 4) {
+        System.out.println("1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" +
+                "\n5- Mostrar Clientes");
+        System.out.print("Opção: ");
+        n = entrada.nextInt();
+        entrada.nextLine();//Ler Enter
+        if (n == 1) {//CADASTRO DE CLIENTE
+          while (true) {
+            System.out.println("1 - Cadastro de Cliente  2 - Voltar");
+            n = entrada.nextInt();
+            entrada.nextLine();//Ler Enter
+            if (n == 1) {//Opção de Cadastrar Cliente
+              Pessoa cliente = new Cliente();
+              ((Recepcionista) recepcionistaAtiva).cadastrarCliente(clientes, (Cliente) cliente);
+            }
+            else if (n == 2)
+              break;
+            System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
+            System.out.print("1 - Cadastrar Outro Cliente  2 - NÃO\n");
+            n = entrada.nextInt();
+            if (n == 2)
+              break;
+          }
+        }
+        else if (n == 2) {//REMOÇÃO
+          System.out.println("Nome cliente: ");
+          String nome = entrada.nextLine().toUpperCase();
+          System.out.println("CPF: ");
+          String cpf = entrada.nextLine().toUpperCase();
+          Cliente cliente;
+
+          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          if(cliente==null)
+            System.out.println("** CLIENTE NÃO ENCONTRADO **");
+            else {
+              ((Recepcionista) recepcionistaAtiva).removerCliente(clientes, cliente);
+              System.out.println("** CLIENTE REMOVIDO COM SUCESSO! **");
+            }
+        }
+        else if(n == 3){//Alteração
+          System.out.println("Nome cliente: ");
+          String nome = entrada.nextLine().toUpperCase();
+          System.out.println("CPF: ");
+          String cpf = entrada.nextLine().toUpperCase();
+          Cliente cliente;
+
+          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          if(cliente==null)
+            System.out.println("** CLIENTE NÃO ENCONTRADO **");
+            else {
+              System.out.println("Qual dado deseja remover do cliente? " + cliente.getNome());
+              ((Recepcionista) recepcionistaAtiva).alterarCliente(cliente);
+            }
+        }
+        else if(n == 5){
+          ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);        }
       }
     }
   }

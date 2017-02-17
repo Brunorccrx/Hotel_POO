@@ -1,4 +1,3 @@
-package com.compilar.testes;
 
 public abstract class Pessoa {
   // Dados Pessoais

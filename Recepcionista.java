@@ -1,12 +1,12 @@
-package com.compilar.testes;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Recepcionista extends Funcionario implements Autentica {
-  private String login;
-  private String senha;
+
+  private String login="samus";
+  private String senha="321";
 
   public String getSenha() {
     return senha;
@@ -73,8 +73,52 @@ public class Recepcionista extends Funcionario implements Autentica {
 
     clientes.add(cliente);
   }
-  protected void removerCliente(List<Cliente>clientes,Cliente cliente){
-    clientes.remove(cliente);
+  protected Cliente  verificaCliente(String nome, String CPF, List<Cliente> clientes ){
+    for (Cliente cliente:clientes)
+      if(cliente.getNome().equals(nome) && cliente.getCPF().equals(CPF))
+        return cliente;
+
+    return null;
+  }
+
+  protected boolean removerCliente(List<Cliente>clientes,Cliente cliente){
+    return clientes.remove(cliente);
+  }
+
+  protected void alterarCliente(Cliente cliente){
+    Scanner entrada = new Scanner(System.in);
+    int opcao;
+
+    System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
+            "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' +
+            "11 - Estado" + '\n');
+
+    opcao = entrada.nextInt();
+    entrada.nextLine();
+
+    if(opcao==1)
+      cliente.setNome(entrada.nextLine());
+    else if (opcao==2)
+      cliente.setCPF(entrada.nextLine());
+    else if(opcao==3)
+      cliente.setRG(entrada.nextLine());
+    else if(opcao==4)
+      cliente.setNumTelefone(entrada.nextLine());
+    else if(opcao==5)
+      cliente.setDataNasc(entrada.nextLine());
+    else if(opcao==6)
+      cliente.setRua(entrada.nextLine());
+    else if(opcao==7)
+      cliente.setBairro(entrada.nextLine());
+    else if(opcao==8)
+      cliente.setComplemento(entrada.nextLine());
+    else if(opcao==9)
+      cliente.setNumeroCasa(entrada.nextLine());
+    else if(opcao==10)
+      cliente.setCidade(entrada.nextLine());
+    else if(opcao==11)
+      cliente.setEstado(entrada.nextLine());
+
   }
   protected void mostrarClientes(List<Cliente>clientes){
     for (Cliente cliente:clientes)

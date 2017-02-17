@@ -1,4 +1,3 @@
-package com.compilar.testes;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -88,8 +87,7 @@ public class Quarto {
         return 2000;
       default:
         System.out.print("Digite o valor: ");
-        double v = input.nextDouble();
-        return v;// Caso o tipo do quarto for diferente
+        return input.nextDouble();// Caso o tipo do quarto for diferente
     }
   }
 

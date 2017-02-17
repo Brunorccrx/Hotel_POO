@@ -1,4 +1,3 @@
-package com.compilar.testes;
 
 public class Cliente extends Pessoa {
   // Dados Pessoais

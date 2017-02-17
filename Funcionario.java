@@ -1,4 +1,3 @@
-package com.compilar.testes;
 
 
 
@@ -33,9 +32,10 @@ public abstract class Funcionario extends Pessoa{
             "Numero da casa: " + this.getNumeroCasa() + "\n" +
             "Cidade: " + this.getCidade() + "\n" +
             "Estado: " + this.getEstado() + "\n"+
-            "Salário: "+ this.getSalario()+ "\n";
+            "Salário: "+ this.getSalario()+ "\n"+
+            "CPF: "+ this.getCPF()+ "\n"+
+            "RG: "+ this.getRG()+ "\n";
 
     return saida;
   }
 }
-
