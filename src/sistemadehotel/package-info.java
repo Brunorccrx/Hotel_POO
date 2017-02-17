@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author gabri
- *
- */
-package sistemadehotel;
