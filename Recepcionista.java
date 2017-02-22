@@ -15,9 +15,9 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7)
-			throw new IOException("Senha deve ter no mÌnimo 7 caracteres");
+			throw new IOException("Senha deve ter no m√≠nimo 7 caracteres");
 		if (senha.length() > 14)
-			throw new IOException("Senha ultrapassou o limite m·ximo de 14 caracteres");
+			throw new IOException("Senha ultrapassou o limite m√°ximo de 14 caracteres");
 
 		this.senha = senha;
 	}
@@ -28,9 +28,9 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5)
-			throw new IOException("Login deve ter no mÌnimo 5 caracteres");
+			throw new IOException("Login deve ter no m√≠nimo 5 caracteres");
 		if (login.length() > 20)
-			throw new IOException("Login ultrapassou o limite m·ximo de 20 caracteres");
+			throw new IOException("Login ultrapassou o limite m√°ximo de 20 caracteres");
 
 		this.login = login;
 	}
@@ -42,38 +42,39 @@ public class Recepcionista extends Funcionario implements Autentica {
 	protected void cadastrarCliente(List<Cliente> clientes ) {
 		System.out.print("Numero do quarto: ");
 		String numeroQuarto = entrada.next();
+                entrada.nextLine();
 		System.out.print("Tipo do quarto: ");
-		String tipoQuarto = entrada.next();
+		String tipoQuarto = entrada.nextLine();
 		Cliente cliente = new Cliente(numeroQuarto, tipoQuarto);
 		System.out.print("Nome: ");
-		cliente.setNome(entrada.next());
+		cliente.setNome(entrada.nextLine());
 		System.out.print("Nacionalidade: ");
-		cliente.setNacionalidade(entrada.next());
+		cliente.setNacionalidade(entrada.nextLine());
 		if (cliente.getNacionalidade().equals("BRASILEIRO")) {
 			System.out.print("CPF: ");
-			cliente.setCPF(entrada.next());
+			cliente.setCPF(entrada.nextLine());
 			System.out.print("RG: ");
-			cliente.setRG(entrada.next());
+			cliente.setRG(entrada.nextLine());
 		} else {
 			System.out.print("Passaporte: ");
-			cliente.setPassaporte(entrada.next());
+			cliente.setPassaporte(entrada.nextLine());
 		}
 		System.out.print("Data de nascimento: : ");
-		cliente.setDataNasc(entrada.next());
+		cliente.setDataNasc(entrada.nextLine());
 		System.out.print("Contato: ");
-		cliente.setNumTelefone(entrada.next());
+		cliente.setNumTelefone(entrada.nextLine());
 		System.out.print("Rua: ");
-		cliente.setRua(entrada.next());
+		cliente.setRua(entrada.nextLine());
 		System.out.print("Bairro: ");
-		cliente.setBairro(entrada.next());
+		cliente.setBairro(entrada.nextLine());
 		System.out.print("Complemento: ");
-		cliente.setComplemento(entrada.next());
+		cliente.setComplemento(entrada.nextLine());
 		System.out.print("Numero da casa: ");
-		cliente.setNumeroCasa(entrada.next());
+		cliente.setNumeroCasa(entrada.nextLine());
 		System.out.print("Cidade: ");
-		cliente.setCidade(entrada.next());
+		cliente.setCidade(entrada.nextLine());
 		System.out.print("Estado: ");
-		cliente.setEstado(entrada.next());
+		cliente.setEstado(entrada.nextLine());
 
 		clientes.add(cliente);
 	}
