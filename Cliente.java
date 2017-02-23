@@ -48,7 +48,7 @@ public class Cliente extends Pessoa {
             "Cidade: " + this.getCidade() + "\n" +
             "Estado: " + this.getEstado() + "\n";
 
-    if (this.getNacionalidade().equals("BRASILEIRO")) {
+    if (this.getNacionalidade().toUpperCase().equals("BRASILEIRO")) {
       saida=saida.concat("CPF: " + this.getCPF() + "\n" +
               "RG: " + this.getRG() + "\n");
     } else {

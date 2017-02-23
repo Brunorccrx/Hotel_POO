@@ -75,19 +75,19 @@ public class Gerente extends Funcionario implements Autentica {
   }
 
 
-  protected boolean removerFuncionario(List funcionarios,Funcionario funcionario){
+  protected boolean removerFuncionario(List<? extends Funcionario> funcionarios,Funcionario funcionario){
     return funcionarios.remove(funcionario);
   }//TODO verificar se remoção da lista altera o funcionario na main
 
-  protected void mostrarFuncionarios(List funcionarios){
-    for (Object funcionario:funcionarios)
+  protected void mostrarFuncionarios(List<? extends Funcionario> funcionarios){
+    for (Funcionario funcionario:funcionarios)
       System.out.println(funcionario);
   }
 
 
-  protected Object  verificaFuncionario(String nome, String CPF, List funcionarios ){
-    for (Object funcionario:funcionarios)
-      if(((Funcionario)funcionario).getNome().equals(nome) && ((Funcionario)funcionario).getCPF().equals(CPF))
+  protected Funcionario  verificaFuncionario(String nome, String CPF, List <? extends Funcionario> funcionarios ){
+    for (Funcionario funcionario:funcionarios)
+      if((funcionario.getNome().equals(nome) && funcionario.getCPF().equals(CPF)))
         return funcionario;
 
 

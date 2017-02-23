@@ -91,7 +91,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 
     System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
             "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' +
-            "11 - Estado" + '\n');
+            "11 - Estado  12 - Nacionalidade" + '\n');
 
     opcao = entrada.nextInt();
     entrada.nextLine();
@@ -118,11 +118,11 @@ public class Recepcionista extends Funcionario implements Autentica {
       cliente.setCidade(entrada.nextLine());
     else if(opcao==11)
       cliente.setEstado(entrada.nextLine());
-
+    else if(opcao==12)
+      cliente.setNacionalidade(entrada.nextLine());
   }
   protected void mostrarClientes(List<Cliente>clientes){
     for (Cliente cliente:clientes)
       System.out.println(cliente);
-
   }
 }

@@ -12,6 +12,7 @@ public class Hotel {
     List<Recepcionista> recepcionistas = new ArrayList<>();
     List<Camareira> camareiras = new ArrayList<>();
     List<Cliente> clientes = new ArrayList<>();
+    List<Quarto> quartos = new ArrayList<>();
     Funcionario gerente = new Gerente();
     recepcionistas.add(new Recepcionista());
     Funcionario recepcionistaAtiva = new Recepcionista();
@@ -170,9 +171,12 @@ public class Hotel {
         else if(n == 3){//Alteração
           System.out.println("Nome cliente: ");
           String nome = entrada.nextLine().toUpperCase();
+          System.out.println("Nacionalidade: ");
+          String nacionalidade = entrada.nextLine().toUpperCase();
           System.out.println("CPF: ");
           String cpf = entrada.nextLine().toUpperCase();
           Cliente cliente;
+
 
           cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
           if(cliente==null)
@@ -182,7 +186,7 @@ public class Hotel {
               ((Recepcionista) recepcionistaAtiva).alterarCliente(cliente);
             }
         }
-        else if(n == 5){
+        else if(n == 5){//Mostrar Clientes
           ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);        }
       }
     }

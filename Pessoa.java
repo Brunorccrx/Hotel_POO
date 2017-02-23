@@ -19,7 +19,7 @@ public abstract class Pessoa {
   }
 
   public void setNome(String nome) {
-    this.nome = nome.toUpperCase();
+    this.nome = nome;
   }
 
   public String getCPF() {
@@ -27,7 +27,7 @@ public abstract class Pessoa {
   }
 
   public void setCPF(String CPF) {
-    this.CPF = CPF;
+    this.CPF = CPF.toUpperCase();
   }
 
   public String getRG() {
