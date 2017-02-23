@@ -116,8 +116,8 @@ public class Quarto {
 		default:
 			System.out.print("Digite o valor: ");
 			double v = input.nextDouble();
-			aluguelDoQuarto = v;
-			return v;// Caso o tipo do cliente for diferente
+			this.aluguelDoQuarto = v;
+			return v;// Caso o tipo do quarto for diferente
 		}
 	}
 
@@ -127,7 +127,7 @@ public class Quarto {
 		else if (cliente != null)
 			return "Quarto indisponivel. Quarto ocupado pelo(a) cliente" + " " + cliente.getNome();
 		else
-			return "Quarto indisponivel. Quarto ainda não foi limpo.";
+			return "Quarto indisponivel. Quarto ainda nao foi limpo.";
 	}
 
 	public void removerCliente() {
@@ -152,7 +152,7 @@ public class Quarto {
 				this.calcularConsumo(50.0);
 			case "SANDUICHE":
 				this.calcularConsumo(20.0);
-			default:// se a comprar for diferente que já definido
+			default:// se a comprar for diferente que ja foi definido
 				System.out.print("Digite o valor: ");
 				double v = input.nextDouble();
 				this.calcularConsumo(v);
@@ -165,7 +165,7 @@ public class Quarto {
 		this.setConsumo(this.getConsumo() + valor);
 	}
 
-	// ### Funções ###
+	// ### Funï¿½ï¿½es ###
 	// Soma valor dos Danos
 	public void somarDanos(double valor) {
 		this.danosCausados += valor;
