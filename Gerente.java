@@ -171,3 +171,4 @@ public class Gerente extends Funcionario implements Autentica {
     return this.senha.equals(senha) && this.login.equals(login);
   }
 }
+
