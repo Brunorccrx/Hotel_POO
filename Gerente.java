@@ -96,6 +96,41 @@ public class Gerente extends Funcionario implements Autentica {
 
 		return null;
 	}
+        protected void alterarFuncionario(Funcionario funcionario){
+        //Scanner entrada = new Scanner(System.in);
+        int opcao;
+
+        System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
+                "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' +
+                "11 - Estado" + '\n');
+
+        opcao = entrada.nextInt();
+        entrada.nextLine();
+
+        if(opcao==1)
+            funcionario.setNome(entrada.nextLine());
+        else if (opcao==2)
+            funcionario.setCPF(entrada.nextLine());
+        else if(opcao==3)
+            funcionario.setRG(entrada.nextLine());
+        else if(opcao==4)
+            funcionario.setNumTelefone(entrada.nextLine());
+        else if(opcao==5)
+            funcionario.setDataNasc(entrada.nextLine());
+        else if(opcao==6)
+            funcionario.setRua(entrada.nextLine());
+        else if(opcao==7)
+            funcionario.setBairro(entrada.nextLine());
+        else if(opcao==8)
+            funcionario.setComplemento(entrada.nextLine());
+        else if(opcao==9)
+            funcionario.setNumeroCasa(entrada.nextLine());
+        else if(opcao==10)
+            funcionario.setCidade(entrada.nextLine());
+        else if(opcao==11)
+            funcionario.setEstado(entrada.nextLine());
+
+  }
 
 	/*
 	 * protected Funcionario verificaFuncionario(String nome, String CPF,
