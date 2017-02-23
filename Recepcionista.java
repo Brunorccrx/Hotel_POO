@@ -5,87 +5,126 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Recepcionista extends Funcionario implements Autentica {
-	private String login = "luidi";
-	private String senha = "321";
-	Scanner entrada = new Scanner(System.in);
 
-	public String getSenha() {
-		return senha;
-	}
+  private String login="samus";
+  private String senha="321";
 
-	public void setSenha(String senha) throws IOException {
-		if (senha.length() < 7)
-			throw new IOException("Senha deve ter no mínimo 7 caracteres");
-		if (senha.length() > 14)
-			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
+  public String getSenha() {
+    return senha;
+  }
 
-		this.senha = senha;
-	}
+  public void setSenha(String senha)throws IOException{
+    if(senha.length()<7)
+      throw new IOException("Senha deve ter no mínimo 7 caracteres");
+    if(senha.length()>14)
+      throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
 
-	public String getLogin() {
-		return login;
-	}
+    this.senha = senha;
+  }
 
-	public void setLogin(String login) throws IOException {
-		if (login.length() < 5)
-			throw new IOException("Login deve ter no mínimo 5 caracteres");
-		if (login.length() > 20)
-			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
+  public String getLogin() {
+    return login;
+  }
 
-		this.login = login;
-	}
+  public void setLogin(String login) throws IOException {
+    if(login.length()<5)
+      throw new IOException("Login deve ter no mínimo 5 caracteres");
+    if(login.length()>20)
+      throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
 
-	public boolean autentica(String senha, String login) {
-		return this.senha.equals(senha) && this.login.equals(login);
-	}
+    this.login = login;
+  }
 
-	protected void cadastrarCliente(List<Cliente> clientes ) {
-		System.out.print("Numero do quarto: ");
-		String numeroQuarto = entrada.next();
-                entrada.nextLine();
-		System.out.print("Tipo do quarto: ");
-		String tipoQuarto = entrada.nextLine();
-		Cliente cliente = new Cliente(numeroQuarto, tipoQuarto);
-		System.out.print("Nome: ");
-		cliente.setNome(entrada.nextLine());
-		System.out.print("Nacionalidade: ");
-		cliente.setNacionalidade(entrada.nextLine());
-		if (cliente.getNacionalidade().equals("BRASILEIRO")) {
-			System.out.print("CPF: ");
-			cliente.setCPF(entrada.nextLine());
-			System.out.print("RG: ");
-			cliente.setRG(entrada.nextLine());
-		} else {
-			System.out.print("Passaporte: ");
-			cliente.setPassaporte(entrada.nextLine());
-		}
-		System.out.print("Data de nascimento: : ");
-		cliente.setDataNasc(entrada.nextLine());
-		System.out.print("Contato: ");
-		cliente.setNumTelefone(entrada.nextLine());
-		System.out.print("Rua: ");
-		cliente.setRua(entrada.nextLine());
-		System.out.print("Bairro: ");
-		cliente.setBairro(entrada.nextLine());
-		System.out.print("Complemento: ");
-		cliente.setComplemento(entrada.nextLine());
-		System.out.print("Numero da casa: ");
-		cliente.setNumeroCasa(entrada.nextLine());
-		System.out.print("Cidade: ");
-		cliente.setCidade(entrada.nextLine());
-		System.out.print("Estado: ");
-		cliente.setEstado(entrada.nextLine());
+  @Override
+  public boolean autentica(String senha, String login){
+    return this.senha.equals(senha) && this.login.equals(login);
+  }
+  protected void cadastrarCliente(List<Cliente> clientes, Cliente cliente){
+    Scanner entrada = new Scanner(System.in);
 
-		clientes.add(cliente);
-	}
+    System.out.print("Nome: ");
+    cliente.setNome(entrada.nextLine());
+    System.out.print("Nacionalidade: ");
+    cliente.setNacionalidade(entrada.nextLine());
+    if(cliente.getNacionalidade().equals("BRASILEIRO")) {
+      System.out.print("CPF: ");
+      cliente.setCPF(entrada.nextLine());
+      System.out.print("RG: ");
+      cliente.setRG(entrada.nextLine());
+    }
+    else {
+      System.out.print("Passaporte: ");
+      cliente.setPassaporte(entrada.nextLine());
+    }
+    System.out.print("Data de nascimento: : ");
+    cliente.setDataNasc(entrada.nextLine());
+    System.out.print("Contato: ");
+    cliente.setNumTelefone(entrada.nextLine());
+    System.out.print("Rua: ");
+    cliente.setRua(entrada.nextLine());
+    System.out.print("Bairro: ");
+    cliente.setBairro(entrada.nextLine());
+    System.out.print("Complemento: ");
+    cliente.setComplemento(entrada.nextLine());
+    System.out.print("Numero da casa: ");
+    cliente.setNumeroCasa(entrada.nextLine());
+    System.out.print("Cidade: ");
+    cliente.setCidade(entrada.nextLine());
+    System.out.print("Estado: ");
+    cliente.setEstado(entrada.nextLine());
 
-	protected void removerCliente(List<Cliente> clientes, Cliente cliente) {
-		clientes.remove(cliente);
-	}
+    clientes.add(cliente);
+  }
+  protected Cliente  verificaCliente(String nome, String CPF, List<Cliente> clientes ){
+    for (Cliente cliente:clientes)
+      if(cliente.getNome().equals(nome) && cliente.getCPF().equals(CPF))
+        return cliente;
 
-	protected void mostrarClientes(List<Cliente> clientes) {
-		for (Cliente cliente : clientes)
-			System.out.println(cliente);
+    return null;
+  }
 
-	}
+  protected boolean removerCliente(List<Cliente>clientes,Cliente cliente){
+    return clientes.remove(cliente);
+  }
+
+  protected void alterarCliente(Cliente cliente){
+    Scanner entrada = new Scanner(System.in);
+    int opcao;
+
+    System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
+            "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' +
+            "11 - Estado  12 - Nacionalidade" + '\n');
+
+    opcao = entrada.nextInt();
+    entrada.nextLine();
+
+    if(opcao==1)
+      cliente.setNome(entrada.nextLine());
+    else if (opcao==2)
+      cliente.setCPF(entrada.nextLine());
+    else if(opcao==3)
+      cliente.setRG(entrada.nextLine());
+    else if(opcao==4)
+      cliente.setNumTelefone(entrada.nextLine());
+    else if(opcao==5)
+      cliente.setDataNasc(entrada.nextLine());
+    else if(opcao==6)
+      cliente.setRua(entrada.nextLine());
+    else if(opcao==7)
+      cliente.setBairro(entrada.nextLine());
+    else if(opcao==8)
+      cliente.setComplemento(entrada.nextLine());
+    else if(opcao==9)
+      cliente.setNumeroCasa(entrada.nextLine());
+    else if(opcao==10)
+      cliente.setCidade(entrada.nextLine());
+    else if(opcao==11)
+      cliente.setEstado(entrada.nextLine());
+    else if(opcao==12)
+      cliente.setNacionalidade(entrada.nextLine());
+  }
+  protected void mostrarClientes(List<Cliente>clientes){
+    for (Cliente cliente:clientes)
+      System.out.println(cliente);
+  }
 }
