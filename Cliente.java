@@ -29,8 +29,7 @@ public class Cliente extends Pessoa {
 	}
 
 	public void setNacionalidade(String nacionalidade) {
-            String toUpperCase = nacionalidade.toUpperCase();
-		this.nacionalidade = toUpperCase;
+		this.nacionalidade = nacionalidade.toUpperCase();
 	}
 
 	// get e set Passaporte
