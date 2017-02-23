@@ -84,8 +84,9 @@ public class Gerente extends Funcionario implements Autentica {
 
 	
 	protected void mostrarFuncionarios(List<? extends Funcionario> funcionarios) {
-		for (Object funcionario : funcionarios)
-			System.out.println((Funcionario) funcionario);
+            funcionarios.stream().forEach((funcionario) -> {
+                System.out.println((Funcionario) funcionario);
+            });
 	}
 
 	protected Object verificaFuncionario(String nome, String CPF, List<? extends Funcionario> funcionarios) {
