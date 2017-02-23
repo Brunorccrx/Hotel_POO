@@ -35,6 +35,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 		this.login = login;
 	}
 
+        @Override
 	public boolean autentica(String senha, String login) {
 		return this.senha.equals(senha) && this.login.equals(login);
 	}
@@ -84,8 +85,9 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 
 	protected void mostrarClientes(List<Cliente> clientes) {
-		for (Cliente cliente : clientes)
-			System.out.println(cliente);
+            clientes.stream().forEach((cliente) -> {
+                System.out.println(cliente);
+            });
 
 	}
 }
