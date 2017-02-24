@@ -1,189 +1,210 @@
 package sistemadehotel;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
 
 public class Quarto {
 	static private int totalQuartos;
 	private String numeroQuarto;
 	private String situacaoQuarto;
 	private String tipoQuarto;
+	private String refeicao;
+	private double consumo;
+	private double aluguelDoQuarto;
+	private double danosCausados;
+	private double gastoTotal;
+	private static BufferedWriter BufWrit;
 	Cliente cliente;
-	//Gastos
-	private double aluguelDoQuarto = 0;
-	private double consumo = 0;
-	private double danosCausados = 0;
-	private double gastoTotal = 0;
+	Scanner input = new Scanner(System.in);
 
-
-//Construtor
-	public Quarto(String numeroQuarto,String tipoQuarto){
-		Quarto.totalQuartos++;			//aqui será adicionado um quarto a mais toda vez que instanciado só que ...
-		
-		this.numeroQuarto=numeroQuarto;
-		this.tipoQuarto=tipoQuarto;
+	// Construtor
+	public Quarto(String numeroQuarto, String tipoQuarto) {
+		Quarto.totalQuartos++;
+		this.numeroQuarto = numeroQuarto;
+		System.out.println("Valor: " + alugarQuarto(tipoQuarto));
 	}
 
-//Geters and Seters
-	public double getConsumo(){
+	public Quarto() {
+		// Apenas AUXILIAR
+	}
+
+	// Get and Set
+	public double getConsumo() {
 		return this.consumo;
 	}
-	public void setConsumo(double consumo){
-		this.consumo=consumo;
-	}
-	public String getTipoQuarto(){
-		return this.tipoQuarto;
-	}
-	public void setTipoQuarto(String tipoQuarto){
-		this.tipoQuarto=tipoQuarto;
-	}
-	public String getNumeroQuarto(){
-		return this.numeroQuarto;
-	}
-	public void setNumeroQuarto(String numeroQuarto){
-		this.numeroQuarto=numeroQuarto;
-	}
-  public int getTotalQuartos() {
-    return totalQuartos;
-  }
-  public String getSituacaoQuarto() {
-    return situacaoQuarto;
-  }
-	public void setSituacaoQuarto(String situacaoQuarto){
-		this.situacaoQuarto=situacaoQuarto;
+
+	public void setConsumo(double consumo) {
+		this.consumo = consumo;
 	}
 
-//Funcoes Quarto
-	public double valorQuarto(){
-		if(this.tipoQuarto.equals("Solteiro"))
+	public String getTipoQuarto() {
+		return this.tipoQuarto;
+	}
+
+	public void setTipoQuarto(String tipoQuarto) {
+		this.tipoQuarto = tipoQuarto;
+	}
+
+	public String getNumeroQuarto() {
+		return this.numeroQuarto;
+	}
+
+	public void setNumeroQuarto(String numeroQuarto) {
+		this.numeroQuarto = numeroQuarto;
+	}
+
+	public int getTotalQuartos() {
+		return totalQuartos;
+	}
+
+	public void setTotalQuartos(int totalQuartos) {
+		Quarto.totalQuartos = totalQuartos;
+	}
+
+	public String getSituacaoQuarto() {
+		return situacaoQuarto;
+	}
+
+	public void setSituacaoQuarto(String situacaoQuarto) {
+		this.situacaoQuarto = situacaoQuarto;
+	}
+
+	public String getRefeicao() {
+		return this.refeicao;
+	}
+
+	public void setRefeicao(String tipo) {
+		this.refeicao = tipo;
+	}
+
+	public double getGastoTotal() {
+		return gastoTotal;
+	}
+
+	public void setGastoTotal(double gastoTotal) {
+		this.gastoTotal = gastoTotal;
+	}
+
+	public double getAluguelDoQuarto() {
+		return aluguelDoQuarto;
+	}
+
+	public void setAluguelDoQuarto(double valorQuarto) {
+		this.aluguelDoQuarto = valorQuarto;
+	}
+
+	public double getDanosCausados() {
+		return danosCausados;
+	}
+
+	public void setDanosCausados(double danosCausados) {
+		this.danosCausados = danosCausados;
+	}
+
+	// Funcoes cliente
+	public double alugarQuarto(String tipoQuarto) {
+		this.setTipoQuarto(tipoQuarto.toUpperCase());
+		switch (this.tipoQuarto) {
+		case "SOLTEIRO":
+			this.aluguelDoQuarto = 1000;
 			return 1000;
-		else if(this.tipoQuarto.equals("Casal"))
+		case "CASAL":
+			this.aluguelDoQuarto = 2000;
 			return 2000;
-		else
-			return 1500;//DuploSolteiro
+		default:
+			System.out.print("Digite o valor: ");
+			double v = input.nextDouble();
+			this.aluguelDoQuarto = v;
+			return v;// Caso o tipo do quarto for diferente
+		}
 	}
-	public String quartoDisponivel(Cliente cliente){
-		if(cliente==null && situacaoQuarto.equals("Limpo"))
+
+	public String quartoDisponivel(Cliente cliente) {
+		if (cliente == null && situacaoQuarto.equals("Limpo"))
 			return "Quarto disponivel.";
-		else if(cliente!=null)
-			return "Quarto indisponivel.Quarto ocupado pelo(a) cliente"+" "+cliente.getNome();
+		else if (cliente != null)
+			return "Quarto indisponivel. Quarto ocupado pelo(a) cliente" + " " + cliente.getNome();
 		else
-			return "Quarto indisponivel.Quarto ainda não foi limpo.";
+			return "Quarto indisponivel. Quarto ainda nao foi limpo.";
 	}
-	public void removerCliente(){
+
+	public void removerCliente() {
 		this.cliente = null;
 	}
-	public void adicionarCliente(Cliente cliente){
-		this.cliente=cliente;
-		this.situacaoQuarto="Ocupado";
-	
+
+	public void adicionarCliente(Cliente cliente) {
+		this.cliente = cliente;
+		this.situacaoQuarto = "Ocupado";
 	}
-	//Funcao para calucular consumo
-	
-	//get e set Aluguel do Quarto
-		public double getAluguelDoQuarto() {
-			return aluguelDoQuarto;
-		}
-		public void setAluguelDoQuarto(double aluguelDoQuarto) {
-			this.aluguelDoQuarto = aluguelDoQuarto;
-		}
-		//get Danos Causados
-		public double getDanosCausados() {
-			return danosCausados;
-		}
-		//get Gasto Total
-		public double getGastoTotal() {
-			return gastoTotal;
-		}
-		//      ### Funções ###
-		// Soma valor do Quarto
-		public void soma_Quarto(double valor)  {
-			String numero_Relatorio = this.numeroQuarto +" - "+ "Relatorio.txt";
-			File relatorio = new File(numero_Relatorio);
-			
-			try {
-				relatorio.createNewFile();
-			} catch (IOException e1) {
-				System.out.println("!!! Erro ao tentar Criar o Arquivo");
-				e1.printStackTrace();
+
+	public void comprarRefeicao() {
+		System.out.print("Quantos itens quer comprar: ");
+		int aux = input.nextInt();
+		for (int i = 1; i <= aux; i++) {
+			this.setRefeicao(input.nextLine());
+			this.setRefeicao(this.refeicao.toUpperCase());
+			switch (this.refeicao) {
+			case "REFRIGERANTE":
+				this.calcularConsumo(4.5);
+			case "PIZZA":
+				this.calcularConsumo(50.0);
+			case "SANDUICHE":
+				this.calcularConsumo(20.0);
+			default:// se a comprar for diferente que ja foi definido
+				System.out.print("Digite o valor: ");
+				double v = input.nextDouble();
+				this.calcularConsumo(v);
 			}
-			
-			PrintWriter gravaRelatorio = null;
-			
-			try {
-				gravaRelatorio = new PrintWriter(relatorio);
-			} catch (FileNotFoundException e) {
-				System.out.println("!!! Erro ao tentar instanciar 'PrintWriter' quarto");
-				e.printStackTrace();
-			}
-			
-			gravaRelatorio.println("#------Relatótio------#\n");
-			gravaRelatorio.printf("| Quarto: %.2f \n",valor);
-			gravaRelatorio.close();
-			
-			this.aluguelDoQuarto += valor;
 		}
-		// Soma valor do Consumo
-		public void soma_Consumo(double valor) {
-			String numero_Relatorio = this.numeroQuarto + " - " + "Relatorio.txt";
-			Writer relatorio = null;
-			
-			try {
-				relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-			} catch (IOException e) {
-				System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Cosumo");
-				e.printStackTrace();
+	}
+
+	// Funcao para calucular consumo
+	public void calcularConsumo(double valor) {
+		this.setConsumo(this.getConsumo() + valor);
+	}
+
+	// ### Funcoes ###
+	// Soma valor dos Danos
+	public void somarDanos(double valor) {
+		this.danosCausados += valor;
+	}
+
+	// Soma valor Total
+	public void somarTotal() {
+		this.setGastoTotal(this.aluguelDoQuarto + this.consumo + this.danosCausados);
+	}
+
+	public void salvarConsumo(List<Cliente> list) throws IOException {
+
+		Iterator<Cliente> inter = list.iterator();
+
+		try {
+			OutputStream os = new FileOutputStream("Relatorio de Consumo.txt");
+			OutputStreamWriter osw = new OutputStreamWriter(os);
+			BufWrit = new BufferedWriter(osw);
+			while (inter.hasNext()) {
+				Cliente cliente = inter.next();
+				BufWrit.write(cliente.quarto.numeroQuarto + " " + cliente.quarto.aluguelDoQuarto + " "
+						+ cliente.quarto.consumo + " " + cliente.quarto.danosCausados + " "
+						+ cliente.quarto.gastoTotal);
+				BufWrit.newLine();
 			}
-			
-			PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-		
-			gravaRelatorio.println();
-			gravaRelatorio.printf("| Consumo: %.2f ", valor);
-			gravaRelatorio.close();
-			
-			this.consumo += valor;
+
+		} catch (FileNotFoundException e) {
+			System.out.println("Erro ao tentar criar arquivo");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Erro ao tentar escrever no arquivo");
+			e.printStackTrace();
+		} finally {
+			BufWrit.close();
 		}
-		// Soma valor dos Danos
-		public void soma_Danos(double valor) {
-			String numero_Relatorio = this.numeroQuarto + " - " + "Relatorio.txt";
-			Writer relatorio = null;
-			
-			try {
-				relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-			} catch (IOException e) {
-				System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Danos");
-				e.printStackTrace();
-			}
-			
-			PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-		
-			gravaRelatorio.println();
-			gravaRelatorio.printf("| Danos: %.2f ", valor);
-			gravaRelatorio.close();
-			
-			this.danosCausados += valor;
-		}
-		// Soma valor Total
-		public void soma_Total() {
-			String numero_Relatorio = this.numeroQuarto + " - " + "Relatorio.txt";
-			Writer relatorio = null;
-			
-			try {
-				relatorio = new BufferedWriter(new FileWriter(numero_Relatorio, true));
-			} catch (IOException e) {
-				System.out.println("!!! Erro ao tentar instanciar 'BufferedWriter' Total");
-				e.printStackTrace();
-			}
-			
-			PrintWriter gravaRelatorio = new PrintWriter(relatorio);
-		
-			gravaRelatorio.println();
-			gravaRelatorio.printf("| TOTAL: %.2f ", this.gastoTotal = this.aluguelDoQuarto + this.consumo + this.danosCausados);
-			gravaRelatorio.close();
-		}
+	}
 }
