@@ -1,5 +1,7 @@
 
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -49,8 +51,8 @@ public class Hotel {
     if (autenticaGerente) {//Gerente
       int n=0;
       while (n != 4) {
-        System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" +
-                "\n5-MOSTRAR FUNCIONARIOS");
+        System.out.println("1- Cadastro de funcionarios  2 - Remoção  3- Alteração  4-Salvar e sair" +
+                "\n5-Mostrar funcionarios");
         System.out.print("Opção: ");
         n = entrada.nextInt();
         entrada.nextLine();//Ler Enter
@@ -113,7 +115,6 @@ public class Hotel {
             else {
               System.out.println("Qual dado deseja remover da recepcionista? " + recepcionista.getNome());
               ((Gerente) gerente).alterarFuncionario(recepcionista);
-
             }
           }
           else {
@@ -130,64 +131,21 @@ public class Hotel {
     else{//Recepcionista
       int n=0;
       while (n != 4) {
-        System.out.println("1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" +
-                "\n5- Mostrar Clientes");
+        System.out.println("1- Cadastro de cliente  2- Remoção  3- Alteração  4-Salvar e sair" +
+                "\n5- Mostrar Clientes  6- Alugar quarto");
         System.out.print("Opção: ");
         n = entrada.nextInt();
         entrada.nextLine();//Ler Enter
-        if (n == 1) {//CADASTRO DE CLIENTE
-          while (true) {
-            System.out.println("1 - Cadastro de Cliente  2 - Voltar");
-            n = entrada.nextInt();
-            entrada.nextLine();//Ler Enter
-            if (n == 1) {//Opção de Cadastrar Cliente
-              Pessoa cliente = new Cliente();
-              ((Recepcionista) recepcionistaAtiva).cadastrarCliente(clientes, (Cliente) cliente);
-            }
-            else if (n == 2)
-              break;
-            System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-            System.out.print("1 - Cadastrar Outro Cliente  2 - NÃO\n");
-            n = entrada.nextInt();
-            if (n == 2)
-              break;
-          }
+        if (n == 1) //CADASTRO DE CLIENTE
+          ((Recepcionista) recepcionistaAtiva).cadastrarCliente(clientes);
+        else if (n == 2) //REMOÇÃO
+          ((Recepcionista) recepcionistaAtiva).removerCliente(clientes);
+        else if(n == 3)//Alteração
+          ((Recepcionista) recepcionistaAtiva).alterarCliente(clientes);
+        else if(n == 5)//Mostrar Clientes
+          ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);
+        else if(n == 6){//Alugar Quarto
         }
-        else if (n == 2) {//REMOÇÃO
-          System.out.println("Nome cliente: ");
-          String nome = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
-          Cliente cliente;
-
-          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
-          if(cliente==null)
-            System.out.println("** CLIENTE NÃO ENCONTRADO **");
-            else {
-              ((Recepcionista) recepcionistaAtiva).removerCliente(clientes, cliente);
-              System.out.println("** CLIENTE REMOVIDO COM SUCESSO! **");
-            }
-        }
-        else if(n == 3){//Alteração
-          System.out.println("Nome cliente: ");
-          String nome = entrada.nextLine().toUpperCase();
-          System.out.println("Nacionalidade: ");
-          String nacionalidade = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
-          Cliente cliente;
-
-
-          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
-          if(cliente==null)
-            System.out.println("** CLIENTE NÃO ENCONTRADO **");
-            else {
-              System.out.println("Qual dado deseja remover do cliente? " + cliente.getNome());
-              ((Recepcionista) recepcionistaAtiva).alterarCliente(cliente);
-            }
-        }
-        else if(n == 5){//Mostrar Clientes
-          ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);        }
       }
     }
   }
