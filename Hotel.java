@@ -190,13 +190,24 @@ public class Hotel {
           }
         }
         else if (n == 2) {//REMOÇÃO
-          System.out.println("Nome cliente: ");
-          String nome = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
           Cliente cliente;
 
-          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          System.out.println("Nome cliente: ");
+          String nome = entrada.nextLine().toUpperCase();
+          System.out.println("Nacionalidade: ");
+          String nacionalidade = entrada.next().toUpperCase();
+          if(nacionalidade.equals("BRASILEIRO")) {
+            System.out.println("CPF: ");
+            String cpf = entrada.nextLine().toUpperCase();
+            cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          }
+          else {
+            System.out.println("ID: ");
+            int clienteID = entrada.nextInt();
+            entrada.nextLine();
+            cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,clienteID,clientes);
+          }
+
           if(cliente==null)
             System.out.println("** CLIENTE NÃO ENCONTRADO **");
             else {
@@ -205,16 +216,23 @@ public class Hotel {
             }
         }
         else if(n == 3){//Alteração
+          Cliente cliente;
+
           System.out.println("Nome cliente: ");
           String nome = entrada.nextLine().toUpperCase();
           System.out.println("Nacionalidade: ");
-          String nacionalidade = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
-          Cliente cliente;
-
-
-          cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          String nacionalidade = entrada.next().toUpperCase();
+          if(nacionalidade.equals("BRASILEIRO")) {
+            System.out.println("CPF: ");
+            String cpf = entrada.nextLine().toUpperCase();
+            cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,cpf,clientes);
+          }
+          else {
+            System.out.println("ID: ");
+            int clienteID = entrada.nextInt();
+            entrada.nextLine();
+            cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome,clienteID,clientes);
+          }
           if(cliente==null)
             System.out.println("** CLIENTE NÃO ENCONTRADO **");
             else {
@@ -223,8 +241,8 @@ public class Hotel {
             }
         }
         else if(n == 5){//Mostrar Clientes
-          ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);        }
-      }
+          ((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);
+        }
     }
     // TODO salvar tudo e sair
 		Quarto aux = new Quarto();
