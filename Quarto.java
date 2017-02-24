@@ -28,8 +28,9 @@ public class Quarto {
 	public Quarto(String numeroQuarto, String tipoQuarto) {
 		Quarto.totalQuartos++;
 		this.numeroQuarto = numeroQuarto;
-		System.out.println("Valor: "+alugarQuarto(tipoQuarto));
+		System.out.println("Valor: " + alugarQuarto(tipoQuarto));
 	}
+
 	public Quarto() {
 		// Apenas AUXILIAR
 	}
@@ -90,15 +91,19 @@ public class Quarto {
 	public void setGastoTotal(double gastoTotal) {
 		this.gastoTotal = gastoTotal;
 	}
+
 	public double getAluguelDoQuarto() {
 		return aluguelDoQuarto;
 	}
+
 	public void setAluguelDoQuarto(double valorQuarto) {
 		this.aluguelDoQuarto = valorQuarto;
 	}
+
 	public double getDanosCausados() {
 		return danosCausados;
 	}
+
 	public void setDanosCausados(double danosCausados) {
 		this.danosCausados = danosCausados;
 	}
@@ -165,7 +170,7 @@ public class Quarto {
 		this.setConsumo(this.getConsumo() + valor);
 	}
 
-	// ### Fun��es ###
+	// ### Funcoes ###
 	// Soma valor dos Danos
 	public void somarDanos(double valor) {
 		this.danosCausados += valor;
@@ -186,9 +191,9 @@ public class Quarto {
 			BufWrit = new BufferedWriter(osw);
 			while (inter.hasNext()) {
 				Cliente cliente = inter.next();
-				BufWrit.write(cliente.quarto.numeroQuarto+" "+cliente.quarto.aluguelDoQuarto
-						+" "+cliente.quarto.consumo+" "+cliente.quarto.danosCausados
-						+" "+cliente.quarto.gastoTotal);
+				BufWrit.write(cliente.quarto.numeroQuarto + " " + cliente.quarto.aluguelDoQuarto + " "
+						+ cliente.quarto.consumo + " " + cliente.quarto.danosCausados + " "
+						+ cliente.quarto.gastoTotal);
 				BufWrit.newLine();
 			}
 
