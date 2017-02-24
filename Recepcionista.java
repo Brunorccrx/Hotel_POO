@@ -8,6 +8,14 @@ public class Recepcionista extends Funcionario implements Autentica {
 
   private String login="samus";
   private String senha="321";
+  
+  Scanner entrada = new Scanner(System.in);
+  //Tratar reserva do quarto
+    private boolean reservaDisponivel;
+    private String reservaTipoQuarto;
+    private String clienteIdentidade;
+    private String clienteContato;
+       
 
   public String getSenha() {
     return senha;
@@ -40,8 +48,7 @@ public class Recepcionista extends Funcionario implements Autentica {
     return this.senha.equals(senha) && this.login.equals(login);
   }
   protected void cadastrarCliente(List<Cliente> clientes, Cliente cliente){
-    Scanner entrada = new Scanner(System.in);
-
+   
     System.out.print("Nome: ");
     cliente.setNome(entrada.nextLine());
     System.out.print("Nacionalidade: ");
@@ -88,7 +95,6 @@ public class Recepcionista extends Funcionario implements Autentica {
   }
 
   protected void alterarCliente(Cliente cliente){
-    Scanner entrada = new Scanner(System.in);
     int opcao;
 
     System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
@@ -126,5 +132,8 @@ public class Recepcionista extends Funcionario implements Autentica {
   protected void mostrarClientes(List<Cliente>clientes){
     for (Cliente cliente:clientes)
       System.out.println(cliente);
+  }
+  public void reservaQuarto(){
+      
   }
 }
