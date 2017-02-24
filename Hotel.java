@@ -181,7 +181,7 @@ public class Hotel {
 			int n = 0;
 			while (n != 4) {
 				System.out.println(
-						"1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" + "\n5- Mostrar Clientes");
+						"1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  4-SALVAR E SAIR" + "\n5- Mostrar Clientes  6 - RESERVAR QUARTO");
 				System.out.print("Opção: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
@@ -232,6 +232,9 @@ public class Hotel {
 				} else if (n == 5) {
 					((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);
 				}
+				else if(n == 6){//Reservar Quarto
+            				((Recepcionista) recepcionistaAtiva).reservaQuarto();
+        			}
 			}
 		}
 		Quarto aux = new Quarto();
