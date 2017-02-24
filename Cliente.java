@@ -1,87 +1,64 @@
 package sistemadehotel;
 
+public class Cliente extends Pessoa {
+	// Dados Pessoais
+	static private int ID;
+	private String passaporte;
+	private String nacionalidade;
+	Quarto quarto;
 
-public class Cliente {
-    //Dados pessoais do cliente
-    private String nome;
-    private String endereco;
-    private String contato;
-    private String email;
-    private String nacionalidade;
-    private String RG;
-    private String CPF;
-    private String passaporte;
-    private String data_de_nascimento;
+	// Construtor
 
-    //Getters e Setters
-    public String getNome() {
-        return nome;
-    }
+	public Cliente(String numeroQuarto, String tipoQuarto) {
+		Cliente.ID++;
+		quarto = new Quarto(numeroQuarto, tipoQuarto);
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Cliente() {
+		// Apenas AUXILIAR
+		quarto = new Quarto();
+	}
 
-    public String getEndereco() {
-        return endereco;
-    }
+	// get ID
+	public int getID() {
+		return ID;
+	}
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
+	// get e set Nacionalidade
+	public String getNacionalidade() {
+		return nacionalidade;
+	}
 
-    public String getContato() {
-        return contato;
-    }
+	public void setNacionalidade(String nacionalidade) {
+		String toUpperCase = nacionalidade.toUpperCase();
+		this.nacionalidade = toUpperCase;
+	}
 
-    public void setContato(String contato) {
-        this.contato = contato;
-    }
+	// get e set Passaporte
+	public String getPassaporte() {
+		return passaporte;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setPassaporte(String passaporte) {
+		this.passaporte = passaporte;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@Override
+	public String toString() {
+		String saida = "Nome: " + this.getNome() + "\n" + "Nacionalidade: " + this.getNacionalidade() + "\n"
+				+ "Data de nascimento: : " + this.getDataNasc() + "\n" + "Contato: " + this.getNumTelefone() + "\n"
+				+ "Rua: " + this.getRua() + "\n" + "Bairro: " + this.getBairro() + "\n" + "Complemento: "
+				+ this.getComplemento() + "\n" + "Numero da casa: " + this.getNumeroCasa() + "\n" + "Cidade: "
+				+ this.getCidade() + "\n" + "Estado: " + this.getEstado() + "\n";
 
-    public String getNacionalidade() {
-        return nacionalidade;
-    }
+		if (this.getNacionalidade().equals("BRASILEIRO")) {
+			saida = saida.concat("CPF: " + this.getCPF() + "\n" + "RG: " + this.getRG() + "\n");
+		} else {
+			saida = saida.concat("Passaporte: " + this.getPassaporte() + "\n");
+		}
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
+		return saida;
+	}
 
-    public String getRG() {
-        return RG;
-    }
-
-    public void setRG(String RG) {
-        this.RG = RG;
-    }
-
-    public String getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
-    }
-
-    public String getPassaporte() {
-        return passaporte;
-    }
-
-    public void setPassaporte(String passaporte) {
-        this.passaporte = passaporte;
-    }
-
-    public String getData_de_nascimento() {
-        return data_de_nascimento;
-    }
-
-    public void setData_de_nascimento(String data_de_nascimento) {
-        this.data_de_nascimento = data_de_nascimento;
-    }
+	// TODO Metodo para comprar refeicao
+}
