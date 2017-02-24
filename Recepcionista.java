@@ -15,6 +15,7 @@ public class Recepcionista extends Funcionario implements Autentica {
     private String reservaTipoQuarto;
     private String clienteIdentidade;
     private String clienteContato;
+    private int totalReserva = 0;
        
 
   public String getSenha() {
@@ -42,6 +43,46 @@ public class Recepcionista extends Funcionario implements Autentica {
 
     this.login = login;
   }
+    public boolean isReservaDisponivel() {
+        return reservaDisponivel;
+    }
+
+    public void setReservaDisponivel(boolean reservaDisponivel) {
+        this.reservaDisponivel = reservaDisponivel;
+    }
+
+    public String getReservaTipoQuarto() {
+        return reservaTipoQuarto;
+    }
+
+    public void setReservaTipoQuarto(String reservaTipoQuarto) {
+        this.reservaTipoQuarto = reservaTipoQuarto;
+    }
+
+    public String getClienteIdentidade() {
+        return clienteIdentidade;
+    }
+
+    public void setClienteIdentidade(String clienteIdentidade) {
+        this.clienteIdentidade = clienteIdentidade;
+    }
+
+    public String getClienteContato() {
+        return clienteContato;
+    }
+
+    public void setClienteContato(String clienteContato) {
+        this.clienteContato = clienteContato;
+    }
+
+    public int getTotalReserva() {
+        return totalReserva;
+    }
+
+    public void setTotalReserva(int totalReserva) {
+        this.totalReserva = totalReserva;
+    }
+  
 
   @Override
   public boolean autentica(String senha, String login){
@@ -134,6 +175,6 @@ public class Recepcionista extends Funcionario implements Autentica {
       System.out.println(cliente);
   }
   public void reservaQuarto(){
-      
+      totalReserva++;
   }
 }
