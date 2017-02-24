@@ -176,5 +176,10 @@ public class Recepcionista extends Funcionario implements Autentica {
   }
   public void reservaQuarto(){
       totalReserva++;
+      String nome = entrada.nextLine();
+      String identidade = entrada.nextLine();
+      String contato = entrada.nextLine();
+      String tipoQuarto = entrada.nextLine().toUpperCase();
+      
   }
 }
