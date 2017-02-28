@@ -147,9 +147,6 @@ public class Recepcionista extends Funcionario implements Autentica {
   }
 
 
-  protected boolean removerCliente(List<Cliente>clientes,Cliente cliente){
-    return clientes.remove(cliente);
-  }
   protected void removerCliente(List<Cliente>clientes){
     Cliente cliente;
     Scanner entrada = new Scanner(System.in);
@@ -180,42 +177,6 @@ public class Recepcionista extends Funcionario implements Autentica {
   }
 
 
-    protected void alterarCliente(Cliente cliente){
-    Scanner entrada = new Scanner(System.in);
-    int opcao;
-
-    System.out.println("1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n' +
-            "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' +
-            "11 - Estado  12 - Nacionalidade" + '\n');
-
-    opcao = entrada.nextInt();
-    entrada.nextLine();
-
-    if(opcao==1)
-      cliente.setNome(entrada.nextLine());
-    else if (opcao==2)
-      cliente.setCPF(entrada.nextLine());
-    else if(opcao==3)
-      cliente.setRG(entrada.nextLine());
-    else if(opcao==4)
-      cliente.setNumTelefone(entrada.nextLine());
-    else if(opcao==5)
-      cliente.setDataNasc(entrada.nextLine());
-    else if(opcao==6)
-      cliente.setRua(entrada.nextLine());
-    else if(opcao==7)
-      cliente.setBairro(entrada.nextLine());
-    else if(opcao==8)
-      cliente.setComplemento(entrada.nextLine());
-    else if(opcao==9)
-      cliente.setNumeroCasa(entrada.nextLine());
-    else if(opcao==10)
-      cliente.setCidade(entrada.nextLine());
-    else if(opcao==11)
-      cliente.setEstado(entrada.nextLine());
-    else if(opcao==12)
-      cliente.setNacionalidade(entrada.nextLine());
-  }
   protected void alterarCliente(List<Cliente> clientes){
     int opcao;
     Cliente cliente;

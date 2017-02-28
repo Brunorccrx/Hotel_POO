@@ -1,7 +1,5 @@
 
 
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,8 +14,8 @@ public class Hotel {
     List<Cliente> clientes = new ArrayList<>();
     List<Quarto> quartos = new ArrayList<>();
     Funcionario gerente = new Gerente();
-    recepcionistas.add(new Recepcionista());
     Funcionario recepcionistaAtiva = new Recepcionista();
+    recepcionistas.add((Recepcionista)(recepcionistaAtiva));//APENAS PARA TESTE
     Scanner entrada = new Scanner(System.in);
     String login;
     String senha;
@@ -48,6 +46,8 @@ public class Hotel {
 
       System.out.println("Login ou Senha incorretos");
     }
+    recepcionistas.remove(0);//APENAS PARA TESTE
+
     if (autenticaGerente) {//Gerente
       int n=0;
       while (n != 4) {
@@ -77,50 +77,10 @@ public class Hotel {
           }
         }
         else if (n == 2) {//REMOÇÃO
-          System.out.println("Nome funcionario: ");
-          String nome = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
-          Camareira camareira;
-          Recepcionista recepcionista;
-
-          camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome,cpf,camareiras);
-          if(camareira==null) {
-            recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf, recepcionistas);
-            if (recepcionista == null)
-              System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
-            else {
-              ((Gerente) gerente).removerFuncionario(recepcionistas, recepcionista);
-              System.out.println("** RECEPCIONISTA REMOVIDA COM SUCESSO! **");
-            }
-          }
-          else {
-            ((Gerente) gerente).removerFuncionario(camareiras, camareira);
-            System.out.println("** CAMAREIRA REMOVIDA COM SUCESSO! **");
-          }
+          ((Gerente) gerente).removerFuncionario(camareiras,recepcionistas);
         }
-        else if(n == 3){//Alteração
-          System.out.println("Nome funcionario: ");
-          String nome = entrada.nextLine().toUpperCase();
-          System.out.println("CPF: ");
-          String cpf = entrada.nextLine().toUpperCase();
-          Camareira camareira;
-          Recepcionista recepcionista;
-
-          camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome,cpf,camareiras);
-          if(camareira==null) {
-            recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf, recepcionistas);
-            if (recepcionista == null)
-              System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
-            else {
-              System.out.println("Qual dado deseja remover da recepcionista? " + recepcionista.getNome());
-              ((Gerente) gerente).alterarFuncionario(recepcionista);
-            }
-          }
-          else {
-            System.out.println("Qual dado deseja remover da camareira? " + camareira.getNome());
-            ((Gerente) gerente).alterarFuncionario(camareira);
-          }
+        else if(n == 3) {//Alteração
+          ((Gerente) gerente).alterarFuncionario(camareiras,recepcionistas);
         }
         else if(n==5){//Mostrar Funcionarios
 			    ((Gerente) gerente).mostrarFuncionarios(camareiras);
