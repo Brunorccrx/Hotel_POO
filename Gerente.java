@@ -1,4 +1,4 @@
-package sistemadehotel;
+package Hotelaria;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -9,19 +9,35 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Gerente extends Funcionario implements Autentica {
+	
+	/**
+         * Atributos Login e Senha para autenticação no sistema
+         * 
+         * 
+         */
 	private String login = "mario";
 	private String senha = "123";
+	
 	private Scanner entrada = new Scanner(System.in);
-    private static BufferedWriter BufWrit;
+        private static BufferedWriter BufWrit;
 	private static Gerente gerente = new Gerente();
-
+        
+        /**
+         * Construtor vazio 
+         */
 	private Gerente() {
 	}
-
+        
 	public static Gerente getInstance() {
 		return gerente;
 	}
-
+        /**
+         * 
+         * @param camareiras
+         * @param camareira 
+         * Método de cadastro de Funcionarios do tipo Camareira 
+         *
+         */
 	protected void cadastrarFuncionario(List<Camareira> camareiras, Camareira camareira) {
 
 		System.out.print("Nome: ");
@@ -46,11 +62,18 @@ public class Gerente extends Funcionario implements Autentica {
 		camareira.setCidade(entrada.nextLine().toUpperCase());
 		System.out.print("Estado: ");
 		camareira.setEstado(entrada.nextLine().toUpperCase());
-		System.out.print("Sal�rio: ");
+		System.out.print("Salário: ");
 		camareira.setSalario(entrada.nextDouble());
 
 		camareiras.add(camareira);
 	}
+        
+        /**
+         * 
+         * @param recepcionistas
+         * @param recepcionista 
+         * Método de cadastro de Funcionarios do tipo recepcionistas
+         */
 
 	protected void cadastrarFuncionario(List<Recepcionista> recepcionistas, Recepcionista recepcionista) {
 		// Scanner entrada = new Scanner(System.in);
@@ -77,11 +100,20 @@ public class Gerente extends Funcionario implements Autentica {
 		recepcionista.setCidade(entrada.nextLine().toUpperCase());
 		System.out.print("Estado: ");
 		recepcionista.setEstado(entrada.nextLine().toUpperCase());
-		System.out.print("Sal�rio: ");
+		System.out.print("Salário: ");
 		recepcionista.setSalario(entrada.nextDouble());
 
 		recepcionistas.add(recepcionista);
 	}
+        
+        /**
+         * 
+         * @param funcionarios
+         * @param funcionarios2
+         * @return 
+         * 
+         * Método para remoção de Funcionarios do tipo Camareira e Recepcionista
+         */
 
 	protected Funcionario removerFuncionario(List<? extends Funcionario> funcionarios,
 			List<? extends Funcionario> funcionarios2) {
@@ -98,7 +130,7 @@ public class Gerente extends Funcionario implements Autentica {
 		if (funcionario == null) {
 			funcionario = gerente.verificaFuncionario(nome, cpf, funcionarios2);
 			if (funcionario == null)
-				System.out.println("** FUNCIONARIO N�O ENCONTRADO **");
+				System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
 			else
 				funcionarios2.remove(funcionario);
 		} else
@@ -110,11 +142,26 @@ public class Gerente extends Funcionario implements Autentica {
 		return funcionario;
 
 	}
-
+        /**
+         * 
+         * @param funcionarios 
+         * 
+         * Método para mostrar lista de funcionarios
+         */
 	protected void mostrarFuncionarios(List<? extends Funcionario> funcionarios) {
 		for (Funcionario funcionario : funcionarios)
 			System.out.println(funcionario);
 	}
+        
+        /**
+         * 
+         * @param nome
+         * @param CPF
+         * @param funcionarios
+         * @return 
+         * 
+         * Método para verificação de Funcionario
+         */
 
 	protected Funcionario verificaFuncionario(String nome, String CPF, List<? extends Funcionario> funcionarios) {
 		for (Funcionario funcionario : funcionarios)
@@ -123,6 +170,15 @@ public class Gerente extends Funcionario implements Autentica {
 
 		return null;
 	}
+        
+        /**
+         * 
+         * @param funcionarios
+         * @param funcionarios2
+         * @return
+         * 
+         * Método para alteração de cadastro de Funcionarios
+         */
 
 	protected Funcionario alterarFuncionario(List<? extends Funcionario> funcionarios,
 			List<? extends Funcionario> funcionarios2) {
@@ -141,12 +197,12 @@ public class Gerente extends Funcionario implements Autentica {
 			funcionario = gerente.verificaFuncionario(nome, cpf, funcionarios2);
 		}
 		if (funcionario == null)
-			System.out.println("** FUNCIONARIO N�O ENCONTRADO **");
+			System.out.println("** FUNCIONARIO NÃO ENCONTRADO **");
 		else {
 			System.out.println("Qual dado deseja alterar do funcionario " + funcionario.getNome() + "?");
 			int opcao;
 
-			System.out.println("\n1 - Nome  2 - CPF  3 - RG  4 - N�meroDeTelefone  5 - DataDeNascimento" + '\n'
+			System.out.println("\n1 - Nome  2 - CPF  3 - RG  4 - NúmeroDeTelefone  5 - DataDeNascimento" + '\n'
 					+ "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n' + "11 - Estado"
 					+ '\n');
 
@@ -187,10 +243,10 @@ public class Gerente extends Funcionario implements Autentica {
 
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7) {
-			throw new IOException("Senha deve ter no m�nimo 7 caracteres");
+			throw new IOException("Senha deve ter no mínimo 7 caracteres");
 		}
 		if (senha.length() > 14) {
-			throw new IOException("Senha ultrapassou o limite m�ximo de 14 caracteres");
+			throw new IOException("Senha ultrapassou o limite máximo de 14 caracteres");
 		}
 
 		this.senha = senha;
@@ -202,16 +258,22 @@ public class Gerente extends Funcionario implements Autentica {
 
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5) {
-			throw new IOException("Login deve ter no m�nimo 5 caracteres");
+			throw new IOException("Login deve ter no mínimo 5 caracteres");
 		}
 		if (login.length() > 20) {
-			throw new IOException("Login ultrapassou o limite m�ximo de 20 caracteres");
+			throw new IOException("Login ultrapassou o limite máximo de 20 caracteres");
 		}
 
 		this.login = login;
 	}
 
-	// ### SALVA OS DADOS NO ARQUIVO ###
+	/**
+         * 
+         * @param list
+         * @throws IOException 
+         * 
+         * Método para Salvar dados da Recepcionista em Arquivo txt
+         */
 	public void salvarDadosRecepcionista(List<Recepcionista> list) throws IOException {
 
 		Iterator<Recepcionista> inter = list.iterator();
@@ -236,7 +298,14 @@ public class Gerente extends Funcionario implements Autentica {
 			BufWrit.close();
 		}
 	}
-
+        /**
+         * 
+         * @param list
+         * @throws IOException
+         * 
+         * Método para Salvar dados da Camareira em Arquivo txt
+         */
+        
 	public void salvarDadosCamareira(List<Camareira> list) throws IOException {
 
 		Iterator<Camareira> inter = list.iterator();
@@ -261,7 +330,12 @@ public class Gerente extends Funcionario implements Autentica {
 			BufWrit.close();
 		}
 	}
-
+        /**
+         * 
+         * @param senha
+         * @param login
+         * @return 
+         */
 	@Override
 	public boolean autentica(String senha, String login) {
 		return this.senha.equals(senha) && this.login.equals(login);
