@@ -1,12 +1,17 @@
 package sistemadehotel;
-     /**
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
+     
+public interface Autentica {
+    /**
      * @param senha
      * @param login
      * @return 
      */
-/**
-* Interface de autenticação de Login e Senha
-*/
-public interface Autentica {
 	public boolean autentica(String senha, String login);
 }
