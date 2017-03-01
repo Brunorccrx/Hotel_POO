@@ -1,4 +1,4 @@
-package sistemadehotel;
+package Hotelaria;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -21,8 +21,8 @@ public class Hotel {
         List<Camareira> camareiras = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
         Funcionario gerente = Gerente.getInstance();
-        Funcionario r = new Recepcionista();
-        Recepcionista recepcionista = new Recepcionista();
+        Recepcionista recep = new Recepcionista();
+        Recepcionista recepcionista = new Recepcionista(); /* PARA FINS DE AUTENTICAÇÃO */
         Camareira Objcamareira = new Camareira();
         Scanner entrada = new Scanner(System.in);
         String login;
@@ -62,23 +62,23 @@ public class Hotel {
         /**
          * DADOS RECEPCIONISTA *
          */
-        try {
+        /*try {
             BufferedReader BufRed = new BufferedReader(new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\recepcionista.txt"));
             String str = BufRed.readLine();
             while (str != null) {
                 StringTokenizer strtok = new StringTokenizer(str);
                 while (strtok.hasMoreTokens()) {
-                    recepcionista.setNome(strtok.nextToken("/"));
-                    recepcionista.setRG(strtok.nextToken("/"));
-                    recepcionista.setCPF(strtok.nextToken("/"));
-                    recepcionista.setNumTelefone(strtok.nextToken("/"));
-                    recepcionista.setDataNasc(strtok.nextToken("/"));
-                    recepcionista.setRua(strtok.nextToken("/"));
-                    recepcionista.setBairro(strtok.nextToken("/"));
-                    recepcionista.setComplemento(strtok.nextToken("/"));
-                    recepcionista.setNumeroCasa(strtok.nextToken("/"));
-                    recepcionista.setCidade(strtok.nextToken("/"));
-                    recepcionista.setEstado(strtok.nextToken("/"));
+                    recepcionista.setNome(strtok.nextToken("|"));
+                    recepcionista.setRG(strtok.nextToken("|"));
+                    recepcionista.setCPF(strtok.nextToken("|"));
+                    recepcionista.setNumTelefone(strtok.nextToken("|"));
+                    recepcionista.setDataNasc(strtok.nextToken("|"));
+                    recepcionista.setRua(strtok.nextToken("|"));
+                    recepcionista.setBairro(strtok.nextToken("|"));
+                    recepcionista.setComplemento(strtok.nextToken("|"));
+                    recepcionista.setNumeroCasa(strtok.nextToken("|"));
+                    recepcionista.setCidade(strtok.nextToken("|"));
+                    recepcionista.setEstado(strtok.nextToken("|"));
                     recepcionista.setSalario(Double.parseDouble((String) strtok.nextElement()));
 
                     recepcionistas.add(recepcionista);
@@ -93,25 +93,25 @@ public class Hotel {
             e.printStackTrace();
         } finally {
 
-        }
+        }*/
          /* CARREGAMENTO DOS DADOS DAS CAMAREIRAS */
-        try {
+        /*try {
             BufferedReader BufRed = new BufferedReader(new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\Camareiras.txt"));
             String str = BufRed.readLine();
             while (str != null) {
                 StringTokenizer strtok = new StringTokenizer(str);
                 while (strtok.hasMoreTokens()) {
-                    Objcamareira.setNome(strtok.nextToken("/"));
-                    Objcamareira.setRG(strtok.nextToken("/"));
-                    Objcamareira.setCPF(strtok.nextToken("/"));
-                    Objcamareira.setNumTelefone(strtok.nextToken("/"));
-                    Objcamareira.setDataNasc(strtok.nextToken("/"));
-                    Objcamareira.setRua(strtok.nextToken("/"));
-                    Objcamareira.setBairro(strtok.nextToken("/"));
-                    Objcamareira.setComplemento(strtok.nextToken("/"));
-                    Objcamareira.setNumeroCasa(strtok.nextToken("/"));
-                    Objcamareira.setCidade(strtok.nextToken("/"));
-                    Objcamareira.setEstado(strtok.nextToken("/"));
+                    Objcamareira.setNome(strtok.nextToken("|"));
+                    Objcamareira.setRG(strtok.nextToken("|"));
+                    Objcamareira.setCPF(strtok.nextToken("|"));
+                    Objcamareira.setNumTelefone(strtok.nextToken("|"));
+                    Objcamareira.setDataNasc(strtok.nextToken("|"));
+                    Objcamareira.setRua(strtok.nextToken("|"));
+                    Objcamareira.setBairro(strtok.nextToken("|"));
+                    Objcamareira.setComplemento(strtok.nextToken("|"));
+                    Objcamareira.setNumeroCasa(strtok.nextToken("|"));
+                    Objcamareira.setCidade(strtok.nextToken("|"));
+                    Objcamareira.setEstado(strtok.nextToken("|"));
                     Objcamareira.setSalario(Double.parseDouble((String) strtok.nextElement()));
 
                     camareiras.add(Objcamareira);
@@ -126,37 +126,37 @@ public class Hotel {
             e.printStackTrace();
         } finally {
 
-        }
+        }*/
         /** CARREGAMENTO DOS DADOS DOS CLIENTES **/ 
-        try {
+        /*try {
             BufferedReader BufRed = new BufferedReader(new FileReader("C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados Clientes\\Clientes.txt"));
             String str = BufRed.readLine();
             while (str != null) {
                 StringTokenizer strtok = new StringTokenizer(str);
                 while (strtok.hasMoreTokens()) {
-                   cli.setNome(strtok.nextToken("/"));
-                   cli.setNacionalidade(strtok.nextToken("/"));
+                   cli.setNome(strtok.nextToken("|"));
+                   cli.setNacionalidade(strtok.nextToken("|"));
                    if(cli.getNacionalidade().equals("BRASILEIRO")){
-                       cli.setCPF(strtok.nextToken("/"));
-                       cli.setRG(strtok.nextToken("/"));
-                       cli.setDataNasc(strtok.nextToken("/"));
-                       cli.setNumTelefone(strtok.nextToken("/"));
-                       cli.setRua(strtok.nextToken("/"));
-                       cli.setBairro(strtok.nextToken("/"));
-                       cli.setComplemento(strtok.nextToken("/"));
-                       cli.setNumeroCasa(strtok.nextToken("/"));
-                       cli.setCidade(strtok.nextToken("/"));
-                       cli.setEstado(strtok.nextToken("/"));
+                       cli.setCPF(strtok.nextToken("|"));
+                       cli.setRG(strtok.nextToken("|"));
+                       cli.setDataNasc(strtok.nextToken("|"));
+                       cli.setNumTelefone(strtok.nextToken("|"));
+                       cli.setRua(strtok.nextToken("|"));
+                       cli.setBairro(strtok.nextToken("|"));
+                       cli.setComplemento(strtok.nextToken("|"));
+                       cli.setNumeroCasa(strtok.nextToken("|"));
+                       cli.setCidade(strtok.nextToken("|"));
+                       cli.setEstado(strtok.nextToken("|"));
                    }else{
-                       cli.setPassaporte(strtok.nextToken("/"));
-                       cli.setDataNasc(strtok.nextToken("/"));
-                       cli.setNumTelefone(strtok.nextToken("/"));
-                       cli.setRua(strtok.nextToken("/"));
-                       cli.setBairro(strtok.nextToken("/"));
-                       cli.setComplemento(strtok.nextToken("/"));
-                       cli.setNumeroCasa(strtok.nextToken("/"));
-                       cli.setCidade(strtok.nextToken("/"));
-                       cli.setEstado(strtok.nextToken("/"));
+                       cli.setPassaporte(strtok.nextToken("|"));
+                       cli.setDataNasc(strtok.nextToken("|"));
+                       cli.setNumTelefone(strtok.nextToken("|"));
+                       cli.setRua(strtok.nextToken("|"));
+                       cli.setBairro(strtok.nextToken("|"));
+                       cli.setComplemento(strtok.nextToken("|"));
+                       cli.setNumeroCasa(strtok.nextToken("|"));
+                       cli.setCidade(strtok.nextToken("|"));
+                       cli.setEstado(strtok.nextToken("|"));
                     }
                     clientes.add(cli);
                     str = BufRed.readLine();
@@ -170,7 +170,7 @@ public class Hotel {
             e.printStackTrace();
         } finally {
 
-        }
+        }*/
 
         System.out.println("*** BEM VINDO AO SISTEMA ***");
         while (true) {
@@ -204,7 +204,7 @@ public class Hotel {
                         n = entrada.nextInt();
                         entrada.nextLine();
                         if (n == 1) {// Opção de Cadastrar Recepcionistas
-                            //Funcionario r = new Recepcionista();
+                             Funcionario r = new Recepcionista();
                             ((Gerente) gerente).cadastrarFuncionarioRecepcionista(recepcionistas, (Recepcionista) r);
                         } else if (n == 2) { // Opção de Cadastrar Camareiras
                             Funcionario camareira = new Camareira();
@@ -232,8 +232,8 @@ public class Hotel {
             }
         } else if (autenticaRecepcionista) {
             int n = 0;
-            while (n != 8) {
-                System.out.println("1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  + \n4- MOSTRAR CLIENTES  5 - RESERVAR QUARTO 6 - ALUGAR QUARTO  7 - RESERVA QUARTO");
+            while (n != 7) {
+                System.out.println("1- CADASTRO DE CLIENTE  2 - REMOÇÃO  3- ALTERAÇÃO  \n4- MOSTRAR CLIENTES  5 - RESERVAR QUARTO 6 - ALUGAR QUARTO  7 - SALVAR E SAIR");
                 System.out.print("Opção: ");
                 n = entrada.nextInt();
                 entrada.nextLine();// Ler Enter
@@ -244,7 +244,7 @@ public class Hotel {
                         entrada.nextLine();// Ler Enter
                         if (n == 1) {// Opção de Cadastrar Cliente
                             Pessoa cliente = new Cliente();
-                            ((Recepcionista) r).cadastrarCliente(clientes, (Cliente) cliente);
+                            ((Recepcionista) recep).cadastrarCliente(clientes, (Cliente) cliente);
                         } else if (n == 2) {
                             break;
                         }
@@ -257,14 +257,18 @@ public class Hotel {
                         }
                     }
                 } else if (n == 2) {// REMOÇÃO
-                    
+                    ((Recepcionista) recep).removerCliente(clientes);
                 } else if (n == 3) {// Alteração
-                    ((Gerente) gerente).alterarFuncionario(camareiras,recepcionistas);
-                } else if (n == 5) {
-                    ((Recepcionista) r).mostrarClientes(clientes);
-                } else if (n == 6) {//Reservar Quarto
-                    ((Recepcionista) r).reservaQuarto();
+                    ((Recepcionista) recep).alterarCliente(clientes);
+                } else if (n == 4) { // mostrar clientes
+                    ((Recepcionista) recep).mostrarClientes(clientes);
+                } else if (n == 5) {//Reservar Quarto
+                    ((Recepcionista) recep).reservaQuarto();
                 }
+                else if (n == 6) { // alugar quarto
+                    // TODO implementar funçoes
+                }
+                
             }
         }
         //TODO salvar tudo e sair do SISTEMA
