@@ -1,5 +1,13 @@
 package sistemadehotel;
 
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
+
 public class Cliente extends Pessoa {
 	// Dados Pessoais
 	static private int ID;
