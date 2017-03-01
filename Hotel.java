@@ -20,7 +20,9 @@ public class Hotel {
 		List<Cliente> clientes = new ArrayList<>();
 		Funcionario gerente = Gerente.getInstance();
 		recepcionistas.add(new Recepcionista());
-		Funcionario recepcionistaAtiva = new Recepcionista();
+		Funcionario recepcionista = new Recepcionista();
+		Camareira Objcamareira = new Camareira();
+		@SuppressWarnings("resource")
 		Scanner entrada = new Scanner(System.in);
 		String login;
 		String senha;
@@ -29,7 +31,6 @@ public class Hotel {
 		Cliente clienteAux = new Cliente();
 
 		try {
-			@SuppressWarnings("resource")
 			BufferedReader BufRed = new BufferedReader(new FileReader("Relatorio de Consumo.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
@@ -45,7 +46,7 @@ public class Hotel {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo nﾃ｣o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n縊 encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -53,22 +54,117 @@ public class Hotel {
 		} finally {
 
 		}
-		// CARREGAMENTO DE DADOS DOS FUNCIONARIOS.
+		/**
+		 * ******** CARREGAMENTO DE DADOS DOS FUNCIONARIOS.******
+		 */
+		/**
+		 * DADOS RECEPCIONISTA *
+		 */
 		try {
-			@SuppressWarnings("resource")
-			BufferedReader BufRed = new BufferedReader(new FileReader("Recepcionista.txt"));
+			BufferedReader BufRed = new BufferedReader(
+					new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\recepcionista.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
 				StringTokenizer strtok = new StringTokenizer(str);
 				while (strtok.hasMoreTokens()) {
-					recepcionistaAtiva.setNome(strtok.nextToken(" "));
+					recepcionista.setNome(strtok.nextToken("/"));
+					recepcionista.setRG(strtok.nextToken("/"));
+					recepcionista.setCPF(strtok.nextToken("/"));
+					recepcionista.setNumTelefone(strtok.nextToken("/"));
+					recepcionista.setDataNasc(strtok.nextToken("/"));
+					recepcionista.setRua(strtok.nextToken("/"));
+					recepcionista.setBairro(strtok.nextToken("/"));
+					recepcionista.setComplemento(strtok.nextToken("/"));
+					recepcionista.setNumeroCasa(strtok.nextToken("/"));
+					recepcionista.setCidade(strtok.nextToken("/"));
+					recepcionista.setEstado(strtok.nextToken("/"));
+					recepcionista.setSalario(Double.parseDouble((String) strtok.nextElement()));
 
-					recepcionistas.add((Recepcionista) recepcionistaAtiva);
+					recepcionistas.add((Recepcionista) recepcionista);
 					str = BufRed.readLine();
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo nﾃ｣o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n縊 encontrado !!!\n\n");
+			// e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+		}
+		/* CARREGAMENTO DOS DADOS DAS CAMAREIRAS */
+		try {
+			BufferedReader BufRed = new BufferedReader(
+					new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\Camareiras.txt"));
+			String str = BufRed.readLine();
+			while (str != null) {
+				StringTokenizer strtok = new StringTokenizer(str);
+				while (strtok.hasMoreTokens()) {
+					Objcamareira.setNome(strtok.nextToken("/"));
+					Objcamareira.setRG(strtok.nextToken("/"));
+					Objcamareira.setCPF(strtok.nextToken("/"));
+					Objcamareira.setNumTelefone(strtok.nextToken("/"));
+					Objcamareira.setDataNasc(strtok.nextToken("/"));
+					Objcamareira.setRua(strtok.nextToken("/"));
+					Objcamareira.setBairro(strtok.nextToken("/"));
+					Objcamareira.setComplemento(strtok.nextToken("/"));
+					Objcamareira.setNumeroCasa(strtok.nextToken("/"));
+					Objcamareira.setCidade(strtok.nextToken("/"));
+					Objcamareira.setEstado(strtok.nextToken("/"));
+					Objcamareira.setSalario(Double.parseDouble((String) strtok.nextElement()));
+
+					camareiras.add(Objcamareira);
+					str = BufRed.readLine();
+				}
+			}
+		} catch (FileNotFoundException e) {
+			System.out.printf("\n\t!!! Arquivo n縊 encontrado !!!\n\n");
+			// e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+
+		}
+		/** CARREGAMENTO DOS DADOS DOS CLIENTES **/
+		try {
+			BufferedReader BufRed = new BufferedReader(new FileReader(
+					"C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados Clientes\\Clientes.txt"));
+			String str = BufRed.readLine();
+			while (str != null) {
+				StringTokenizer strtok = new StringTokenizer(str);
+				while (strtok.hasMoreTokens()) {
+					clienteAux.setNome(strtok.nextToken("/"));
+					clienteAux.setNacionalidade(strtok.nextToken("/"));
+					if (clienteAux.getNacionalidade().equals("BRASILEIRO")) {
+						clienteAux.setCPF(strtok.nextToken("/"));
+						clienteAux.setRG(strtok.nextToken("/"));
+						clienteAux.setDataNasc(strtok.nextToken("/"));
+						clienteAux.setNumTelefone(strtok.nextToken("/"));
+						clienteAux.setRua(strtok.nextToken("/"));
+						clienteAux.setBairro(strtok.nextToken("/"));
+						clienteAux.setComplemento(strtok.nextToken("/"));
+						clienteAux.setNumeroCasa(strtok.nextToken("/"));
+						clienteAux.setCidade(strtok.nextToken("/"));
+						clienteAux.setEstado(strtok.nextToken("/"));
+					} else {
+						clienteAux.setPassaporte(strtok.nextToken("/"));
+						clienteAux.setDataNasc(strtok.nextToken("/"));
+						clienteAux.setNumTelefone(strtok.nextToken("/"));
+						clienteAux.setRua(strtok.nextToken("/"));
+						clienteAux.setBairro(strtok.nextToken("/"));
+						clienteAux.setComplemento(strtok.nextToken("/"));
+						clienteAux.setNumeroCasa(strtok.nextToken("/"));
+						clienteAux.setCidade(strtok.nextToken("/"));
+						clienteAux.setEstado(strtok.nextToken("/"));
+					}
+					clientes.add(clienteAux);
+					str = BufRed.readLine();
+				}
+			}
+		} catch (FileNotFoundException e) {
+			System.out.printf("\n\t!!! Arquivo n縊 encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -89,8 +185,8 @@ public class Hotel {
 				System.out.println("** BEM VINDO GERENTE **");
 				break;
 			} else {
-				for (Recepcionista recepcionista : recepcionistas)
-					if (recepcionista.autentica(senha, login)) {
+				for (Recepcionista recepcionista1 : recepcionistas)
+					if (recepcionista1.autentica(senha, login)) {
 						System.out.println("** BEM VINDA RECEPCIONISTA **");
 						autenticaRecepcionista = true;
 						break;
@@ -101,12 +197,14 @@ public class Hotel {
 
 			System.out.println("Login ou Senha incorretos");
 		}
+		recepcionistas.remove(0);// APENAS PARA TESTE
+
 		if (autenticaGerente) {// Gerente
 			int n = 0;
 			while (n != 4) {
-				System.out.println("1- CADASTRO DE FUNCIONARIOS  2 - REMOﾃ�ﾃグ  3- ALTERAﾃ�ﾃグ  4-SALVAR E SAIR"
-						+ "\n5-MOSTRAR FUNCIONARIOS");
-				System.out.print("Opﾃｧﾃ｣o: ");
+				System.out.println("1- Cadastro de funcionarios  2 - Remo鈬o  3- Altera鈬o  4-Salvar e sair"
+						+ "\n5-Mostrar funcionarios");
+				System.out.print("Op鈬o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
 				if (n == 1) {// CADASTRO DE FUNCIONARIOS
@@ -114,64 +212,24 @@ public class Hotel {
 						System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira  3 - Voltar");
 						n = entrada.nextInt();
 						entrada.nextLine();// Ler Enter
-						if (n == 1) {// Opﾃｧﾃ｣o de Cadastrar Recepcionistas
-							Funcionario recepcionista = new Recepcionista();
-							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista);
-						} else if (n == 2) { // Opﾃｧﾃ｣o de Cadastrar Camareiras
+						if (n == 1) {// Op鈬o de Cadastrar Recepcionistas
+							Funcionario recepcionista1 = new Recepcionista();
+							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista1);
+						} else if (n == 2) { // Op鈬o de Cadastrar Camareiras
 							Funcionario camareira = new Camareira();
 							((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
 						} else if (n == 3)
 							break;
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-						System.out.print("1 - Cadastrar Outro Funcionﾃ｡rio  2 - Nﾃグ\n");
+						System.out.print("1 - Cadastrar Outro Funcion疵io  2 - NﾃO\n");
 						n = entrada.nextInt();
 						if (n == 2)
 							break;
 					}
-				} else if (n == 2) {// REMOﾃ�ﾃグ
-					System.out.println("Nome funcionario: ");
-					String nome = entrada.nextLine().toUpperCase();
-					System.out.println("CPF: ");
-					String cpf = entrada.nextLine().toUpperCase();
-					Camareira camareira;
-					Recepcionista recepcionista;
-
-					camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome, cpf, camareiras);
-					if (camareira == null) {
-						recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf,
-								recepcionistas);
-						if (recepcionista == null)
-							System.out.println("** FUNCIONARIO Nﾃグ ENCONTRADO **");
-						else {
-							((Gerente) gerente).removerFuncionario(recepcionistas, recepcionista);
-							System.out.println("** RECEPCIONISTA REMOVIDA COM SUCESSO! **");
-						}
-					} else {
-						((Gerente) gerente).removerFuncionario(camareiras, camareira);
-						System.out.println("** CAMAREIRA REMOVIDA COM SUCESSO! **");
-					}
-				} else if (n == 3) {// Alteraﾃｧﾃ｣o
-					System.out.println("Nome funcionario: ");
-					String nome = entrada.nextLine().toUpperCase();
-					System.out.println("CPF: ");
-					String cpf = entrada.nextLine().toUpperCase();
-					Camareira camareira;
-					Recepcionista recepcionista;
-
-					camareira = (Camareira) ((Gerente) gerente).verificaFuncionario(nome, cpf, camareiras);
-					if (camareira == null) {
-						recepcionista = (Recepcionista) ((Gerente) gerente).verificaFuncionario(nome, cpf,
-								recepcionistas);
-						if (recepcionista == null)
-							System.out.println("** FUNCIONARIO Nﾃグ ENCONTRADO **");
-						else {
-							System.out.println("Qual dado deseja remover da recepcionista? " + recepcionista.getNome());
-							((Gerente) gerente).alterarFuncionario(recepcionista);
-						}
-					} else {
-						System.out.println("Qual dado deseja remover da camareira? " + camareira.getNome());
-						((Gerente) gerente).alterarFuncionario(camareira);
-					}
+				} else if (n == 2) {// REMOﾇﾃO
+					((Gerente) gerente).removerFuncionario(camareiras, recepcionistas);
+				} else if (n == 3) {// Altera鈬o
+					((Gerente) gerente).alterarFuncionario(camareiras, recepcionistas);
 				} else if (n == 5) {// Mostrar Funcionarios
 					((Gerente) gerente).mostrarFuncionarios(camareiras);
 					((Gerente) gerente).mostrarFuncionarios(recepcionistas);
@@ -180,78 +238,59 @@ public class Hotel {
 		} else {// Recepcionista
 			int n = 0;
 			while (n != 4) {
-				System.out.println(
-						"1- CADASTRO DE CLIENTE  2 - REMOﾃ�ﾃグ  3- ALTERAﾃ�ﾃグ  4-SALVAR E SAIR" + "\n5- Mostrar Clientes  6 - RESERVAR QUARTO");
-				System.out.print("Opﾃｧﾃ｣o: ");
+				System.out.println("1- Cadastro de cliente  2- Remo鈬o  3- Altera鈬o  4-Salvar e sair"
+						+ "\n5- Mostrar Clientes  6- Alugar quarto");
+				System.out.print("Op鈬o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
-				if (n == 1) {// CADASTRO DE CLIENTE
-					while (true) {
-						System.out.println("1 - Cadastro de Cliente  2 - Voltar");
-						n = entrada.nextInt();
-						entrada.nextLine();// Ler Enter
-						if (n == 1) {// Opﾃｧﾃ｣o de Cadastrar Cliente
-							Pessoa cliente = new Cliente();
-							((Recepcionista) recepcionistaAtiva).cadastrarCliente(clientes, (Cliente) cliente);
-						} else if (n == 2)
-							break;
-						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-						System.out.print("1 - Cadastrar Outro Cliente  2 - Nﾃグ\n");
-						n = entrada.nextInt();
-						if (n == 2)
-							break;
-					}
-				} else if (n == 2) {// REMOﾃ�ﾃグ
-					System.out.println("Nome cliente: ");
-					String nome = entrada.nextLine().toUpperCase();
-					System.out.println("CPF: ");
-					String cpf = entrada.nextLine().toUpperCase();
-					Cliente cliente;
-
-					cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome, cpf, clientes);
-					if (cliente == null)
-						System.out.println("** CLIENTE Nﾃグ ENCONTRADO **");
-					else {
-						((Recepcionista) recepcionistaAtiva).removerCliente(clientes, cliente);
-						System.out.println("** CLIENTE REMOVIDO COM SUCESSO! **");
-					}
-				} else if (n == 3) {// Alteraﾃｧﾃ｣o
-					System.out.println("Nome cliente: ");
-					String nome = entrada.nextLine().toUpperCase();
-					System.out.println("CPF: ");
-					String cpf = entrada.nextLine().toUpperCase();
-					Cliente cliente;
-
-					cliente = ((Recepcionista) recepcionistaAtiva).verificaCliente(nome, cpf, clientes);
-					if (cliente == null)
-						System.out.println("** CLIENTE Nﾃグ ENCONTRADO **");
-					else {
-						System.out.println("Qual dado deseja remover do cliente? " + cliente.getNome());
-						((Recepcionista) recepcionistaAtiva).alterarCliente(cliente);
-					}
-				} else if (n == 5) {
-					((Recepcionista) recepcionistaAtiva).mostrarClientes(clientes);
+				if (n == 1) // CADASTRO DE CLIENTE
+					((Recepcionista) recepcionista).cadastrarCliente(clientes);
+				else if (n == 2) // REMOﾇﾃO
+					((Recepcionista) recepcionista).removerCliente(clientes);
+				else if (n == 3)// Altera鈬o
+					((Recepcionista) recepcionista).alterarCliente(clientes);
+				else if (n == 5)// Mostrar Clientes
+					((Recepcionista) recepcionista).mostrarClientes(clientes);
+				else if (n == 6) {// Alugar Quarto
 				}
-				else if(n == 6){//Reservar Quarto
-            				((Recepcionista) recepcionistaAtiva).reservaQuarto();
-        			}
 			}
 		}
-		Quarto aux = new Quarto();
-		try {
-			aux.salvarConsumo(clientes);
-		} catch (IOException e) {
-			System.out.println("\nIOException\n");
-			e.printStackTrace();
-		}
 
-		try {
-			((Gerente) gerente).salvarDadosRecepcionista(recepcionistas);
-		} catch (IOException e) {
-			System.out.println("!!! ERRO !!! Ao Salvar Recepcionista !!!");
-			e.printStackTrace();
-		}
-
-		System.out.println("Tudo Salvo e OK");
-	}
+/** SALVAR DADOS DO ARRAY EM ARQUIVO **/
+        
+        /** DADOS DE CONSUMO **/
+        Quarto aux = new Quarto();
+        try {
+            aux.salvarConsumo(clientes);
+        } catch (IOException e) {
+            System.out.println("\nIOException\n");
+            e.printStackTrace();
+        }
+        
+        /** DADOS DE CADASTRO ( RECEPCIONISTAS ) **/
+        Gerente gaux = Gerente.getInstance();
+        try {
+            gaux.salvarDadosRecepcionista(recepcionistas);
+        } catch (IOException e) {
+            System.out.println("\nIOException\n");
+            e.printStackTrace();
+        }
+        /** DADOS DE CADASTRO ( CAMAREIRAS ) **/
+        try {
+            gaux.salvarDadosCamareira(camareiras);
+        } catch (IOException e) {
+            System.out.println("\nIOException\n");
+            e.printStackTrace();
+        }
+        
+        /** DADOS DE CADASTRO ( CLIENTES ) **/
+        Recepcionista raux = new Recepcionista();
+        try {
+        	raux.salvarDadosCliente(clientes);
+        } catch (IOException e) {
+            System.out.println("\nIOException\n");
+            e.printStackTrace();
+        }
+        System.out.println("Todos os dados foram salvos com sucesso!");
+    }
 }
