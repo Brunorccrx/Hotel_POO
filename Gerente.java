@@ -1,4 +1,11 @@
-package Hotelaria;
+package sistemadehotel;
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -27,7 +34,10 @@ public class Gerente extends Funcionario implements Autentica {
          */
 	private Gerente() {
 	}
-        
+        /**
+     	*
+    	* @return
+     	*/
 	public static Gerente getInstance() {
 		return gerente;
 	}
