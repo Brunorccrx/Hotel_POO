@@ -11,9 +11,6 @@ import java.util.StringTokenizer;
 
 public class Hotel {
 	public static void main(String args[]) {
-		// TODO toda vez que o sistema for inicializado ira carregar as listas
-		// das pessoas no hotel
-		// TODO carregar login e senha do gerente de um arquivo
 
 		List<Recepcionista> recepcionistas = new ArrayList<>();
 		List<Camareira> camareiras = new ArrayList<>();
@@ -46,7 +43,7 @@ public class Hotel {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo n„o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n√£o encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -84,7 +81,7 @@ public class Hotel {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo n„o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n√£o encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -117,7 +114,7 @@ public class Hotel {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo n„o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n√£o encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -153,7 +150,7 @@ public class Hotel {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			System.out.printf("\n\t!!! Arquivo n„o encontrado !!!\n\n");
+			System.out.printf("\n\t!!! Arquivo n√£o encontrado !!!\n\n");
 			// e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -191,9 +188,9 @@ public class Hotel {
 		if (autenticaGerente) {// Gerente
 			int n = 0;
 			while (n != 4) {
-				System.out.println("1- Cadastro de funcionarios  2 - RemoÁ„o  3- AlteraÁ„o  4-Salvar e sair"
+				System.out.println("1- Cadastro de funcionarios  2 - Remo√ß√£o  3- Altera√ß√£o  4-Salvar e sair"
 						+ "\n5-Mostrar funcionarios");
-				System.out.print("OpÁ„o: ");
+				System.out.print("Op√ß√£o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
 				if (n == 1) {// CADASTRO DE FUNCIONARIOS
@@ -201,23 +198,23 @@ public class Hotel {
 						System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira  3 - Voltar");
 						n = entrada.nextInt();
 						entrada.nextLine();// Ler Enter
-						if (n == 1) {// OpÁ„o de Cadastrar Recepcionistas
+						if (n == 1) {// Op√ß√£o de Cadastrar Recepcionistas
 							Funcionario recepcionista1 = new Recepcionista();
 							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista1);
-						} else if (n == 2) { // OpÁ„o de Cadastrar Camareiras
+						} else if (n == 2) { // Op√ß√£o de Cadastrar Camareiras
 							Funcionario camareira = new Camareira();
 							((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
 						} else if (n == 3)
 							break;
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-						System.out.print("1 - Cadastrar Outro Funcion·rio  2 - N√O\n");
+						System.out.print("1 - Cadastrar Outro Funcion√°rio  2 - N√ÉO\n");
 						n = entrada.nextInt();
 						if (n == 2)
 							break;
 					}
-				} else if (n == 2) {// REMO«√O
+				} else if (n == 2) {// REMO√á√ÉO
 					((Gerente) gerente).removerFuncionario(camareiras, recepcionistas);
-				} else if (n == 3) {// AlteraÁ„o
+				} else if (n == 3) {// Altera√ß√£o
 					((Gerente) gerente).alterarFuncionario(camareiras, recepcionistas);
 				} else if (n == 5) {// Mostrar Funcionarios
 					((Gerente) gerente).mostrarFuncionarios(camareiras);
@@ -227,16 +224,16 @@ public class Hotel {
 		} else {// Recepcionista
 			int n = 0;
 			while (n != 4) {
-				System.out.println("1- Cadastro de cliente  2- RemoÁ„o  3- AlteraÁ„o  4-Salvar e sair"
+				System.out.println("1- Cadastro de cliente  2- Remo√ß√£o  3- Altera√ß√£o  4-Salvar e sair"
 						+ "\n5- Mostrar Clientes  6- Alugar quarto");
-				System.out.print("OpÁ„o: ");
+				System.out.print("Op√ß√£o: ");
 				n = entrada.nextInt();
 				entrada.nextLine();// Ler Enter
 				if (n == 1) // CADASTRO DE CLIENTE
 					((Recepcionista) recepcionista).cadastrarCliente(clientes);
-				else if (n == 2) // REMO«√O
+				else if (n == 2) // REMO√á√ÉO
 					((Recepcionista) recepcionista).removerCliente(clientes);
-				else if (n == 3)// AlteraÁ„o
+				else if (n == 3)// Altera√ß√£o
 					((Recepcionista) recepcionista).alterarCliente(clientes);
 				else if (n == 5)// Mostrar Clientes
 					((Recepcionista) recepcionista).mostrarClientes(clientes);
