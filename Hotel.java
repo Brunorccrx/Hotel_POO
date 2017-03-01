@@ -49,9 +49,9 @@ public class Hotel {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.printf("\n\t!!! Arquivo não encontrado !!!\n\n");
-			// e.printStackTrace();
+			/** e.printStackTrace();*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			/** TODO Auto-generated catch block*/
 			e.printStackTrace();
 		} finally {
 			
@@ -87,9 +87,9 @@ public class Hotel {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.printf("\n\t!!! Arquivo não encontrado !!!\n\n");
-			// e.printStackTrace();
+			/** e.printStackTrace();*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			/** TODO Auto-generated catch block*/
 			e.printStackTrace();
 		} finally {
 
@@ -120,9 +120,8 @@ public class Hotel {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.printf("\n\t!!! Arquivo não encontrado !!!\n\n");
-			// e.printStackTrace();
+			/** e.printStackTrace();*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 
@@ -156,9 +155,8 @@ public class Hotel {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.printf("\n\t!!! Arquivo não encontrado !!!\n\n");
-			// e.printStackTrace();
+			/** e.printStackTrace();*/
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 
