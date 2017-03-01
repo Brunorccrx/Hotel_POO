@@ -1,11 +1,4 @@
 package sistemadehotel;
-/**
- *
- * @author Bruno Rodrigues Caputo
- * @author Francisco Pires Júnior
- * @author Gabriel Rodrigues Machado
- * @author Philip Mahama Akpanyi
- */
 
 public class Cliente extends Pessoa {
 	// Dados Pessoais
@@ -14,42 +7,68 @@ public class Cliente extends Pessoa {
 	private String nacionalidade;
 	Quarto quarto;
 
-	// Construtor
-
+	/**
+	* Construtor
+	* @param numeroQuarto
+	* @param tipoQuarto
+	*/ 
 	public Cliente(String numeroQuarto, String tipoQuarto) {
 		Cliente.ID++;
 		quarto = new Quarto(numeroQuarto, tipoQuarto);
 	}
-
+	/**
+	* Construtor
+	* Vazio
+	*/
 	public Cliente() {
 		// Apenas AUXILIAR
 		quarto = new Quarto();
 	}
 
-	// get ID
+	/**
+	* getID
+	* @return
+	*/
 	public int getID() {
 		return ID;
 	}
 
-	// get e set Nacionalidade
+	/**
+	* getNacionalidade
+	* @return
+	*/
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
-
+	/**
+	* setNacionalidade
+	* @param nacionalidade
+	*/
 	public void setNacionalidade(String nacionalidade) {
 		String toUpperCase = nacionalidade.toUpperCase();
 		this.nacionalidade = toUpperCase;
 	}
 
-	// get e set Passaporte
+	/**
+	* getPassaporte
+	* @return
+	*/
 	public String getPassaporte() {
 		return passaporte;
 	}
-
+	/**
+	* setPassaporte
+	* @param passaporte
+	*/
 	public void setPassaporte(String passaporte) {
 		this.passaporte = passaporte;
 	}
 
+	/**
+	* toString
+	* @Override
+	* @return
+	*/
 	@Override
 	public String toString() {
 		String saida = "Nome: " + this.getNome() + "\n" + "Nacionalidade: " + this.getNacionalidade() + "\n"
@@ -66,6 +85,4 @@ public class Cliente extends Pessoa {
 
 		return saida;
 	}
-
-	// TODO Metodo para comprar refeicao
 }
