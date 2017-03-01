@@ -1,4 +1,11 @@
 package sistemadehotel;
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
 
 abstract public class Pessoa {
 	// Dados Pessoais
@@ -7,7 +14,7 @@ abstract public class Pessoa {
 	private String RG;
 	private String numTelefone;
 	private String dataNasc;
-	// Endere�o
+	// Endereço
 	private String rua;
 	private String bairro;
 	private String complemento;
