@@ -8,10 +8,17 @@ package sistemadehotel;
  */
 
 public class Camareira extends Funcionario {
+	/**
+	*
+	* @param quarto
+	*/
 	public void limparQuarto(Quarto quarto) {
 		quarto.setSituacaoQuarto("Limpo");
 	}
-
+	/**
+	*
+	* @param quarto
+	*/
 	public void servicoDeQuarto(Quarto quarto) {
 		quarto.comprarRefeicao();
 	}
