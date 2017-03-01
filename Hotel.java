@@ -11,7 +11,9 @@ import java.util.StringTokenizer;
 
 public class Hotel {
 	public static void main(String args[]) {
-
+		/*
+		*Todas as listas que serão utilizadas são declaradas na classe principal Hotel
+		**/
 		List<Recepcionista> recepcionistas = new ArrayList<>();
 		List<Camareira> camareiras = new ArrayList<>();
 		List<Cliente> clientes = new ArrayList<>();
@@ -26,6 +28,9 @@ public class Hotel {
 		Boolean autenticaRecepcionista = false;
 		Cliente clienteAux = new Cliente();
 
+		/**
+		*Leitura e carregamento de dados em arquivos para os quartos
+		*/
 		BufferedReader BufRed ;
 		try {
 			BufRed = new BufferedReader(new FileReader("Relatorio de Consumo.txt"));
@@ -183,28 +188,28 @@ public class Hotel {
 
 			System.out.println("Login ou Senha incorretos");
 		}
-		recepcionistas.remove(0);// APENAS PARA TESTE
+		recepcionistas.remove(0);/** remover a recepcionista auxiliar*/ 
 
-		if (autenticaGerente) {// Gerente
+		if (autenticaGerente) {/** Gerente*/ 
 			int n = 0;
 			while (n != 4) {
 				System.out.println("1- Cadastro de funcionarios  2 - Remoção  3- Alteração  4-Salvar e sair"
 						+ "\n5-Mostrar funcionarios");
 				System.out.print("Opção: ");
 				n = entrada.nextInt();
-				entrada.nextLine();// Ler Enter
-				if (n == 1) {// CADASTRO DE FUNCIONARIOS
+				entrada.nextLine();/**Ler Enter */ 
+				if (n == 1) {/** CADASTRO DE FUNCIONARIOS */
 					while (true) {
 						System.out.println("1 - Cadastro de Recepcionista  2 - Cadastro de Camareira  3 - Voltar");
 						n = entrada.nextInt();
-						entrada.nextLine();// Ler Enter
-						if (n == 1) {// Opção de Cadastrar Recepcionistas
+						entrada.nextLine();/** Ler Enter */
+						if (n == 1) {/** Opção de Cadastrar Recepcionistas*/
 							Funcionario recepcionista1 = new Recepcionista();
 							((Gerente) gerente).cadastrarFuncionario(recepcionistas, (Recepcionista) recepcionista1);
-						} else if (n == 2) { // Opção de Cadastrar Camareiras
+						} else if (n == 2) { /** Opção de Cadastrar Camareiras*/
 							Funcionario camareira = new Camareira();
 							((Gerente) gerente).cadastrarFuncionario(camareiras, (Camareira) camareira);
-						} else if (n == 3)
+						} else if (n == 3)/**Voltar*/
 							break;
 						System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
 						System.out.print("1 - Cadastrar Outro Funcionário  2 - NÃO\n");
@@ -212,32 +217,32 @@ public class Hotel {
 						if (n == 2)
 							break;
 					}
-				} else if (n == 2) {// REMOÇÃO
+				} else if (n == 2) {/** REMOÇÃO*/
 					((Gerente) gerente).removerFuncionario(camareiras, recepcionistas);
-				} else if (n == 3) {// Alteração
+				} else if (n == 3) {/** Alteração*/
 					((Gerente) gerente).alterarFuncionario(camareiras, recepcionistas);
-				} else if (n == 5) {// Mostrar Funcionarios
+				} else if (n == 5) {/** Mostrar Funcionarios*/
 					((Gerente) gerente).mostrarFuncionarios(camareiras);
 					((Gerente) gerente).mostrarFuncionarios(recepcionistas);
 				}
 			}
-		} else {// Recepcionista
+		} else {/** Recepcionista*/
 			int n = 0;
 			while (n != 4) {
 				System.out.println("1- Cadastro de cliente  2- Remoção  3- Alteração  4-Salvar e sair"
 						+ "\n5- Mostrar Clientes  6- Alugar quarto");
 				System.out.print("Opção: ");
 				n = entrada.nextInt();
-				entrada.nextLine();// Ler Enter
-				if (n == 1) // CADASTRO DE CLIENTE
+				entrada.nextLine();/** Ler Enter*/
+				if (n == 1) /** CADASTRO DE CLIENTE*/
 					((Recepcionista) recepcionista).cadastrarCliente(clientes);
-				else if (n == 2) // REMOÇÃO
+				else if (n == 2) /** REMOÇÃO*/
 					((Recepcionista) recepcionista).removerCliente(clientes);
-				else if (n == 3)// Alteração
+				else if (n == 3)/** Alteração*/
 					((Recepcionista) recepcionista).alterarCliente(clientes);
-				else if (n == 5)// Mostrar Clientes
+				else if (n == 5)/** Mostrar Clientes*/
 					((Recepcionista) recepcionista).mostrarClientes(clientes);
-				else if (n == 6) {// Alugar Quarto
+				else if (n == 6) {/** Alugar Quarto*/
 				}
 			}
 		}
