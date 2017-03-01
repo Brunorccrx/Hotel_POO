@@ -1,34 +1,20 @@
-package sistemadehotel;
-
-public class Cliente {
+package Hotelaria;
+public class Cliente extends Pessoa {
 	// Dados Pessoais
 	static private int ID;
-	private String nome;
-	private String CPF;
 	private String passaporte;
-	private String RG;
-	private String numTelefone;
 	private String nacionalidade;
-	private String dataNasc;
-	// Endereço
-	private String rua;
-	private String bairro;
-	private String numCasa;
-	private String cidade;
-	private String estado;
+	Quarto quarto;
 
 	// Construtor
-	public Cliente(String nome, String CPF, String RG) {
-		Cliente.ID++;
-		this.nome = nome;
-		this.CPF = CPF;
-		this.RG = RG;
-	}
 
-	public Cliente(String nome, String passaporte) {
+	public Cliente(String numeroQuarto, String tipoQuarto) {
 		Cliente.ID++;
-		this.nome = nome;
-		this.passaporte = passaporte;
+		quarto = new Quarto(numeroQuarto, tipoQuarto);
+	}
+	public Cliente() {
+		//Apenas AUXILIAR
+		quarto = new Quarto();
 	}
 
 	// get ID
@@ -36,22 +22,14 @@ public class Cliente {
 		return ID;
 	}
 
-	// get e set Nome
+	// get e set Nacionalidade
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
 
 	public void setNacionalidade(String nacionalidade) {
+		nacionalidade.toUpperCase();
 		this.nacionalidade = nacionalidade;
-	}
-
-	// get e set CPF
-	public String getCPF() {
-		return CPF;
-	}
-
-	public void setCPF(String cPF) {
-		CPF = cPF;
 	}
 
 	// get e set Passaporte
@@ -63,84 +41,22 @@ public class Cliente {
 		this.passaporte = passaporte;
 	}
 
-	// get e set RG
-	public String getRG() {
-		return RG;
+	@Override
+	public String toString() {
+		String saida = "Nome: " + this.getNome() + "\n" + "Nacionalidade: " + this.getNacionalidade() + "\n"
+				+ "Data de nascimento: : " + this.getDataNasc() + "\n" + "Contato: " + this.getNumTelefone() + "\n"
+				+ "Rua: " + this.getRua() + "\n" + "Bairro: " + this.getBairro() + "\n" + "Complemento: "
+				+ this.getComplemento() + "\n" + "Numero da casa: " + this.getNumeroCasa() + "\n" + "Cidade: "
+				+ this.getCidade() + "\n" + "Estado: " + this.getEstado() + "\n";
+
+		if (this.getNacionalidade().equals("BRASILEIRO")) {
+			saida = saida.concat("CPF: " + this.getCPF() + "\n" + "RG: " + this.getRG() + "\n");
+		} else {
+			saida = saida.concat("Passaporte: " + this.getPassaporte() + "\n");
+		}
+
+		return saida;
 	}
 
-	public void setRG(String rG) {
-		RG = rG;
-	}
-
-	// get e set Numero de Telefone
-	public String getNumTelefone() {
-		return numTelefone;
-	}
-
-	public void setNumTelefone(String numTelefone) {
-		this.numTelefone = numTelefone;
-	}
-
-	// get e set Nome
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	// get e set Rua
-	public String getRua() {
-		return rua;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	// get e set Bairro
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	// get e set Numero da Casa
-	public String getNumCasa() {
-		return numCasa;
-	}
-
-	public void setNumCasa(String numCasa) {
-		this.numCasa = numCasa;
-	}
-
-	// get e set Cidade
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	// get e set Estado
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	// get e set Data de Nascimento
-	public String getDataNasc() {
-		return dataNasc;
-	}
-
-	public void setDataNasc(String dataNasc) {
-		this.dataNasc = dataNasc;
-	}
+	// TODO Metodo para comprar refeição
 }
