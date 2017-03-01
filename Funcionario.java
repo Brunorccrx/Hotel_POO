@@ -1,4 +1,11 @@
 package sistemadehotel;
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
 
 abstract public class Funcionario extends Pessoa {
 	private double salario;
@@ -26,7 +33,7 @@ abstract public class Funcionario extends Pessoa {
 				+ "Contato: " + this.getNumTelefone() + "\n" + "Rua: " + this.getRua() + "\n" + "Bairro: "
 				+ this.getBairro() + "\n" + "Complemento: " + this.getComplemento() + "\n" + "Numero da casa: "
 				+ this.getNumeroCasa() + "\n" + "Cidade: " + this.getCidade() + "\n" + "Estado: " + this.getEstado()
-				+ "\n" + "Sal�rio: " + this.getSalario() + "\n";
+				+ "\n" + "Salário: " + this.getSalario() + "\n";
 
 		return saida;
 	}
