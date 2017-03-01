@@ -1,4 +1,4 @@
-package sistemadehotel;
+package Hotelaria;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Gerente extends Funcionario implements Autentica {
 
-    private String login = "mario";
+    private String login = "admin";
     private String senha = "123";
     Scanner entrada = new Scanner(System.in);
     private static BufferedWriter BufWrit;
@@ -227,9 +227,9 @@ public class Gerente extends Funcionario implements Autentica {
             BufWrit = new BufferedWriter(new FileWriter("C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados\\recepcionista.txt"));
             while (inter.hasNext()) {
                 Recepcionista r = inter.next();
-                Gerente.BufWrit.write(r.getNome() + "/" + r.getRG() + "/" + r.getCPF() + "/" + r.getNumTelefone() + "/"
-                        + r.getDataNasc() + "/" + r.getRua() + "/" + r.getBairro() + "/" + r.getComplemento() + "/" + r.getNumeroCasa()
-                        + "/" + r.getCidade() + "/" + r.getEstado() + "/" + r.getSalario() + "/");
+                Gerente.BufWrit.write(r.getNome() + "|" + r.getRG() + "|" + r.getCPF() + "|" + r.getNumTelefone() + "|"
+                        + r.getDataNasc() + "|" + r.getRua() + "|" + r.getBairro() + "|" + r.getComplemento() + "|" + r.getNumeroCasa()
+                        + "|" + r.getCidade() + "|" + r.getEstado() + "|" + r.getSalario() + "|");
                 Gerente.BufWrit.newLine();
             }
 
@@ -252,9 +252,9 @@ public class Gerente extends Funcionario implements Autentica {
             BufWrit = new BufferedWriter(new FileWriter("C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados\\Camareiras.txt"));
             while (inter.hasNext()) {
                 Camareira c = inter.next();
-                Gerente.BufWrit.write(c.getNome() + "/" + c.getRG() + "/" + c.getCPF() + "/" + c.getNumTelefone() + "/"
-                        + c.getDataNasc() + "/" + c.getRua() + "/" + c.getBairro() + "/" + c.getComplemento() + "/" + c.getNumeroCasa()
-                        + "/" + c.getCidade() + "/" + c.getEstado() + "/" + c.getSalario() + "/");
+                Gerente.BufWrit.write(c.getNome() + "|" + c.getRG() + "|" + c.getCPF() + "|" + c.getNumTelefone() + "|"
+                        + c.getDataNasc() + "|" + c.getRua() + "|" + c.getBairro() + "|" + c.getComplemento() + "|" + c.getNumeroCasa()
+                        + "|" + c.getCidade() + "|" + c.getEstado() + "|" + c.getSalario() + "|");
                 Gerente.BufWrit.newLine();
             }
 
