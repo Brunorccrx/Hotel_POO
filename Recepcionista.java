@@ -1,4 +1,11 @@
 package sistemadehotel;
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires J√∫nior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -20,78 +27,128 @@ public class Recepcionista extends Funcionario implements Autentica {
     private String clienteIdentidade;
     private String clienteContato;
     private int totalReserva = 0;
-
+	/**
+	*
+	* @return
+	*/
 	public String getSenha() {
 		return senha;
 	}
-
+	/**
+	*
+	* @param senha
+	* @throws IOException
+	*/
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7)
-			throw new IOException("Senha deve ter no mÌnimo 7 caracteres");
+			throw new IOException("Senha deve ter no m√≠nimo 7 caracteres");
 		if (senha.length() > 14)
-			throw new IOException("Senha ultrapassou o limite m·ximo de 14 caracteres");
+			throw new IOException("Senha ultrapassou o limite m√°ximo de 14 caracteres");
 
 		this.senha = senha;
 	}
-
+	/**
+	*
+	* @return
+	*/
 	public String getLogin() {
 		return login;
 	}
-
+	/**
+	*
+	* @param login
+	* @throws IOException
+	*/
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5)
-			throw new IOException("Login deve ter no mÌnimo 5 caracteres");
+			throw new IOException("Login deve ter no m√≠nimo 5 caracteres");
 		if (login.length() > 20)
-			throw new IOException("Login ultrapassou o limite m·ximo de 20 caracteres");
+			throw new IOException("Login ultrapassou o limite m√°ximo de 20 caracteres");
 
 		this.login = login;
 	}
-	
+	/**
+	*
+	* @return
+	*/
 	 public boolean isReservaDisponivel() {
 	        return reservaDisponivel;
 	    }
-
+	/**
+	*
+	* @param reservaDisponivel
+	*/
 	    public void setReservaDisponivel(boolean reservaDisponivel) {
 	        this.reservaDisponivel = reservaDisponivel;
 	    }
-
+	/**
+	*
+	* @return
+	*/
 	    public String getReservaTipoQuarto() {
 	        return reservaTipoQuarto;
 	    }
-
+	/**
+	*
+	* @param reservaTipoQuarto
+	*/
 	    public void setReservaTipoQuarto(String reservaTipoQuarto) {
 	        this.reservaTipoQuarto = reservaTipoQuarto;
 	    }
-
+	/**
+	*
+	* @return
+	*/
 	    public String getClienteIdentidade() {
 	        return clienteIdentidade;
 	    }
-
+	/**
+	*
+	*/
 	    public void setClienteIdentidade(String clienteIdentidade) {
 	        this.clienteIdentidade = clienteIdentidade;
 	    }
-
+	/**
+	*
+	* @return
+	*/
 	    public String getClienteContato() {
 	        return clienteContato;
 	    }
-
+	/**
+	*
+	*/
 	    public void setClienteContato(String clienteContato) {
 	        this.clienteContato = clienteContato;
 	    }
-
+	/**
+	*
+	* @return
+	*/
 	    public int getTotalReserva() {
 	        return totalReserva;
 	    }
-
+	/**
+	*
+	*/
 	    public void setTotalReserva(int totalReserva) {
 	        this.totalReserva = totalReserva;
 	    }
 	  
-
+	/**
+	*
+	* @param senha
+	* @param login
+	* @return
+	*/
 	public boolean autentica(String senha, String login) {
 		return this.senha.equals(senha) && this.login.equals(login);
 	}
-
+	/**
+	*
+	* @param clientes
+	* @param cliente
+	*/
 	protected void cadastrarCliente(List<Cliente> clientes, Cliente cliente) {
 		//Scanner entrada = new Scanner(System.in);
 
@@ -127,7 +184,10 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 		clientes.add(cliente);
 	}
-
+	/**
+	*
+	* @param clientes
+	*/
 	protected void cadastrarCliente(List<Cliente> clientes) {
 		//Scanner entrada = new Scanner(System.in);
 		//Recepcionista recepcionista = new Recepcionista();
@@ -137,7 +197,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 			System.out.println("1 - Cadastro de Cliente  2 - Voltar");
 			n = entrada.nextInt();
 			entrada.nextLine();// Ler Enter
-			if (n == 1) {// OpÁ„o de Cadastrar Cliente
+			if (n == 1) {// Op√ß√£o de Cadastrar Cliente
 				Cliente cliente = new Cliente();
 
 				System.out.print("Nome: ");
@@ -175,14 +235,20 @@ public class Recepcionista extends Funcionario implements Autentica {
 			} else if (n == 2)
 				break;
 			System.out.println("*** CADASTRO REALIZADO COM SUCESSO ***");
-			System.out.print("1 - Cadastrar Outro Cliente  2 - N„o\n");
+			System.out.print("1 - Cadastrar Outro Cliente  2 - N√£o\n");
 			n = entrada.nextInt();
 			if (n == 2)
 				break;
 		}
 
 	}
-
+	/**
+	*
+	* @param nome
+	* @param CPF
+	* @param clientes
+	* @return
+	*/
 	protected Cliente verificaCliente(String nome, String CPF, List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
 			if (cliente.getNome().equals(nome) && cliente.getCPF().equals(CPF))
@@ -190,7 +256,13 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 		return null;
 	}
-
+	/**
+	*
+	* @param nome
+	* @param ID
+	* @param clientes
+	* @return
+	*/
 	protected Cliente verificaCliente(String nome, int ID, List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
 			if (cliente.getNome().equals(nome) && cliente.getID() == ID)
@@ -198,7 +270,10 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 		return null;
 	}
-
+	/**
+	*
+	* @param clientes
+	*/
 	protected void removerCliente(List<Cliente> clientes) {
 		Cliente cliente;
 		//Scanner entrada = new Scanner(System.in);
@@ -220,13 +295,16 @@ public class Recepcionista extends Funcionario implements Autentica {
 		}
 
 		if (cliente == null)
-			System.out.println("** CLIENTE N√O ENCONTRADO **");
+			System.out.println("** CLIENTE N√ÉO ENCONTRADO **");
 		else {
 			clientes.remove(cliente);
 			System.out.println("** CLIENTE REMOVIDO COM SUCESSO! **");
 		}
 	}
-
+	/**
+	*
+	* @param clientes
+	*/
 	protected void alterarCliente(List<Cliente> clientes) {
 		int opcao;
 		Cliente cliente;
@@ -249,10 +327,10 @@ public class Recepcionista extends Funcionario implements Autentica {
 			cliente = recepcionista.verificaCliente(nome, clienteID, clientes);
 		}
 		if (cliente == null)
-			System.out.println("** CLIENTE N√O ENCONTRADO **");
+			System.out.println("** CLIENTE N√ÉO ENCONTRADO **");
 		else {
 			System.out.println("Qual dado deseja remover do cliente? " + cliente.getNome());
-			System.out.println("1 - Nome  2 - CPF  3 - RG  4 - N˙meroDeTelefone  5 - DataDeNascimento" + '\n'
+			System.out.println("1 - Nome  2 - CPF  3 - RG  4 - N√∫meroDeTelefone  5 - DataDeNascimento" + '\n'
 					+ "6 - Rua  7 - Bairro  8 - Complemento  9 - NumeroDaCasa  10 - Cidade" + '\n'
 					+ "11 - Estado  12 - Nacionalidade" + '\n');
 
@@ -285,11 +363,19 @@ public class Recepcionista extends Funcionario implements Autentica {
 				cliente.setNacionalidade(entrada.nextLine());
 		}
 	}
-
+	/**
+	*
+	* @param clientes
+	*/
 	protected void mostrarClientes(List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
 			System.out.println(cliente);
 	}
+	/**
+	*
+	* @param list
+	* @throws IOException
+	*/
 	public void salvarDadosCliente(List<Cliente> list) throws IOException {
 
         Iterator<Cliente> inter = list.iterator();
