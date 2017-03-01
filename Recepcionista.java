@@ -1,6 +1,10 @@
 package sistemadehotel;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,6 +13,13 @@ public class Recepcionista extends Funcionario implements Autentica {
 	private String login = "samus";
 	private String senha = "321";
 	private Scanner entrada = new Scanner(System.in);
+	static BufferedWriter BufWrit;
+	//Tratar reserva do quarto
+    private boolean reservaDisponivel;
+    private String reservaTipoQuarto;
+    private String clienteIdentidade;
+    private String clienteContato;
+    private int totalReserva = 0;
 
 	public String getSenha() {
 		return senha;
@@ -35,6 +46,47 @@ public class Recepcionista extends Funcionario implements Autentica {
 
 		this.login = login;
 	}
+	
+	 public boolean isReservaDisponivel() {
+	        return reservaDisponivel;
+	    }
+
+	    public void setReservaDisponivel(boolean reservaDisponivel) {
+	        this.reservaDisponivel = reservaDisponivel;
+	    }
+
+	    public String getReservaTipoQuarto() {
+	        return reservaTipoQuarto;
+	    }
+
+	    public void setReservaTipoQuarto(String reservaTipoQuarto) {
+	        this.reservaTipoQuarto = reservaTipoQuarto;
+	    }
+
+	    public String getClienteIdentidade() {
+	        return clienteIdentidade;
+	    }
+
+	    public void setClienteIdentidade(String clienteIdentidade) {
+	        this.clienteIdentidade = clienteIdentidade;
+	    }
+
+	    public String getClienteContato() {
+	        return clienteContato;
+	    }
+
+	    public void setClienteContato(String clienteContato) {
+	        this.clienteContato = clienteContato;
+	    }
+
+	    public int getTotalReserva() {
+	        return totalReserva;
+	    }
+
+	    public void setTotalReserva(int totalReserva) {
+	        this.totalReserva = totalReserva;
+	    }
+	  
 
 	public boolean autentica(String senha, String login) {
 		return this.senha.equals(senha) && this.login.equals(login);
@@ -238,4 +290,44 @@ public class Recepcionista extends Funcionario implements Autentica {
 		for (Cliente cliente : clientes)
 			System.out.println(cliente);
 	}
+	public void salvarDadosCliente(List<Cliente> list) throws IOException {
+
+        Iterator<Cliente> inter = list.iterator();
+
+        try {
+            BufWrit = new BufferedWriter(new FileWriter("Clientes.txt"));
+            while (inter.hasNext()) {
+                Cliente c = inter.next();
+                if(c.getNacionalidade().equals("BRASILEIRO")){
+                    Recepcionista.BufWrit.write(c.getNome() + "|" + c.getNacionalidade()+ "|" + c.getCPF() + "|"+ c.getRG() + "|"+
+                    c.getDataNasc() + "|" + c.getNumTelefone() + "|" + c.getRua() + "|"+ c.getBairro()+ "|" + c.getComplemento()
+                    + "|" + c.getNumeroCasa() + "|" + c.getCidade() + "|" + c.getEstado());
+                 Recepcionista.BufWrit.newLine();
+                }else{
+                    Recepcionista.BufWrit.write(c.getNome() + "|" + c.getNacionalidade()+ "|" + c.getPassaporte()+ "|"+
+                    c.getDataNasc() + "|" + c.getNumTelefone() + "|" + c.getRua() + "|"+ c.getBairro()+ "|" + c.getComplemento()
+                    + "|" + c.getNumeroCasa() + "|" + c.getCidade() + "|" + c.getEstado());
+                 Recepcionista.BufWrit.newLine();
+                    
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Erro ao tentar criar arquivo");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Erro ao tentar escrever no arquivo");
+            e.printStackTrace();
+        } finally {
+            BufWrit.close();
+        }
+    }
+	/* public void reservaQuarto(){
+	      totalReserva++;
+	      String nome = entrada.nextLine();
+	      String identidade = entrada.nextLine();
+	      String contato = entrada.nextLine();
+	      String tipoQuarto = entrada.nextLine().toUpperCase();
+	      
+	  }*/
 }

@@ -22,7 +22,6 @@ public class Hotel {
 		recepcionistas.add(new Recepcionista());
 		Funcionario recepcionista = new Recepcionista();
 		Camareira Objcamareira = new Camareira();
-		@SuppressWarnings("resource")
 		Scanner entrada = new Scanner(System.in);
 		String login;
 		String senha;
@@ -30,8 +29,9 @@ public class Hotel {
 		Boolean autenticaRecepcionista = false;
 		Cliente clienteAux = new Cliente();
 
+		BufferedReader BufRed ;
 		try {
-			BufferedReader BufRed = new BufferedReader(new FileReader("Relatorio de Consumo.txt"));
+			BufRed = new BufferedReader(new FileReader("Relatorio de Consumo.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
 				StringTokenizer strtok = new StringTokenizer(str);
@@ -52,7 +52,7 @@ public class Hotel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-
+			
 		}
 		/**
 		 * ******** CARREGAMENTO DE DADOS DOS FUNCIONARIOS.******
@@ -61,23 +61,22 @@ public class Hotel {
 		 * DADOS RECEPCIONISTA *
 		 */
 		try {
-			BufferedReader BufRed = new BufferedReader(
-					new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\recepcionista.txt"));
+			BufRed = new BufferedReader(new FileReader("recepcionista.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
-				StringTokenizer strtok = new StringTokenizer(str);
+				StringTokenizer strtok = new StringTokenizer(str, "|");
 				while (strtok.hasMoreTokens()) {
-					recepcionista.setNome(strtok.nextToken("/"));
-					recepcionista.setRG(strtok.nextToken("/"));
-					recepcionista.setCPF(strtok.nextToken("/"));
-					recepcionista.setNumTelefone(strtok.nextToken("/"));
-					recepcionista.setDataNasc(strtok.nextToken("/"));
-					recepcionista.setRua(strtok.nextToken("/"));
-					recepcionista.setBairro(strtok.nextToken("/"));
-					recepcionista.setComplemento(strtok.nextToken("/"));
-					recepcionista.setNumeroCasa(strtok.nextToken("/"));
-					recepcionista.setCidade(strtok.nextToken("/"));
-					recepcionista.setEstado(strtok.nextToken("/"));
+					recepcionista.setNome(strtok.nextToken());
+					recepcionista.setRG(strtok.nextToken());
+					recepcionista.setCPF(strtok.nextToken());
+					recepcionista.setNumTelefone(strtok.nextToken());
+					recepcionista.setDataNasc(strtok.nextToken());
+					recepcionista.setRua(strtok.nextToken());
+					recepcionista.setBairro(strtok.nextToken());
+					recepcionista.setComplemento(strtok.nextToken());
+					recepcionista.setNumeroCasa(strtok.nextToken());
+					recepcionista.setCidade(strtok.nextToken());
+					recepcionista.setEstado(strtok.nextToken());
 					recepcionista.setSalario(Double.parseDouble((String) strtok.nextElement()));
 
 					recepcionistas.add((Recepcionista) recepcionista);
@@ -95,23 +94,22 @@ public class Hotel {
 		}
 		/* CARREGAMENTO DOS DADOS DAS CAMAREIRAS */
 		try {
-			BufferedReader BufRed = new BufferedReader(
-					new FileReader("J:\\NetBeansProjects\\Sistema de Hotelaria\\Banco de Dados\\Camareiras.txt"));
+			BufRed = new BufferedReader(new FileReader("Camareiras.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
-				StringTokenizer strtok = new StringTokenizer(str);
+				StringTokenizer strtok = new StringTokenizer(str, "|");
 				while (strtok.hasMoreTokens()) {
-					Objcamareira.setNome(strtok.nextToken("/"));
-					Objcamareira.setRG(strtok.nextToken("/"));
-					Objcamareira.setCPF(strtok.nextToken("/"));
-					Objcamareira.setNumTelefone(strtok.nextToken("/"));
-					Objcamareira.setDataNasc(strtok.nextToken("/"));
-					Objcamareira.setRua(strtok.nextToken("/"));
-					Objcamareira.setBairro(strtok.nextToken("/"));
-					Objcamareira.setComplemento(strtok.nextToken("/"));
-					Objcamareira.setNumeroCasa(strtok.nextToken("/"));
-					Objcamareira.setCidade(strtok.nextToken("/"));
-					Objcamareira.setEstado(strtok.nextToken("/"));
+					Objcamareira.setNome(strtok.nextToken());
+					Objcamareira.setRG(strtok.nextToken());
+					Objcamareira.setCPF(strtok.nextToken());
+					Objcamareira.setNumTelefone(strtok.nextToken());
+					Objcamareira.setDataNasc(strtok.nextToken());
+					Objcamareira.setRua(strtok.nextToken());
+					Objcamareira.setBairro(strtok.nextToken());
+					Objcamareira.setComplemento(strtok.nextToken());
+					Objcamareira.setNumeroCasa(strtok.nextToken());
+					Objcamareira.setCidade(strtok.nextToken());
+					Objcamareira.setEstado(strtok.nextToken());
 					Objcamareira.setSalario(Double.parseDouble((String) strtok.nextElement()));
 
 					camareiras.add(Objcamareira);
@@ -129,36 +127,27 @@ public class Hotel {
 		}
 		/** CARREGAMENTO DOS DADOS DOS CLIENTES **/
 		try {
-			BufferedReader BufRed = new BufferedReader(new FileReader(
-					"C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados Clientes\\Clientes.txt"));
+			BufRed = new BufferedReader(new FileReader("Clientes.txt"));
 			String str = BufRed.readLine();
 			while (str != null) {
-				StringTokenizer strtok = new StringTokenizer(str);
+				StringTokenizer strtok = new StringTokenizer(str, "|");
 				while (strtok.hasMoreTokens()) {
-					clienteAux.setNome(strtok.nextToken("/"));
-					clienteAux.setNacionalidade(strtok.nextToken("/"));
+					clienteAux.setNome(strtok.nextToken());
+					clienteAux.setNacionalidade(strtok.nextToken());
 					if (clienteAux.getNacionalidade().equals("BRASILEIRO")) {
-						clienteAux.setCPF(strtok.nextToken("/"));
-						clienteAux.setRG(strtok.nextToken("/"));
-						clienteAux.setDataNasc(strtok.nextToken("/"));
-						clienteAux.setNumTelefone(strtok.nextToken("/"));
-						clienteAux.setRua(strtok.nextToken("/"));
-						clienteAux.setBairro(strtok.nextToken("/"));
-						clienteAux.setComplemento(strtok.nextToken("/"));
-						clienteAux.setNumeroCasa(strtok.nextToken("/"));
-						clienteAux.setCidade(strtok.nextToken("/"));
-						clienteAux.setEstado(strtok.nextToken("/"));
+						clienteAux.setCPF(strtok.nextToken());
+						clienteAux.setRG(strtok.nextToken());
 					} else {
-						clienteAux.setPassaporte(strtok.nextToken("/"));
-						clienteAux.setDataNasc(strtok.nextToken("/"));
-						clienteAux.setNumTelefone(strtok.nextToken("/"));
-						clienteAux.setRua(strtok.nextToken("/"));
-						clienteAux.setBairro(strtok.nextToken("/"));
-						clienteAux.setComplemento(strtok.nextToken("/"));
-						clienteAux.setNumeroCasa(strtok.nextToken("/"));
-						clienteAux.setCidade(strtok.nextToken("/"));
-						clienteAux.setEstado(strtok.nextToken("/"));
+						clienteAux.setPassaporte(strtok.nextToken());
 					}
+					clienteAux.setDataNasc(strtok.nextToken());
+					clienteAux.setNumTelefone(strtok.nextToken());
+					clienteAux.setRua(strtok.nextToken());
+					clienteAux.setBairro(strtok.nextToken());
+					clienteAux.setComplemento(strtok.nextToken());
+					clienteAux.setNumeroCasa(strtok.nextToken());
+					clienteAux.setCidade(strtok.nextToken());
+					clienteAux.setEstado(strtok.nextToken());
 					clientes.add(clienteAux);
 					str = BufRed.readLine();
 				}
@@ -256,41 +245,41 @@ public class Hotel {
 			}
 		}
 
-/** SALVAR DADOS DO ARRAY EM ARQUIVO **/
-        
-        /** DADOS DE CONSUMO **/
-        Quarto aux = new Quarto();
-        try {
-            aux.salvarConsumo(clientes);
-        } catch (IOException e) {
-            System.out.println("\nIOException\n");
-            e.printStackTrace();
-        }
-        
-        /** DADOS DE CADASTRO ( RECEPCIONISTAS ) **/
-        Gerente gaux = Gerente.getInstance();
-        try {
-            gaux.salvarDadosRecepcionista(recepcionistas);
-        } catch (IOException e) {
-            System.out.println("\nIOException\n");
-            e.printStackTrace();
-        }
-        /** DADOS DE CADASTRO ( CAMAREIRAS ) **/
-        try {
-            gaux.salvarDadosCamareira(camareiras);
-        } catch (IOException e) {
-            System.out.println("\nIOException\n");
-            e.printStackTrace();
-        }
-        
-        /** DADOS DE CADASTRO ( CLIENTES ) **/
-        Recepcionista raux = new Recepcionista();
-        try {
-        	raux.salvarDadosCliente(clientes);
-        } catch (IOException e) {
-            System.out.println("\nIOException\n");
-            e.printStackTrace();
-        }
-        System.out.println("Todos os dados foram salvos com sucesso!");
-    }
+		/** SALVAR DADOS DO ARRAY EM ARQUIVO **/
+
+		/** DADOS DE CONSUMO **/
+		Quarto aux = new Quarto();
+		try {
+			aux.salvarConsumo(clientes);
+		} catch (IOException e) {
+			System.out.println("\nIOException\n");
+			e.printStackTrace();
+		}
+
+		/** DADOS DE CADASTRO ( RECEPCIONISTAS ) **/
+		Gerente gaux = Gerente.getInstance();
+		try {
+			gaux.salvarDadosRecepcionista(recepcionistas);
+		} catch (IOException e) {
+			System.out.println("\nIOException\n");
+			e.printStackTrace();
+		}
+		/** DADOS DE CADASTRO ( CAMAREIRAS ) **/
+		try {
+			gaux.salvarDadosCamareira(camareiras);
+		} catch (IOException e) {
+			System.out.println("\nIOException\n");
+			e.printStackTrace();
+		}
+
+		/** DADOS DE CADASTRO ( CLIENTES ) **/
+		Recepcionista raux = new Recepcionista();
+		try {
+			raux.salvarDadosCliente(clientes);
+		} catch (IOException e) {
+			System.out.println("\nIOException\n");
+			e.printStackTrace();
+		}
+		System.out.println("Todos os dados foram salvos com sucesso!");
+	}
 }

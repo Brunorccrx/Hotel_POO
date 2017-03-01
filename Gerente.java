@@ -217,13 +217,12 @@ public class Gerente extends Funcionario implements Autentica {
 		Iterator<Recepcionista> inter = list.iterator();
 
 		try {
-			BufWrit = new BufferedWriter(new FileWriter(
-					"C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados\\recepcionista.txt"));
+			BufWrit = new BufferedWriter(new FileWriter("Recepcionista.txt"));
 			while (inter.hasNext()) {
 				Recepcionista r = inter.next();
-				Gerente.BufWrit.write(r.getNome() + "/" + r.getRG() + "/" + r.getCPF() + "/" + r.getNumTelefone() + "/"
-						+ r.getDataNasc() + "/" + r.getRua() + "/" + r.getBairro() + "/" + r.getComplemento() + "/"
-						+ r.getNumeroCasa() + "/" + r.getCidade() + "/" + r.getEstado() + "/" + r.getSalario() + "/");
+				Gerente.BufWrit.write(r.getNome() + "|" + r.getRG() + "|" + r.getCPF() + "|" + r.getNumTelefone() + "|"
+						+ r.getDataNasc() + "|" + r.getRua() + "|" + r.getBairro() + "|" + r.getComplemento() + "|"
+						+ r.getNumeroCasa() + "|" + r.getCidade() + "|" + r.getEstado() + "|" + r.getSalario() + "|");
 				Gerente.BufWrit.newLine();
 			}
 
@@ -243,13 +242,12 @@ public class Gerente extends Funcionario implements Autentica {
 		Iterator<Camareira> inter = list.iterator();
 
 		try {
-			BufWrit = new BufferedWriter(new FileWriter(
-					"C:\\Users\\PIRES\\Downloads\\Sistema de Hotelaria\\Banco de Dados\\Camareiras.txt"));
+			BufWrit = new BufferedWriter(new FileWriter("Camareiras.txt"));
 			while (inter.hasNext()) {
 				Camareira c = inter.next();
-				Gerente.BufWrit.write(c.getNome() + "/" + c.getRG() + "/" + c.getCPF() + "/" + c.getNumTelefone() + "/"
-						+ c.getDataNasc() + "/" + c.getRua() + "/" + c.getBairro() + "/" + c.getComplemento() + "/"
-						+ c.getNumeroCasa() + "/" + c.getCidade() + "/" + c.getEstado() + "/" + c.getSalario() + "/");
+				Gerente.BufWrit.write(c.getNome() + "|" + c.getRG() + "|" + c.getCPF() + "|" + c.getNumTelefone() + "|"
+						+ c.getDataNasc() + "|" + c.getRua() + "|" + c.getBairro() + "|" + c.getComplemento() + "|"
+						+ c.getNumeroCasa() + "|" + c.getCidade() + "|" + c.getEstado() + "|" + c.getSalario() + "|");
 				Gerente.BufWrit.newLine();
 			}
 

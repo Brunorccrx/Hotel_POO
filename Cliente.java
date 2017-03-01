@@ -13,8 +13,9 @@ public class Cliente extends Pessoa {
 		Cliente.ID++;
 		quarto = new Quarto(numeroQuarto, tipoQuarto);
 	}
+
 	public Cliente() {
-		//Apenas AUXILIAR
+		// Apenas AUXILIAR
 		quarto = new Quarto();
 	}
 
@@ -29,7 +30,8 @@ public class Cliente extends Pessoa {
 	}
 
 	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade.toUpperCase();
+		String toUpperCase = nacionalidade.toUpperCase();
+		this.nacionalidade = toUpperCase;
 	}
 
 	// get e set Passaporte
