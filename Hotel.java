@@ -19,7 +19,7 @@ import java.util.StringTokenizer;
 public class Hotel {
 	/**
 	*
-	* @param args
+	* @param args Argumentos dentro do main
 	*/
 	public static void main(String args[]) {
 		/*
