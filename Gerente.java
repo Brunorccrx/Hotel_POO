@@ -36,15 +36,15 @@ public class Gerente extends Funcionario implements Autentica {
 	}
         /**
      	*
-    	* @return
+    	* @return gerente
      	*/
 	public static Gerente getInstance() {
 		return gerente;
 	}
         /**
          * 
-         * @param camareiras
-         * @param camareira 
+         * @param camareiras Lista de Camareiras
+         * @param camareira Camareira para adicionar à lista
          * Método de cadastro de Funcionarios do tipo Camareira 
          *
          */
@@ -80,8 +80,8 @@ public class Gerente extends Funcionario implements Autentica {
         
         /**
          * 
-         * @param recepcionistas
-         * @param recepcionista 
+         * @param recepcionistas Lista de Recepcionistas
+         * @param recepcionista Recepcionista para acrescentar à Lista
          * Método de cadastro de Funcionarios do tipo recepcionistas
          */
 
@@ -118,9 +118,9 @@ public class Gerente extends Funcionario implements Autentica {
         
         /**
          * 
-         * @param funcionarios
-         * @param funcionarios2
-         * @return 
+         * @param funcionarios Lista de Funcionários
+         * @param funcionarios2 Funcionário para tirar da lista
+         * @return funcionário
          * 
          * Método para remoção de Funcionarios do tipo Camareira e Recepcionista
          */
@@ -154,7 +154,7 @@ public class Gerente extends Funcionario implements Autentica {
 	}
         /**
          * 
-         * @param funcionarios 
+         * @param funcionarios A lista de Funcionários para mostrar
          * 
          * Método para mostrar lista de funcionarios
          */
@@ -165,10 +165,10 @@ public class Gerente extends Funcionario implements Autentica {
         
         /**
          * 
-         * @param nome
-         * @param CPF
-         * @param funcionarios
-         * @return 
+         * @param nome Nome do Funcionário
+         * @param CPF CPF do Funcionário
+         * @param funcionarios Lista de Funcionários para efetuar a busca
+         * @return  funcionário ou null
          * 
          * Método para verificação de Funcionario
          */
@@ -183,9 +183,9 @@ public class Gerente extends Funcionario implements Autentica {
         
         /**
          * 
-         * @param funcionarios
-         * @param funcionarios2
-         * @return
+         * @param funcionarios Lista de Funcionários
+         * @param funcionarios2 Lista de Funcionários
+         * @return Funcionário
          * 
          * Método para alteração de cadastro de Funcionarios
          */
@@ -248,15 +248,15 @@ public class Gerente extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @return
+	* @return senha
 	*/
 	public String getSenha() {
 		return senha;
 	}
 	/**
 	*
-	* @param senha
-	* @throws IOException
+	* @param senha Senha
+	* @throws IOException Número de Caracteres mínimo de 7 e máximo de 14
 	*/
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7) {
@@ -270,15 +270,15 @@ public class Gerente extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @return
+	* @return login
 	*/
 	public String getLogin() {
 		return login;
 	}
 	/**
 	*
-	* @param login
-	* @throws IOException
+	* @param login Nome
+	* @throws IOException Número de caracteres mínimo de 5 e máximo de 20
 	*/
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5) {
@@ -293,8 +293,8 @@ public class Gerente extends Funcionario implements Autentica {
 
 	/**
          * 
-         * @param list
-         * @throws IOException 
+         * @param list Lista de Recepcionistas
+         * @throws IOException Erro ao criar/escrever no arquivo
          * 
          * Método para Salvar dados da Recepcionista em Arquivo txt
          */
@@ -324,8 +324,8 @@ public class Gerente extends Funcionario implements Autentica {
 	}
         /**
          * 
-         * @param list
-         * @throws IOException
+         * @param list Lista de Camareira
+         * @throws IOException Erro ao criar/escrever no arquivo
          * 
          * Método para Salvar dados da Camareira em Arquivo txt
          */
@@ -356,9 +356,9 @@ public class Gerente extends Funcionario implements Autentica {
 	}
         /**
          * 
-         * @param senha
-         * @param login
-         * @return 
+         * @param senha Senha para autenticação
+         * @param login Login para autenticação
+         * @return Verdade ou Falso
          */
 	@Override
 	public boolean autentica(String senha, String login) {
