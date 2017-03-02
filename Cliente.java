@@ -17,8 +17,8 @@ public class Cliente extends Pessoa {
 
 	/**
 	* Construtor
-	* @param numeroQuarto
-	* @param tipoQuarto
+	* @param numeroQuarto Tipo String
+	* @param tipoQuarto Solteiro, Casal ou a definir
 	*/ 
 	public Cliente(String numeroQuarto, String tipoQuarto) {
 		Cliente.ID++;
@@ -35,7 +35,7 @@ public class Cliente extends Pessoa {
 
 	/**
 	* getID
-	* @return
+	* @return ID
 	*/
 	public int getID() {
 		return ID;
@@ -43,14 +43,14 @@ public class Cliente extends Pessoa {
 
 	/**
 	* getNacionalidade
-	* @return
+	* @return Nacionalidade
 	*/
 	public String getNacionalidade() {
 		return nacionalidade;
 	}
 	/**
 	* setNacionalidade
-	* @param nacionalidade
+	* @param nacionalidade Brasileiro ou Estrangeiro
 	*/
 	public void setNacionalidade(String nacionalidade) {
 		String toUpperCase = nacionalidade.toUpperCase();
@@ -59,14 +59,14 @@ public class Cliente extends Pessoa {
 
 	/**
 	* getPassaporte
-	* @return
+	* @return passaporte
 	*/
 	public String getPassaporte() {
 		return passaporte;
 	}
 	/**
 	* setPassaporte
-	* @param passaporte
+	* @param passaporte No caso de Estrangeiro (Nacionalidade)
 	*/
 	public void setPassaporte(String passaporte) {
 		this.passaporte = passaporte;
@@ -74,8 +74,7 @@ public class Cliente extends Pessoa {
 
 	/**
 	* toString
-	* @Override
-	* @return
+	* @return Nome, Nacionalidade, Data de Nascimento, Contato, Rua, Bairro, Complemento, Número de casa, Cidade, e Estado
 	*/
 	@Override
 	public String toString() {
