@@ -32,8 +32,8 @@ public class Quarto {
 	Scanner input = new Scanner(System.in);
 	/**
          * 
-         * @param numeroQuarto
-         * @param tipoQuarto 
+         * @param numeroQuarto Número do Quarto
+         * @param tipoQuarto Tipo do Quarto: Casal, solteiro ou a ser definido
          */
 	// Construtor
 	public Quarto(String numeroQuarto, String tipoQuarto) {
@@ -49,7 +49,7 @@ public class Quarto {
 	}
 	/**
      	*
-     	* @return
+     	* @return Valor do consumo
      	*/
 	// Get and Set
 	public double getConsumo() {
@@ -57,35 +57,35 @@ public class Quarto {
 	}
 	/**
      	*
-     	* @param consumo
+     	* @param consumo Valor do consumo
      	*/
 	public void setConsumo(double consumo) {
 		this.consumo = consumo;
 	}
 	/**
      	*
-     	* @return
+     	* @return Tipo de Quarto
      	*/
 	public String getTipoQuarto() {
 		return this.tipoQuarto;
 	}
 	/**
      	*
-     	* @param tipoQuarto
+     	* @param tipoQuarto Tipo de Quarto: Casal, solteiro ou a ser definido
      	*/
 	public void setTipoQuarto(String tipoQuarto) {
 		this.tipoQuarto = tipoQuarto;
 	}
 	/**
      	*
-     	* @return
+     	* @return Número do quarto
      	*/
 	public String getNumeroQuarto() {
 		return this.numeroQuarto;
 	}
 	/**
      	*
-     	* @param numeroQuarto
+     	* @param numeroQuarto Número do quarto
      	*/
 	public void setNumeroQuarto(String numeroQuarto) {
 		this.numeroQuarto = numeroQuarto;
@@ -93,14 +93,14 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return O total de Quartos do hotel
      	*/
 	public int getTotalQuartos() {
 		return totalQuartos;
 	}
 	/**
      	*
-     	* @param totalQuartos
+     	* @param totalQuartos O total de Quartos do hotel
      	*/
 	public void setTotalQuartos(int totalQuartos) {
 		Quarto.totalQuartos = totalQuartos;
@@ -108,7 +108,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return A situação do quarto: Limpo ou sujo
      	*/
 	public String getSituacaoQuarto() {
 		return situacaoQuarto;
@@ -116,7 +116,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param situacaoQuarto
+     	* @param situacaoQuarto A situação do quarto: Limpo ou sujo
      	*/
 	public void setSituacaoQuarto(String situacaoQuarto) {
 		this.situacaoQuarto = situacaoQuarto;
@@ -124,7 +124,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return Tipo de Refeição
      	*/
 	public String getRefeicao() {
 		return this.refeicao;
@@ -132,7 +132,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param tipo
+     	* @param tipo Refeição
      	*/
 	public void setRefeicao(String tipo) {
 		this.refeicao = tipo;
@@ -140,7 +140,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return Valor de consumo total
      	*/
 	public double getGastoTotal() {
 		return gastoTotal;
@@ -148,7 +148,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param gastoTotal
+     	* @param gastoTotal Valor de consumo total
      	*/
 	public void setGastoTotal(double gastoTotal) {
 		this.gastoTotal = gastoTotal;
@@ -156,7 +156,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return Valor do Aluguel
      	*/
 	public double getAluguelDoQuarto() {
 		return aluguelDoQuarto;
@@ -164,7 +164,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param valorQuarto
+     	* @param valorQuarto Valor do Aluguel
      	*/
 	public void setAluguelDoQuarto(double valorQuarto) {
 		this.aluguelDoQuarto = valorQuarto;
@@ -172,7 +172,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @return
+     	* @return Valor de danos
      	*/
 	public double getDanosCausados() {
 		return danosCausados;
@@ -180,7 +180,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param danosCausados
+     	* @param danosCausados Valor de Danos
      	*/
 	public void setDanosCausados(double danosCausados) {
 		this.danosCausados = danosCausados;
@@ -188,8 +188,8 @@ public class Quarto {
 	
 	/**
      	*
-	* @param tipoQuarto
-     	* @return
+	* @param tipoQuarto Solteiro, Casal ou a ser definido
+     	* @return Valor do Quarto
      	*/
 	// Funcoes cliente
 	public double alugarQuarto(String tipoQuarto) {
@@ -211,8 +211,8 @@ public class Quarto {
 	
 	/**
      	*
-	* @param cliente
-     	* @return
+	* @param cliente Cliente
+     	* @return Quarto disponivel ou não e a situação do quarto
      	*/
 	public String quartoDisponivel(Cliente cliente) {
 		if (cliente == null && situacaoQuarto.equals("Limpo"))
@@ -233,7 +233,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param cliente
+     	* @param cliente Cliente
      	*/
 	public void adicionarCliente(Cliente cliente) {
 		this.cliente = cliente;
@@ -267,7 +267,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param valor
+     	* @param valor Valor do consumo
 	*/
 	// Funcao para calucular consumo
 	public void calcularConsumo(double valor) {
@@ -279,7 +279,7 @@ public class Quarto {
 	
 	/**
      	*
-     	* @param valor
+     	* @param valor Valor total de Danos Causados
 	*/
 	public void somarDanos(double valor) {
 		this.danosCausados += valor;
@@ -296,8 +296,8 @@ public class Quarto {
 	
 	/**
      	*
-	* @param list
-     	* @throws IOException
+	* @param list Lista de Clientes
+     	* @throws IOException Erro ao criar/escrever no arquivo
      	*/
 	public void salvarConsumo(List<Cliente> list) throws IOException {
 
