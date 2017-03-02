@@ -10,6 +10,10 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Hotel {
+	/**
+	*
+	* @param args
+	*/
 	public static void main(String args[]) {
 		/*
 		*Todas as listas que serão utilizadas são declaradas na classe principal Hotel
