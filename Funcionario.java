@@ -19,28 +19,28 @@ abstract public class Funcionario extends Pessoa {
 	}
 	/**
 	*
-	* @return
+	* @return Valor de Salário
 	*/
 	public double getSalario() {
 		return salario;
 	}
 	/**
 	*
-	* @param salario
+	* @param salario Valor de Salário
 	*/
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 	/**
 	*
-	* @return
+	* @return ID
 	*/
 	public static int getID() {
 		return ID;
 	}
 	/**
 	*
-	* @return
+	* @return Nome, Data de nascimento, Contato, Rua, Bairro, Complemento, Número de casa, Cidade, Estado e Salário
 	*/
 	@Override
 	public String toString() {
