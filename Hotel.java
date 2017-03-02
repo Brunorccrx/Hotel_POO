@@ -1,4 +1,11 @@
 package sistemadehotel;
+/**
+ *
+ * @author Bruno Rodrigues Caputo
+ * @author Francisco Pires Júnior
+ * @author Gabriel Rodrigues Machado
+ * @author Philip Mahama Akpanyi
+ */
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
