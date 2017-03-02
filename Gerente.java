@@ -246,11 +246,18 @@ public class Gerente extends Funcionario implements Autentica {
 		}
 		return funcionario;
 	}
-
+	/**
+	*
+	* @return
+	*/
 	public String getSenha() {
 		return senha;
 	}
-
+	/**
+	*
+	* @param senha
+	* @throws IOException
+	*/
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7) {
 			throw new IOException("Senha deve ter no mínimo 7 caracteres");
@@ -261,11 +268,18 @@ public class Gerente extends Funcionario implements Autentica {
 
 		this.senha = senha;
 	}
-
+	/**
+	*
+	* @return
+	*/
 	public String getLogin() {
 		return login;
 	}
-
+	/**
+	*
+	* @param login
+	* @throws IOException
+	*/
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5) {
 			throw new IOException("Login deve ter no mínimo 5 caracteres");
