@@ -9,9 +9,9 @@ package sistemadehotel;
      
 public interface Autentica {
     /**
-     * @param senha
-     * @param login
-     * @return 
+     * @param senha Senha para efetuar autenticação
+     * @param login Nome do funcionário
+     * @return Verdade ou Falso
      */
 	public boolean autentica(String senha, String login);
 }
