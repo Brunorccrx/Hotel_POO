@@ -23,154 +23,154 @@ abstract public class Pessoa {
 	private String estado;
 	/**
 	*
-	* @return
+	* @return nome
 	*/
 	public String getNome() {
 		return nome;
 	}
 	/**
 	*
-	* @param nome
+	* @param nome Nome da pessoa
 	*/
 	public void setNome(String nome) {
 		this.nome = nome.toUpperCase();
 	}
 	/**
 	*
-	* @return
+	* @return CPF da pessoa
 	*/
 	public String getCPF() {
 		return CPF;
 	}
 	/**
 	*
-	* @param CPF
+	* @param CPF CPF da Pessoa
 	*/
 	public void setCPF(String CPF) {
 		this.CPF = CPF;
 	}
 	/**
 	*
-	* @return
+	* @return RG da Pessoa
 	*/
 	public String getRG() {
 		return RG;
 	}
 	/**
 	* 
-	* @param RG
+	* @param RG RG da Pessoa
 	*/
 	public void setRG(String RG) {
 		this.RG = RG;
 	}
 	/**
 	*
-	* @return
+	* @return Número de telefone
 	*/
 	public String getNumTelefone() {
 		return numTelefone;
 	}
 	/**
 	*
-	* @param numTelefone
+	* @param numTelefone Número de Telefone
 	*/
 	public void setNumTelefone(String numTelefone) {
 		this.numTelefone = numTelefone;
 	}
 	/**
 	*
-	* @return
+	* @return Data de Nascimento
 	*/
 	public String getDataNasc() {
 		return dataNasc;
 	}
 	/**
 	*
-	* @param dataNasc
+	* @param dataNasc Data de Nascimento
 	*/
 	public void setDataNasc(String dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 	/**
 	*
-	* @return
+	* @return Nome da rua
 	*/
 	public String getRua() {
 		return rua;
 	}
 	/**
 	*
-	* @param rua
+	* @param rua Nome da rua
 	*/
 	public void setRua(String rua) {
 		this.rua = rua.toUpperCase();
 	}
 	/**
 	*
-	* @return
+	* @return Nome do bairro
 	*/
 	public String getBairro() {
 		return bairro;
 	}
 	/**
 	*
-	* @param bairro
+	* @param bairro Nome do bairro
 	*/
 	public void setBairro(String bairro) {
 		this.bairro = bairro.toUpperCase();
 	}
 	/**
 	*
-	* @return
+	* @return Complemento de endereço
 	*/
 	public String getComplemento() {
 		return complemento;
 	}
 	/**
 	*
-	* @param complemento
+	* @param complemento Complemento de endereço
 	*/
 	public void setComplemento(String complemento) {
 		this.complemento = complemento.toUpperCase();
 	}
 	/**
 	*
-	* @return
+	* @return Número da casa
 	*/
 	public String getNumeroCasa() {
 		return numeroCasa;
 	}
 	/**
 	*
-	* @param numeroCasa
+	* @param numeroCasa Número da casa 
 	*/
 	public void setNumeroCasa(String numeroCasa) {
 		this.numeroCasa = numeroCasa;
 	}
 	/**
 	*
-	* @return
+	* @return Nome da cidade
 	*/
 	public String getCidade() {
 		return cidade;
 	}
 	/**
 	*
-	* @param cidade
+	* @param cidade Nome da cidade
 	*/
 	public void setCidade(String cidade) {
 		this.cidade = cidade.toUpperCase();
 	}
 	/**
 	*
-	* @return
+	* @return Nome do Estado
 	*/
 	public String getEstado() {
 		return estado;
 	}
 	/**
 	*
-	* @param estado
+	* @param estado Nome do Estado
 	*/
 	public void setEstado(String estado) {
 		this.estado = estado.toUpperCase();
