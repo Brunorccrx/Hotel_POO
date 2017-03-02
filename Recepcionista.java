@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class Recepcionista extends Funcionario implements Autentica {
 
 	private String login = "samus";
@@ -29,15 +30,15 @@ public class Recepcionista extends Funcionario implements Autentica {
     private int totalReserva = 0;
 	/**
 	*
-	* @return
+	* @return senha
 	*/
 	public String getSenha() {
 		return senha;
 	}
 	/**
 	*
-	* @param senha
-	* @throws IOException
+	* @param senha Senha da Recepcionista
+	* @throws IOException Número de caracteres de mínimo 7 e máximo 14
 	*/
 	public void setSenha(String senha) throws IOException {
 		if (senha.length() < 7)
@@ -49,15 +50,15 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @return
+	* @return login
 	*/
 	public String getLogin() {
 		return login;
 	}
 	/**
 	*
-	* @param login
-	* @throws IOException
+	* @param login Nome da Recepcionista
+	* @throws IOException Número de caracteres de mínimo 5 e máximo 20
 	*/
 	public void setLogin(String login) throws IOException {
 		if (login.length() < 5)
@@ -69,67 +70,70 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @return
+	* @return Verdade ou Falso
 	*/
 	 public boolean isReservaDisponivel() {
 	        return reservaDisponivel;
 	    }
 	/**
 	*
-	* @param reservaDisponivel
+	* @param reservaDisponivel Verdade ou Falso
 	*/
 	    public void setReservaDisponivel(boolean reservaDisponivel) {
 	        this.reservaDisponivel = reservaDisponivel;
 	    }
 	/**
 	*
-	* @return
+	* @return Tipo de quarto reservado
 	*/
 	    public String getReservaTipoQuarto() {
 	        return reservaTipoQuarto;
 	    }
 	/**
 	*
-	* @param reservaTipoQuarto
+	* @param reservaTipoQuarto Tipo de quarto reservado
 	*/
 	    public void setReservaTipoQuarto(String reservaTipoQuarto) {
 	        this.reservaTipoQuarto = reservaTipoQuarto;
 	    }
 	/**
 	*
-	* @return
+	* @return Identidade do Cliente
 	*/
 	    public String getClienteIdentidade() {
 	        return clienteIdentidade;
 	    }
 	/**
 	*
+        * @param clienteIdentidade Identidade do Cliente
 	*/
 	    public void setClienteIdentidade(String clienteIdentidade) {
 	        this.clienteIdentidade = clienteIdentidade;
 	    }
 	/**
 	*
-	* @return
+	* @return Contato do Cliente
 	*/
 	    public String getClienteContato() {
 	        return clienteContato;
 	    }
 	/**
 	*
+        * @param clienteContato Contato do Cliente
 	*/
 	    public void setClienteContato(String clienteContato) {
 	        this.clienteContato = clienteContato;
 	    }
 	/**
 	*
-	* @return
+	* @return Total de Reservas
 	*/
 	    public int getTotalReserva() {
 	        return totalReserva;
 	    }
 	/**
 	*
+        * @param totalReserva Total de Reservas
 	*/
 	    public void setTotalReserva(int totalReserva) {
 	        this.totalReserva = totalReserva;
@@ -137,17 +141,18 @@ public class Recepcionista extends Funcionario implements Autentica {
 	  
 	/**
 	*
-	* @param senha
-	* @param login
-	* @return
+	* @param senha Senha da Recepcionista
+	* @param login Login da Recepcionista
+	* @return Verdade ou Falso
 	*/
+        @Override
 	public boolean autentica(String senha, String login) {
 		return this.senha.equals(senha) && this.login.equals(login);
 	}
 	/**
 	*
-	* @param clientes
-	* @param cliente
+	* @param clientes Lista de Clientes
+	* @param cliente O cliente sendo cadastrado
 	*/
 	protected void cadastrarCliente(List<Cliente> clientes, Cliente cliente) {
 		//Scanner entrada = new Scanner(System.in);
@@ -186,7 +191,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param clientes
+	* @param clientes Lista
 	*/
 	protected void cadastrarCliente(List<Cliente> clientes) {
 		//Scanner entrada = new Scanner(System.in);
@@ -244,10 +249,10 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param nome
-	* @param CPF
-	* @param clientes
-	* @return
+	* @param nome Nome do cliente
+	* @param CPF CPF do cliente
+	* @param clientes Lista de clientes
+	* @return Cliente ou null
 	*/
 	protected Cliente verificaCliente(String nome, String CPF, List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
@@ -258,10 +263,10 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param nome
-	* @param ID
-	* @param clientes
-	* @return
+	* @param nome Nome do Cliente
+	* @param ID ID do cliente
+	* @param clientes Lista de clientes
+	* @return cliente ou null
 	*/
 	protected Cliente verificaCliente(String nome, int ID, List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
@@ -272,7 +277,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param clientes
+	* @param clientes Lista de clientes
 	*/
 	protected void removerCliente(List<Cliente> clientes) {
 		Cliente cliente;
@@ -303,7 +308,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param clientes
+	* @param clientes Lista de clientes
 	*/
 	protected void alterarCliente(List<Cliente> clientes) {
 		int opcao;
@@ -365,7 +370,7 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param clientes
+	* @param clientes LIsta de clientes
 	*/
 	protected void mostrarClientes(List<Cliente> clientes) {
 		for (Cliente cliente : clientes)
@@ -373,8 +378,8 @@ public class Recepcionista extends Funcionario implements Autentica {
 	}
 	/**
 	*
-	* @param list
-	* @throws IOException
+	* @param list Lista de Clientes para salvar no arquivo
+	* @throws IOException Erro ao tentar criar ou escrever no arquivo
 	*/
 	public void salvarDadosCliente(List<Cliente> list) throws IOException {
 
